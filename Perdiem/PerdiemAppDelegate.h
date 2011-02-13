@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PerdiemAppDelegate : NSObject <UIApplicationDelegate> {
-
+@interface PerdiemAppDelegate : NSObject <UIApplicationDelegate>
+{
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

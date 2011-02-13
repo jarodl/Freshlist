@@ -1,0 +1,106 @@
+//
+//  NewTaskViewController.m
+//  Perdiem
+//
+//  Created by Jarod Luebbert on 2/12/11.
+//  Copyright 2011 Franana Games. All rights reserved.
+//
+
+#import "NewTaskViewController.h"
+
+@implementation NewTaskViewController
+
+@synthesize newTaskField;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+  if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
+  {
+  }
+  return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [newTaskField becomeFirstResponder];
+}
+
+-(void) keyboardWillShow:(NSNotification *)notification
+{
+  /*
+   Reduce the size of the text view so that it's not obscured by the keyboard.
+   Animate the resize so that it's in sync with the appearance of the keyboard.
+   */
+  
+  NSDictionary *userInfo = [notification userInfo];
+  
+  // Get the origin of the keyboard when it's displayed.
+  NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+  
+  // Get the top of the keyboard as the y coordinate of its origin in self's view's coordinate system. The bottom of the text view's frame should align with the top of the keyboard's final position.
+  CGRect keyboardRect = [aValue CGRectValue];
+  keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+  
+  CGFloat keyboardTop = keyboardRect.origin.y;
+  CGRect newTextViewFrame = self.view.bounds;
+  newTextViewFrame.size.height = keyboardTop - (self.view.bounds.origin.y);
+  
+  // Get the duration of the animation.
+  NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+  NSTimeInterval animationDuration;
+  [animationDurationValue getValue:&animationDuration];
+  
+  // Animate the resize of the text view's frame in sync with the keyboard's appearance.
+  [UIView beginAnimations:nil context:NULL];
+  [UIView setAnimationDuration:animationDuration];
+  
+  newTaskField.frame = newTextViewFrame;
+  
+  [UIView commitAnimations];
+}
+
+- (void)dealloc
+{
+  [super dealloc];
+}
+
+- (void)didReceiveMemoryWarning
+{
+  // Releases the view if it doesn't have a superview.
+  [super didReceiveMemoryWarning];
+  
+  // Release any cached data, images, etc that aren't in use.
+}
+
+#pragma mark - View lifecycle
+
+/*
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
+{
+}
+*/
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+  
+  NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+  [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
+}
+
+- (void)viewDidUnload
+{
+  [super viewDidUnload];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+@end

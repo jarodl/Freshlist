@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import <CoreData/CoreData.h>
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
-
+@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+{
+  UINavigationController *newTaskView;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
+
+- (IBAction)dismissNewTaskView;
 
 @end
