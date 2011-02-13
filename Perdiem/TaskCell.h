@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) NSIndexPath *cellIndexPath;
 @property (nonatomic) BOOL checked;
+@property (nonatomic, retain) IBOutlet UILabel *taskContent;
 
 - (void)setCheckBoxImage:(UIImage *)image;
 - (void)setTaskContentText:(NSString *)text;

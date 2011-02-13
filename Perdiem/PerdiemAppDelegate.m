@@ -12,16 +12,15 @@
 
 @implementation PerdiemAppDelegate
 
-
 @synthesize window=_window;
-
 @synthesize managedObjectContext=__managedObjectContext;
-
 @synthesize managedObjectModel=__managedObjectModel;
-
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
-
 @synthesize navigationController=_navigationController;
+
+- (void)removeExpiredTasks
+{
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

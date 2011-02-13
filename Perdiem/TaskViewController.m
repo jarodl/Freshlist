@@ -7,20 +7,51 @@
 //
 
 #import "TaskViewController.h"
+#import "TaskCell.h"
 #import "Task.h"
+
+#define NumOfSections 2
+#define NumOfRowsInTaskSection 2
+
+enum TaskViewSections {
+  TaskSection = 0,
+  DeleteSection = 1
+};
+
+enum TaskSectionRows {
+  TaskContent = 0,
+  TaskExpiration = 1
+};
+
+@interface TaskViewController ()
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@end
 
 @implementation TaskViewController
 
 @synthesize selectedTask;
+@synthesize cellNib;
+@synthesize tmpCell;
 
 - (id)initWithTask:(Task *)task
 {
   if ((self = [super initWithStyle:UITableViewStyleGrouped]))
   {
     selectedTask = task;
+    self.hidesBottomBarWhenPushed = YES;
+    self.title = @"Task";
+    self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
   
   return self;
+}
+
+- (void)toggleTaskComplete:(NSNotification *)notification
+{
+  [selectedTask toggle];
+  [self.tableView reloadData];
 }
 
 - (void)dealloc
@@ -36,46 +67,6 @@
   // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-
-  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
-  // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-  [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-  [super viewDidDisappear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   // Return YES for supported orientations
@@ -86,79 +77,92 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return 2;
+  return NumOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+  switch (section) {
+    case TaskSection:
+      return NumOfRowsInTaskSection;
+    case DeleteSection:
+      return 1;
+  }
+  
+  return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+  static NSString *CellIdentifier = @"TaskCell";
+
+  if (indexPath.section == TaskSection &&
+      indexPath.row == TaskContent)
+  {
+    TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    [self.cellNib instantiateWithOwner:self options:nil];
+		cell = tmpCell;
+		self.tmpCell = nil;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
+    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
+  }
+  else
+  {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+  }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+  TaskCell *theCell;
+  switch (indexPath.section)
+  {
+    case TaskSection:
+      switch (indexPath.row)
+      {
+        case TaskContent:
+          theCell = (TaskCell *)cell;
+          [theCell setTaskContentText:selectedTask.content];
+          theCell.accessoryType = UITableViewCellAccessoryNone;
+          theCell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
+          theCell.taskContent.numberOfLines = 0;
+          [theCell.taskContent sizeToFit];
+          theCell.checked = [selectedTask.completed boolValue];
+          break;
+        case TaskExpiration:
+          break;
+      }
+      break;
+    case DeleteSection:
+      cell.textLabel.textAlignment = UITextAlignmentCenter;
+      cell.textLabel.text = @"Delete";
+      break;
+  }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+  if (indexPath.section == 0 &&
+      indexPath.row == 0)
+  {
+    NSString *cellText = selectedTask.content;
+    UIFont *cellFont = [UIFont boldSystemFontOfSize:17.0f];
+    CGSize constraintSize = CGSizeMake(245.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return (labelSize.height < 60) ? 60.0f : labelSize.height + 40;
+  }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+  return 44.0f;
 }
 
 @end

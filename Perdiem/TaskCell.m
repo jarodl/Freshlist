@@ -12,6 +12,7 @@
 
 @synthesize cellIndexPath;
 @synthesize checked;
+@synthesize taskContent;
 
 - (void)setChecked:(BOOL)c
 {
@@ -44,7 +45,9 @@
 - (void)toggle
 {
   checked = !checked;
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:cellIndexPath forKey:@"indexPath"];
+  NSDictionary *userInfo = nil;
+  if (cellIndexPath)
+    userInfo = [NSDictionary dictionaryWithObject:cellIndexPath forKey:@"indexPath"];
   [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskCellToggled" object:nil userInfo:userInfo];
 }
 
