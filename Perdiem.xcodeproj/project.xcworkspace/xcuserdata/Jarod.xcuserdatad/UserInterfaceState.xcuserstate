@@ -8499,9 +8499,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>319328469.27885902</real>
-		<string>{5743, 2158}</string>
-		<string>{7778, 0}</string>
+		<real>319330698.331761</real>
+		<string>{4711, 2234}</string>
+		<string>{7779, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9074,7 +9074,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>319330653.18238997</real>
+		<real>319330665.45094597</real>
 		<string>{0, 720}</string>
 		<string>{144, 0}</string>
 		<dict>
@@ -9217,9 +9217,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>319326453.139777</real>
-		<string>{0, 2108}</string>
-		<string>{977, 0}</string>
+		<real>319330682.17496002</real>
+		<string>{0, 2109}</string>
+		<string>{230, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11397,7 +11397,7 @@
 				<integer>939</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>319330195.62128597</real>
+			<real>319330685.07581103</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -11408,7 +11408,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 4:49 PM</string>
+		<string>Today at 4:58 PM</string>
 		<integer>106</integer>
 		<string>Perdiem</string>
 		<dict>
@@ -11492,7 +11492,7 @@
 				<integer>946</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/PerdiemAppDelegate.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/PerdiemAppDelegate.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11510,7 +11510,7 @@
 				<integer>948</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskViewController.m</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/NewTaskViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11528,7 +11528,7 @@
 				<integer>950</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskViewController.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/PerdiemAppDelegate.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11546,7 +11546,7 @@
 				<integer>952</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskCell.m</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11564,7 +11564,7 @@
 				<integer>954</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskCell.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11582,7 +11582,7 @@
 				<integer>956</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/Task.m</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskCell.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11600,7 +11600,7 @@
 				<integer>958</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/Task.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/TaskCell.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11618,7 +11618,7 @@
 				<integer>960</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/RootViewController.m</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/Task.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11636,7 +11636,7 @@
 				<integer>962</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/RootViewController.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/Task.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11654,7 +11654,7 @@
 				<integer>964</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/PerdiemTests/PerdiemTests.m</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/RootViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11821,7 +11821,7 @@
 		<string>IDEWorkspaceTabControllerDesignAreaSplitView</string>
 		<string>IDEShowUtilities</string>
 		<string>IDEEditorArea</string>
-		<string>PerdiemAppDelegate.h</string>
+		<string>PerdiemAppDelegate.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11970,7 +11970,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>995</integer>
+					<integer>994</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -12097,7 +12097,7 @@
 			</array>
 		</dict>
 		<string>Perdiem</string>
-		<string>PerdiemAppDelegate.h</string>
+		<string>PerdiemAppDelegate.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -12232,8 +12232,12 @@
 				<key>CF$UID</key>
 				<integer>255</integer>
 			</dict>
+			<key>NSLength</key>
+			<integer>1</integer>
+			<key>NSLocation</key>
+			<integer>5</integer>
 			<key>NSRangeCount</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>$class</key>
@@ -12622,7 +12626,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>82</integer>
+					<integer>124</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -12642,15 +12646,15 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1126</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>1134</integer>
+					<integer>1127</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>1135</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>1136</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13050,7 +13054,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1124</integer>
+					<integer>1125</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13124,19 +13128,19 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1011</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>1011</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>1121</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
+					<integer>1011</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
 					<integer>1122</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>1123</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13147,7 +13151,7 @@
 		<string>DocumentNavigableItemName</string>
 		<string>DocumentExtensionIdentifier</string>
 		<string>DocumentURL</string>
-		<string>public.c-header</string>
+		<string>public.objective-c-source</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -13243,7 +13247,7 @@
 			<key>documentURL</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>666</integer>
+				<integer>642</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
@@ -13296,9 +13300,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>319330653.18430501</real>
-		<string>{0, 720}</string>
-		<string>{144, 0}</string>
+		<real>319330698.334773</real>
+		<string>{4711, 2234}</string>
+		<string>{7779, 0}</string>
+		<string>-applicationDocumentsDirectory</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -13314,10 +13319,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1123</integer>
+				<integer>1124</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/PerdiemAppDelegate.h</string>
+		<string>file://localhost/Users/Jarod/Projects/Perdiem/Perdiem/PerdiemAppDelegate.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -13328,11 +13333,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1125</integer>
+					<integer>1126</integer>
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {1156, 952}}</string>
+		<string>{{0, 0}, {1156, 601}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -13350,7 +13355,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1127</integer>
+					<integer>1128</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13364,11 +13369,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1128</integer>
+					<integer>1129</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1131</integer>
+					<integer>1132</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13393,11 +13398,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1129</integer>
+					<integer>1130</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1130</integer>
+					<integer>1131</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13424,11 +13429,11 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1132</integer>
+					<integer>1133</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1133</integer>
+					<integer>1134</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13459,12 +13464,12 @@
 			<key>primaryEditorContextNode</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1136</integer>
+				<integer>1137</integer>
 			</dict>
 			<key>rootLayoutTreeNode</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1143</integer>
+				<integer>1144</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -13483,14 +13488,14 @@
 			<key>documentArchivableRepresentation</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1137</integer>
+				<integer>1138</integer>
 			</dict>
 			<key>orientation</key>
 			<integer>0</integer>
 			<key>parent</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1143</integer>
+				<integer>1144</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -13512,7 +13517,7 @@
 			<key>IdentifierPath</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1138</integer>
+				<integer>1139</integer>
 			</dict>
 			<key>IndexOfDocumentIdentifier</key>
 			<dict>
@@ -13530,15 +13535,15 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1139</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
 					<integer>1140</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
 					<integer>1141</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>1142</integer>
 				</dict>
 			</array>
 		</dict>
@@ -13575,7 +13580,7 @@
 			<key>Identifier</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1142</integer>
+				<integer>1143</integer>
 			</dict>
 		</dict>
 		<string>Perdiem</string>
@@ -13588,7 +13593,7 @@
 			<key>children</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>1144</integer>
+				<integer>1145</integer>
 			</dict>
 			<key>contentType</key>
 			<integer>0</integer>
@@ -13615,7 +13620,7 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>1136</integer>
+					<integer>1137</integer>
 				</dict>
 			</array>
 		</dict>

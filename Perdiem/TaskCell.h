@@ -3,7 +3,7 @@
 //  Perdiem
 //
 //  Created by Jarod Luebbert on 2/13/11.
-//  Copyright 2011 Franana Games. All rights reserved.
+//  Copyright 2011 Jarod Luebbert. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
