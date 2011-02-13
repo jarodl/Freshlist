@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
+		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
+		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
+		7A45D1691307642E00DE1BBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1681307642E00DE1BBE /* CoreData.framework */; };
+		7A45D16F1307642E00DE1BBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D16D1307642E00DE1BBE /* InfoPlist.strings */; };
+		7A45D1721307642E00DE1BBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1711307642E00DE1BBE /* main.m */; };
+		7A45D1751307642E00DE1BBE /* PerdiemAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */; };
+		7A45D1781307642E00DE1BBE /* Perdiem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */; };
+		7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1791307642E00DE1BBE /* MainWindow.xib */; };
+		7A45D17E1307642E00DE1BBE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D17D1307642E00DE1BBE /* RootViewController.m */; };
+		7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D17F1307642E00DE1BBE /* RootViewController.xib */; };
+		7A45D1881307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
+		7A45D1891307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
+		7A45D18A1307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
+		7A45D18B1307642E00DE1BBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1681307642E00DE1BBE /* CoreData.framework */; };
+		7A45D1931307642E00DE1BBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1911307642E00DE1BBE /* InfoPlist.strings */; };
+		7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1951307642E00DE1BBE /* PerdiemTests.h */; };
+		7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1971307642E00DE1BBE /* PerdiemTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A45D18C1307642E00DE1BBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A45D1551307642D00DE1BBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A45D15D1307642E00DE1BBE;
+			remoteInfo = Perdiem;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7A45D1661307642E00DE1BBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7A45D1681307642E00DE1BBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7A45D16C1307642E00DE1BBE /* Perdiem-Info.plist */ = {isa = PBXFileReference; path = "Perdiem-Info.plist"; sourceTree = "<group>"; };
+		7A45D16E1307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7A45D1701307642E00DE1BBE /* Perdiem-Prefix.pch */ = {isa = PBXFileReference; path = "Perdiem-Prefix.pch"; sourceTree = "<group>"; };
+		7A45D1711307642E00DE1BBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */ = {isa = PBXFileReference; path = PerdiemAppDelegate.h; sourceTree = "<group>"; };
+		7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerdiemAppDelegate.m; sourceTree = "<group>"; };
+		7A45D1771307642E00DE1BBE /* Perdiem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Perdiem.xcdatamodel; sourceTree = "<group>"; };
+		7A45D17A1307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		7A45D17C1307642E00DE1BBE /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		7A45D17D1307642E00DE1BBE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		7A45D1801307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		7A45D1871307642E00DE1BBE /* PerdiemTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerdiemTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A45D1901307642E00DE1BBE /* PerdiemTests-Info.plist */ = {isa = PBXFileReference; path = "PerdiemTests-Info.plist"; sourceTree = "<group>"; };
+		7A45D1921307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7A45D1941307642E00DE1BBE /* PerdiemTests-Prefix.pch */ = {isa = PBXFileReference; path = "PerdiemTests-Prefix.pch"; sourceTree = "<group>"; };
+		7A45D1951307642E00DE1BBE /* PerdiemTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerdiemTests.h; sourceTree = "<group>"; };
+		7A45D1971307642E00DE1BBE /* PerdiemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerdiemTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A45D15B1307642E00DE1BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */,
+				7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */,
+				7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */,
+				7A45D1691307642E00DE1BBE /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A45D1831307642E00DE1BBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D1881307642E00DE1BBE /* UIKit.framework in Frameworks */,
+				7A45D1891307642E00DE1BBE /* Foundation.framework in Frameworks */,
+				7A45D18A1307642E00DE1BBE /* CoreGraphics.framework in Frameworks */,
+				7A45D18B1307642E00DE1BBE /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A45D1531307642D00DE1BBE = {
+			isa = PBXGroup;
+			children = (
+				7A45D16A1307642E00DE1BBE /* Perdiem */,
+				7A45D18E1307642E00DE1BBE /* PerdiemTests */,
+				7A45D1611307642E00DE1BBE /* Frameworks */,
+				7A45D15F1307642E00DE1BBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A45D15F1307642E00DE1BBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D15E1307642E00DE1BBE /* Perdiem.app */,
+				7A45D1871307642E00DE1BBE /* PerdiemTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A45D1611307642E00DE1BBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D1621307642E00DE1BBE /* UIKit.framework */,
+				7A45D1641307642E00DE1BBE /* Foundation.framework */,
+				7A45D1661307642E00DE1BBE /* CoreGraphics.framework */,
+				7A45D1681307642E00DE1BBE /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A45D16A1307642E00DE1BBE /* Perdiem */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
+				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
+				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
+				7A45D17C1307642E00DE1BBE /* RootViewController.h */,
+				7A45D17D1307642E00DE1BBE /* RootViewController.m */,
+				7A45D17F1307642E00DE1BBE /* RootViewController.xib */,
+				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
+				7A45D16B1307642E00DE1BBE /* Supporting Files */,
+			);
+			path = Perdiem;
+			sourceTree = "<group>";
+		};
+		7A45D16B1307642E00DE1BBE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D16C1307642E00DE1BBE /* Perdiem-Info.plist */,
+				7A45D16D1307642E00DE1BBE /* InfoPlist.strings */,
+				7A45D1701307642E00DE1BBE /* Perdiem-Prefix.pch */,
+				7A45D1711307642E00DE1BBE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A45D18E1307642E00DE1BBE /* PerdiemTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D1951307642E00DE1BBE /* PerdiemTests.h */,
+				7A45D1971307642E00DE1BBE /* PerdiemTests.m */,
+				7A45D18F1307642E00DE1BBE /* Supporting Files */,
+			);
+			path = PerdiemTests;
+			sourceTree = "<group>";
+		};
+		7A45D18F1307642E00DE1BBE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D1901307642E00DE1BBE /* PerdiemTests-Info.plist */,
+				7A45D1911307642E00DE1BBE /* InfoPlist.strings */,
+				7A45D1941307642E00DE1BBE /* PerdiemTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A45D15D1307642E00DE1BBE /* Perdiem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A45D19B1307642E00DE1BBE /* Build configuration list for PBXNativeTarget "Perdiem" */;
+			buildPhases = (
+				7A45D15A1307642E00DE1BBE /* Sources */,
+				7A45D15B1307642E00DE1BBE /* Frameworks */,
+				7A45D15C1307642E00DE1BBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Perdiem;
+			productName = Perdiem;
+			productReference = 7A45D15E1307642E00DE1BBE /* Perdiem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A45D1861307642E00DE1BBE /* PerdiemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A45D19E1307642E00DE1BBE /* Build configuration list for PBXNativeTarget "PerdiemTests" */;
+			buildPhases = (
+				7A45D1821307642E00DE1BBE /* Sources */,
+				7A45D1831307642E00DE1BBE /* Frameworks */,
+				7A45D1841307642E00DE1BBE /* Resources */,
+				7A45D1851307642E00DE1BBE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A45D18D1307642E00DE1BBE /* PBXTargetDependency */,
+			);
+			name = PerdiemTests;
+			productName = PerdiemTests;
+			productReference = 7A45D1871307642E00DE1BBE /* PerdiemTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A45D1551307642D00DE1BBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Franana Games";
+			};
+			buildConfigurationList = 7A45D1581307642D00DE1BBE /* Build configuration list for PBXProject "Perdiem" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7A45D1531307642D00DE1BBE;
+			productRefGroup = 7A45D15F1307642E00DE1BBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A45D15D1307642E00DE1BBE /* Perdiem */,
+				7A45D1861307642E00DE1BBE /* PerdiemTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A45D15C1307642E00DE1BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D16F1307642E00DE1BBE /* InfoPlist.strings in Resources */,
+				7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */,
+				7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A45D1841307642E00DE1BBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D1931307642E00DE1BBE /* InfoPlist.strings in Resources */,
+				7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A45D1851307642E00DE1BBE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A45D15A1307642E00DE1BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D1721307642E00DE1BBE /* main.m in Sources */,
+				7A45D1751307642E00DE1BBE /* PerdiemAppDelegate.m in Sources */,
+				7A45D1781307642E00DE1BBE /* Perdiem.xcdatamodeld in Sources */,
+				7A45D17E1307642E00DE1BBE /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A45D1821307642E00DE1BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A45D18D1307642E00DE1BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A45D15D1307642E00DE1BBE /* Perdiem */;
+			targetProxy = 7A45D18C1307642E00DE1BBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A45D16D1307642E00DE1BBE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A45D16E1307642E00DE1BBE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7A45D1791307642E00DE1BBE /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A45D17A1307642E00DE1BBE /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		7A45D17F1307642E00DE1BBE /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A45D1801307642E00DE1BBE /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		7A45D1911307642E00DE1BBE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A45D1921307642E00DE1BBE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A45D1991307642E00DE1BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A45D19A1307642E00DE1BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		7A45D19C1307642E00DE1BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
+				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7A45D19D1307642E00DE1BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
+				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7A45D19F1307642E00DE1BBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Perdiem.app/Perdiem";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PerdiemTests/PerdiemTests-Prefix.pch";
+				INFOPLIST_FILE = "PerdiemTests/PerdiemTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7A45D1A01307642E00DE1BBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Perdiem.app/Perdiem";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PerdiemTests/PerdiemTests-Prefix.pch";
+				INFOPLIST_FILE = "PerdiemTests/PerdiemTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A45D1581307642D00DE1BBE /* Build configuration list for PBXProject "Perdiem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A45D1991307642E00DE1BBE /* Debug */,
+				7A45D19A1307642E00DE1BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A45D19B1307642E00DE1BBE /* Build configuration list for PBXNativeTarget "Perdiem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A45D19C1307642E00DE1BBE /* Debug */,
+				7A45D19D1307642E00DE1BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A45D19E1307642E00DE1BBE /* Build configuration list for PBXNativeTarget "PerdiemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A45D19F1307642E00DE1BBE /* Debug */,
+				7A45D1A01307642E00DE1BBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A45D1771307642E00DE1BBE /* Perdiem.xcdatamodel */,
+			);
+			currentVersion = 7A45D1771307642E00DE1BBE /* Perdiem.xcdatamodel */;
+			path = Perdiem.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7A45D1551307642D00DE1BBE /* Project object */;
+}
