@@ -56,7 +56,7 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView"/>
-				<object class="NSColor" key="IBUIBackgroundColor" id="797942268">
+				<object class="NSColor" key="IBUIBackgroundColor" id="588474234">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
 				</object>
@@ -153,14 +153,14 @@
 							<int key="NSvFlags">274</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="IBUITextView" id="60181755">
+								<object class="IBUITextView" id="306026955">
 									<reference key="NSNextResponder" ref="119920327"/>
 									<int key="NSvFlags">274</int>
 									<string key="NSFrameSize">{320, 416}</string>
 									<reference key="NSSuperview" ref="119920327"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView"/>
-									<reference key="IBUIBackgroundColor" ref="797942268"/>
+									<reference key="IBUIBackgroundColor" ref="588474234"/>
 									<bool key="IBUIClipsSubviews">YES</bool>
 									<bool key="IBUIMultipleTouchEnabled">YES</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -174,7 +174,7 @@
 							<string key="NSFrame">{{0, 64}, {320, 416}}</string>
 							<reference key="NSSuperview"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="60181755"/>
+							<reference key="NSNextKeyView" ref="306026955"/>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MQA</bytes>
@@ -187,13 +187,13 @@
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="147826534">
 							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">New Task</string>
-							<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="990063076">
+							<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="758955282">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUINavigationItem" ref="147826534"/>
 								<int key="IBUISystemItemIdentifier">1</int>
 							</object>
-							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="321963602">
+							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="745898370">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUINavigationItem" ref="147826534"/>
@@ -259,7 +259,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">dismissNewTaskView</string>
-						<reference key="source" ref="990063076"/>
+						<reference key="source" ref="758955282"/>
 						<reference key="destination" ref="619226028"/>
 					</object>
 					<int key="connectionID">31</int>
@@ -268,14 +268,14 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">newTaskField</string>
 						<reference key="source" ref="315571091"/>
-						<reference key="destination" ref="60181755"/>
+						<reference key="destination" ref="306026955"/>
 					</object>
 					<int key="connectionID">32</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">saveTask</string>
-						<reference key="source" ref="321963602"/>
+						<reference key="source" ref="745898370"/>
 						<reference key="destination" ref="315571091"/>
 					</object>
 					<int key="connectionID">33</int>
@@ -386,7 +386,7 @@
 						<reference key="object" ref="119920327"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="60181755"/>
+							<reference ref="306026955"/>
 						</object>
 						<reference key="parent" ref="315571091"/>
 					</object>
@@ -395,24 +395,24 @@
 						<reference key="object" ref="147826534"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="321963602"/>
-							<reference ref="990063076"/>
+							<reference ref="745898370"/>
+							<reference ref="758955282"/>
 						</object>
 						<reference key="parent" ref="315571091"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="60181755"/>
+						<reference key="object" ref="306026955"/>
 						<reference key="parent" ref="119920327"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
-						<reference key="object" ref="321963602"/>
+						<reference key="object" ref="745898370"/>
 						<reference key="parent" ref="147826534"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
-						<reference key="object" ref="990063076"/>
+						<reference key="object" ref="758955282"/>
 						<reference key="parent" ref="147826534"/>
 					</object>
 				</object>
@@ -484,7 +484,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">37</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -504,14 +504,35 @@
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">newTaskField</string>
-						<string key="NS.object.0">UITextView</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>context</string>
+							<string>newTaskField</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSManagedObjectContext</string>
+							<string>UITextView</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">newTaskField</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">newTaskField</string>
-							<string key="candidateClassName">UITextView</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>context</string>
+							<string>newTaskField</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">context</string>
+								<string key="candidateClassName">NSManagedObjectContext</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">newTaskField</string>
+								<string key="candidateClassName">UITextView</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

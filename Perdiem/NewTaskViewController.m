@@ -8,19 +8,20 @@
 
 #import "NewTaskViewController.h"
 #import "RootViewController.h"
+#import "Task.h"
 
 @implementation NewTaskViewController
 
 @synthesize newTaskField;
-@synthesize fetchedResultsController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
-  {
-  }
-  return self;
-}
+//- (id)initWithContext:(NSManagedObjectContext *)c
+//{
+//  if ((self = [super init]))
+//  {
+//    context = c;
+//  }
+//  return self;
+//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -38,7 +39,7 @@
 {
   NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSDate date], newTaskField.text, nil]
                                                    forKeys:[NSArray arrayWithObjects:@"timeStamp", @"content", nil]];
-  [(RootViewController *)self.navigationController.delegate insertNewTask:task];
+  [Task taskFromDictionary:task];
   [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:NO];
 }
 
@@ -106,8 +107,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  // Return YES for supported orientations
+  return YES;
 }
 
 @end

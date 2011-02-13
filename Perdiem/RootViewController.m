@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "TaskViewController.h"
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -28,7 +29,7 @@
   self.toolbarItems = [NSArray arrayWithObjects:space, addButton, nil];
   [space release];
   [addButton release];
-
+  
   self.title = @"Perdiem";
 }
 
@@ -52,13 +53,12 @@
 	[super viewDidDisappear:animated];
 }
 
-/*
  // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
 	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
- */
 
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -78,7 +78,8 @@
   static NSString *CellIdentifier = @"Cell";
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  if (cell == nil) {
+  if (cell == nil)
+  {
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
   }
 
@@ -127,13 +128,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  /*
-  <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-  // ...
-  // Pass the selected object to the new view controller.
-  [self.navigationController pushViewController:detailViewController animated:YES];
-  [detailViewController release];
-  */
+  NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  TaskViewController *taskView = [[TaskViewController alloc] initWithTask:(Task *)managedObject];
+  [self.navigationController pushViewController:taskView animated:YES];
+  [taskView release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,7 +196,7 @@
   [fetchRequest setFetchBatchSize:20];
   
   // Edit the sort key as appropriate.
-  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:YES];
   NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
   
   [fetchRequest setSortDescriptors:sortDescriptors];
@@ -216,7 +214,7 @@
 
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error])
-      {
+  {
     /*
      Replace this implementation with code to handle the error appropriately.
 
@@ -233,50 +231,49 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+  [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    switch(type)
-    {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
+  switch(type)
+  {
+      case NSFetchedResultsChangeInsert:
+          [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+          break;
+          
+      case NSFetchedResultsChangeDelete:
+          [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+          break;
+  }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    UITableView *tableView = self.tableView;
-    
-    switch(type)
-    {
-            
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
+  UITableView *tableView = self.tableView;
+  
+  switch(type)
+  {
+    case NSFetchedResultsChangeInsert:
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        break;
+        
+    case NSFetchedResultsChangeDelete:
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        break;
+        
+    case NSFetchedResultsChangeUpdate:
+        [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+        break;
+        
+    case NSFetchedResultsChangeMove:
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]withRowAnimation:UITableViewRowAnimationFade];
+        break;
+  }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
@@ -286,28 +283,6 @@
 
 - (void)insertNewTask:(NSDictionary *)task
 {
-  // Create a new instance of the entity managed by the fetched results controller.
-  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-  NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-  NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-  
-  // If appropriate, configure the new managed object.
-  // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-  [newManagedObject setValue:[task valueForKey:@"timeStamp"] forKey:@"timeStamp"];
-  [newManagedObject setValue:[task valueForKey:@"content"] forKey:@"content"];
-  
-  // Save the context.
-  NSError *error = nil;
-  if (![context save:&error])
-  {
-    /*
-     Replace this implementation with code to handle the error appropriately.
-     
-     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-     */
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    abort();
-  }
 }
 
 /*

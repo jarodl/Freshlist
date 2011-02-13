@@ -26,6 +26,8 @@
 		7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1951307642E00DE1BBE /* PerdiemTests.h */; };
 		7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1971307642E00DE1BBE /* PerdiemTests.m */; };
 		7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1516D130781A100DFF2EF /* NewTaskViewController.m */; };
+		7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517113079B5C00DFF2EF /* TaskViewController.m */; };
+		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		7A45D1A21307654200DE1BBE /* Perdiem 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 3.xcdatamodel"; sourceTree = "<group>"; };
 		7AC1516C130781A100DFF2EF /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		7AC1516D130781A100DFF2EF /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
+		7AC1517013079B5C00DFF2EF /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		7AC1517113079B5C00DFF2EF /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		7AC1517313079BC900DFF2EF /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		7AC1517413079BC900DFF2EF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +141,11 @@
 				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
 				7A45D17F1307642E00DE1BBE /* RootViewController.xib */,
 				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
+				7AC1517313079BC900DFF2EF /* Task.h */,
+				7AC1517413079BC900DFF2EF /* Task.m */,
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
+				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
+				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
 			);
 			path = Perdiem;
 			sourceTree = "<group>";
@@ -284,6 +294,8 @@
 				7A45D1781307642E00DE1BBE /* Perdiem.xcdatamodeld in Sources */,
 				7A45D17E1307642E00DE1BBE /* RootViewController.m in Sources */,
 				7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */,
+				7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */,
+				7AC1517513079BC900DFF2EF /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jarod Luebbert (JF736V53G4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -353,6 +365,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F5E38FB-CCC6-4DFA-8049-8FCA9BB6A609";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -361,13 +374,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jarod Luebbert (JF736V53G4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9F5E38FB-CCC6-4DFA-8049-8FCA9BB6A609";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
