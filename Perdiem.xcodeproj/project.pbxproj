@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A26546B1307CB4600B07202 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A26546A1307CB4600B07202 /* unchecked.png */; };
+		7A26546E1307CB5A00B07202 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A26546D1307CB5A00B07202 /* checked.png */; };
 		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -28,6 +30,7 @@
 		7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1516D130781A100DFF2EF /* NewTaskViewController.m */; };
 		7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517113079B5C00DFF2EF /* TaskViewController.m */; };
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
+		7AC1517E1307C65000DFF2EF /* CheckBoxControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A26546A1307CB4600B07202 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		7A26546D1307CB5A00B07202 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +76,8 @@
 		7AC1517113079B5C00DFF2EF /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		7AC1517313079BC900DFF2EF /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		7AC1517413079BC900DFF2EF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		7AC1517C1307C64F00DFF2EF /* CheckBoxControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxControl.h; sourceTree = "<group>"; };
+		7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +153,10 @@
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
 				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
+				7AC1517C1307C64F00DFF2EF /* CheckBoxControl.h */,
+				7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */,
+				7A26546A1307CB4600B07202 /* unchecked.png */,
+				7A26546D1307CB5A00B07202 /* checked.png */,
 			);
 			path = Perdiem;
 			sourceTree = "<group>";
@@ -254,6 +265,8 @@
 				7A45D16F1307642E00DE1BBE /* InfoPlist.strings in Resources */,
 				7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */,
 				7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */,
+				7A26546B1307CB4600B07202 /* unchecked.png in Resources */,
+				7A26546E1307CB5A00B07202 /* checked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +309,7 @@
 				7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */,
 				7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */,
 				7AC1517513079BC900DFF2EF /* Task.m in Sources */,
+				7AC1517E1307C65000DFF2EF /* CheckBoxControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

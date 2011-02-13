@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "TaskViewController.h"
+#import "CheckBoxControl.h"
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -160,8 +161,14 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [managedObject valueForKey:@"content"];
+  NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  cell.textLabel.text = [managedObject valueForKey:@"content"];
+  
+  CheckBoxControl *checkBox = [[CheckBoxControl alloc] initWithFrame:CGRectMake(cell.frame.origin.x + 10.0,
+                                                                                cell.frame.origin.y + 10.0,
+                                                                                20.0, 20.0)];
+  checkBox.tag = indexPath.row;
+  [cell.contentView addSubview:checkBox];
 }
 
 - (void)presentNewTaskView
