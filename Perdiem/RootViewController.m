@@ -8,7 +8,8 @@
 
 #import "RootViewController.h"
 #import "TaskViewController.h"
-#import "CheckBoxControl.h"
+#import "TaskCell.h"
+#import "Task.h"
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -19,6 +20,8 @@
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
+@synthesize cellNib;
+@synthesize tmpCell;
 
 - (void)viewDidLoad
 {
@@ -31,17 +34,22 @@
   [space release];
   [addButton release];
   
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"CellCheckToggled" object:nil];
+  
+  self.tableView.rowHeight = 60.0;
+  self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
+  
   self.title = @"Perdiem";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+  [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+  [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -54,6 +62,32 @@
 	[super viewDidDisappear:animated];
 }
 
+- (void)toggleTaskComplete:(NSNotification *)notification
+{
+  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+
+  NSInteger row = [[notification.userInfo objectForKey:@"CellCheckToggled"] integerValue];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+  Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+  BOOL isCompleted = ![task.completed boolValue];
+  task.completed = [NSNumber numberWithBool:isCompleted];
+
+  // Save the context.
+  NSError *error = nil;
+  if (![context save:&error])
+  {
+    /*
+     Replace this implementation with code to handle the error appropriately.
+     
+     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+     */
+    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    abort();
+  }
+  
+  [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+}
+
  // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -64,7 +98,7 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return [[self.fetchedResultsController sections] count];
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -76,12 +110,14 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *CellIdentifier = @"Cell";
+  static NSString *CellIdentifier = @"TaskCell";
   
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil)
   {
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    [self.cellNib instantiateWithOwner:self options:nil];
+		cell = tmpCell;
+		self.tmpCell = nil;
   }
 
   // Configure the cell.
@@ -156,19 +192,16 @@
   [__fetchedResultsController release];
   [__managedObjectContext release];
   [newTaskView release];
+  [cellNib release];
+  [tmpCell release];
   [super dealloc];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-  cell.textLabel.text = [managedObject valueForKey:@"content"];
-  
-  CheckBoxControl *checkBox = [[CheckBoxControl alloc] initWithFrame:CGRectMake(cell.frame.origin.x + 10.0,
-                                                                                cell.frame.origin.y + 10.0,
-                                                                                20.0, 20.0)];
-  checkBox.tag = indexPath.row;
-  [cell.contentView addSubview:checkBox];
+  Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+  [cell setTaskContentText:task.content];
+  [cell setCheckBoxImage:[UIImage imageNamed:@"unchecked.png"]];
 }
 
 - (void)presentNewTaskView

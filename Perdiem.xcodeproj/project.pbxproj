@@ -30,7 +30,8 @@
 		7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1516D130781A100DFF2EF /* NewTaskViewController.m */; };
 		7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517113079B5C00DFF2EF /* TaskViewController.m */; };
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
-		7AC1517E1307C65000DFF2EF /* CheckBoxControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */; };
+		7ACEDF0013084AF100106413 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDEFE13084AEF00106413 /* TaskCell.m */; };
+		7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF0913084D7A00106413 /* TaskCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +77,9 @@
 		7AC1517113079B5C00DFF2EF /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		7AC1517313079BC900DFF2EF /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		7AC1517413079BC900DFF2EF /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		7AC1517C1307C64F00DFF2EF /* CheckBoxControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxControl.h; sourceTree = "<group>"; };
-		7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxControl.m; sourceTree = "<group>"; };
+		7ACEDEFD13084AEE00106413 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		7ACEDEFE13084AEF00106413 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		7ACEDF0913084D7A00106413 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,10 +155,11 @@
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
 				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
-				7AC1517C1307C64F00DFF2EF /* CheckBoxControl.h */,
-				7AC1517D1307C64F00DFF2EF /* CheckBoxControl.m */,
 				7A26546A1307CB4600B07202 /* unchecked.png */,
 				7A26546D1307CB5A00B07202 /* checked.png */,
+				7ACEDEFD13084AEE00106413 /* TaskCell.h */,
+				7ACEDEFE13084AEF00106413 /* TaskCell.m */,
+				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 			);
 			path = Perdiem;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */,
 				7A26546B1307CB4600B07202 /* unchecked.png in Resources */,
 				7A26546E1307CB5A00B07202 /* checked.png in Resources */,
+				7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +313,7 @@
 				7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */,
 				7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */,
 				7AC1517513079BC900DFF2EF /* Task.m in Sources */,
-				7AC1517E1307C65000DFF2EF /* CheckBoxControl.m in Sources */,
+				7ACEDF0013084AF100106413 /* TaskCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

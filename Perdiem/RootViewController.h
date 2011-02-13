@@ -9,17 +9,24 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+@class TaskCell;
+
 @interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
   UINavigationController *newTaskView;
+  TaskCell *tmpCell;
+  UINib *cellNib;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
+@property (nonatomic, retain) UINib *cellNib;
+@property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
 
 - (void)presentNewTaskView;
 - (IBAction)dismissNewTaskView;
 - (void)insertNewTask:(NSDictionary *)task;
+- (void)toggleTaskComplete:(NSNotification *)notification;
 
 @end
