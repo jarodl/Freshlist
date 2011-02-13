@@ -14,5 +14,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *newTaskField;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (IBAction)saveTask;
 
 @end

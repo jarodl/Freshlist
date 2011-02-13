@@ -7,10 +7,12 @@
 //
 
 #import "NewTaskViewController.h"
+#import "RootViewController.h"
 
 @implementation NewTaskViewController
 
 @synthesize newTaskField;
+@synthesize fetchedResultsController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,13 +28,26 @@
   [newTaskField becomeFirstResponder];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  newTaskField.text = @"";
+}
+
+- (void)saveTask
+{
+  NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSDate date], newTaskField.text, nil]
+                                                   forKeys:[NSArray arrayWithObjects:@"timeStamp", @"content", nil]];
+  [(RootViewController *)self.navigationController.delegate insertNewTask:task];
+  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:NO];
+}
+
 -(void) keyboardWillShow:(NSNotification *)notification
 {
   /*
    Reduce the size of the text view so that it's not obscured by the keyboard.
    Animate the resize so that it's in sync with the appearance of the keyboard.
    */
-  
   NSDictionary *userInfo = [notification userInfo];
   
   // Get the origin of the keyboard when it's displayed.
@@ -75,18 +90,10 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
 }

@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
 
+- (void)presentNewTaskView;
 - (IBAction)dismissNewTaskView;
+- (void)insertNewTask:(NSDictionary *)task;
 
 @end
