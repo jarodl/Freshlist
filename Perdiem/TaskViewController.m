@@ -7,6 +7,7 @@
 //
 
 #import "TaskViewController.h"
+#import "NSString+Extensions.h"
 #import "TaskCell.h"
 #import "Task.h"
 
@@ -124,6 +125,7 @@ enum TaskSectionRows {
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   TaskCell *theCell;
+  NSString *expireString;
   switch (indexPath.section)
   {
     case TaskSection:
@@ -139,6 +141,10 @@ enum TaskSectionRows {
           theCell.checked = [selectedTask.completed boolValue];
           break;
         case TaskExpiration:
+          expireString = [NSString stringWithFormat:@"Expires in %@",
+                                    [NSString timeFrom:[NSDate date] toDate:selectedTask.expiration]];
+          cell.textLabel.textAlignment = UITextAlignmentCenter;
+          cell.textLabel.text = expireString;
           break;
       }
       break;
