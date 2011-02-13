@@ -10,11 +10,18 @@
 
 @interface TaskCell : UITableViewCell
 {
+  BOOL checked;
   IBOutlet UIImageView *checkBox;
   IBOutlet UILabel *taskContent;
+  NSIndexPath *cellIndexPath;
 }
+
+@property (nonatomic, retain) NSIndexPath *cellIndexPath;
+@property (nonatomic) BOOL checked;
 
 - (void)setCheckBoxImage:(UIImage *)image;
 - (void)setTaskContentText:(NSString *)text;
+- (void)toggle;
+- (void)refreshCheckBoxImage;
 
 @end

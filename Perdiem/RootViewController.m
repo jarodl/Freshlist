@@ -34,7 +34,7 @@
   [space release];
   [addButton release];
   
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"CellCheckToggled" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   
   self.tableView.rowHeight = 60.0;
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
@@ -64,28 +64,9 @@
 
 - (void)toggleTaskComplete:(NSNotification *)notification
 {
-  NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-
-  NSInteger row = [[notification.userInfo objectForKey:@"CellCheckToggled"] integerValue];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+  NSIndexPath *indexPath = [notification.userInfo objectForKey:@"indexPath"];
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-  BOOL isCompleted = ![task.completed boolValue];
-  task.completed = [NSNumber numberWithBool:isCompleted];
-
-  // Save the context.
-  NSError *error = nil;
-  if (![context save:&error])
-  {
-    /*
-     Replace this implementation with code to handle the error appropriately.
-     
-     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-     */
-    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    abort();
-  }
-  
-  [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+  [task toggle];
 }
 
  // Override to allow orientations other than the default portrait orientation.
@@ -124,15 +105,6 @@
   [self configureCell:cell atIndexPath:indexPath];
   return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -200,8 +172,9 @@
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+  cell.checked = [task.completed boolValue];
+  cell.cellIndexPath = indexPath;
   [cell setTaskContentText:task.content];
-  [cell setCheckBoxImage:[UIImage imageNamed:@"unchecked.png"]];
 }
 
 - (void)presentNewTaskView
@@ -319,10 +292,6 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
-}
-
-- (void)insertNewTask:(NSDictionary *)task
-{
 }
 
 /*

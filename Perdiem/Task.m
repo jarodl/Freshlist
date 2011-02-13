@@ -15,14 +15,26 @@
 @dynamic completed;
 @dynamic timeStamp;
 
+- (void)toggle
+{
+  PerdiemAppDelegate *delegate = (PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+  BOOL flip = ![self.completed boolValue];
+  self.completed = [NSNumber numberWithBool:flip];
+  
+  [delegate saveContext];
+}
+
 + (Task *)taskFromDictionary:(NSDictionary *)dict
 {
   PerdiemAppDelegate *delegate = (PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate];
   Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:delegate.managedObjectContext];
   
   newTask.timeStamp = [dict objectForKey:@"timeStamp"];
-  newTask.completed = NO;
+  newTask.completed = [NSNumber numberWithBool:NO];
   newTask.content = [dict objectForKey:@"content"];
+  
+  [delegate saveContext];
 
   return newTask;
 }

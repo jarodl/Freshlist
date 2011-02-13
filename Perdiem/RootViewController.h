@@ -26,7 +26,6 @@
 
 - (void)presentNewTaskView;
 - (IBAction)dismissNewTaskView;
-- (void)insertNewTask:(NSDictionary *)task;
 - (void)toggleTaskComplete:(NSNotification *)notification;
 
 @end

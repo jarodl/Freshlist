@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * completed;
 @property (nonatomic, retain) NSDate * timeStamp;
 
+- (void)toggle;
 + (Task *)taskFromDictionary:(NSDictionary *)dict;
 
 @end

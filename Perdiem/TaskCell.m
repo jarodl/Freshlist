@@ -8,8 +8,16 @@
 
 #import "TaskCell.h"
 
-
 @implementation TaskCell
+
+@synthesize cellIndexPath;
+@synthesize checked;
+
+- (void)setChecked:(BOOL)c
+{
+  checked = c;
+  [self refreshCheckBoxImage];
+}
 
 - (void)setCheckBoxImage:(UIImage *)image
 {
@@ -21,10 +29,35 @@
   taskContent.text = text;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  CGPoint location = [(UITouch *)[touches anyObject] locationInView:self];
+  if (CGRectContainsPoint(checkBox.frame, location))
+  {
+    [self toggle];
+    return;
+  }
+  
+  [super touchesBegan:touches withEvent:event];
+}
+
+- (void)toggle
+{
+  checked = !checked;
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:cellIndexPath forKey:@"indexPath"];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskCellToggled" object:nil userInfo:userInfo];
+}
+
+- (void)refreshCheckBoxImage
+{
+  checkBox.image = checked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+}
+
 - (void)dealloc
 {
   [checkBox release];
   [taskContent release];
+  [cellIndexPath release];
   [super dealloc];
 }
 
