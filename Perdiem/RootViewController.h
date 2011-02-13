@@ -27,5 +27,6 @@
 - (void)presentNewTaskView;
 - (IBAction)dismissNewTaskView;
 - (void)toggleTaskComplete:(NSNotification *)notification;
+- (void)removeExpiredTasks;
 
 @end

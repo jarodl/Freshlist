@@ -81,6 +81,7 @@
 		7ACEDEFE13084AEF00106413 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 		7ACEDF0913084D7A00106413 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		7ACEDF11130866A900106413 /* Perdiem 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 4.xcdatamodel"; sourceTree = "<group>"; };
+		7ACEDF1813088E0B00106413 /* Perdiem 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 5.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,9 +156,9 @@
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 				7ACEDEFD13084AEE00106413 /* TaskCell.h */,
 				7ACEDEFE13084AEF00106413 /* TaskCell.m */,
-				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
 				7AC1517313079BC900DFF2EF /* Task.h */,
 				7AC1517413079BC900DFF2EF /* Task.m */,
+				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
 				7A26546A1307CB4600B07202 /* unchecked.png */,
 				7A26546D1307CB5A00B07202 /* checked.png */,
@@ -518,9 +519,10 @@
 				7A45D1A11307648000DE1BBE /* Perdiem 2.xcdatamodel */,
 				7A45D1A21307654200DE1BBE /* Perdiem 3.xcdatamodel */,
 				7ACEDF11130866A900106413 /* Perdiem 4.xcdatamodel */,
+				7ACEDF1813088E0B00106413 /* Perdiem 5.xcdatamodel */,
 				7A45D1771307642E00DE1BBE /* Perdiem.xcdatamodel */,
 			);
-			currentVersion = 7ACEDF11130866A900106413 /* Perdiem 4.xcdatamodel */;
+			currentVersion = 7ACEDF1813088E0B00106413 /* Perdiem 5.xcdatamodel */;
 			path = Perdiem.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

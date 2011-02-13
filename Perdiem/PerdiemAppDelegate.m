@@ -18,17 +18,13 @@
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 @synthesize navigationController=_navigationController;
 
-- (void)removeExpiredTasks
-{
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
-    return YES;
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -195,7 +191,7 @@
  */
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+  return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

@@ -14,6 +14,7 @@
 @dynamic content;
 @dynamic completed;
 @dynamic timeStamp;
+@dynamic expiration;
 
 - (void)toggle
 {
@@ -31,6 +32,15 @@
   Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:delegate.managedObjectContext];
   
   newTask.timeStamp = [dict objectForKey:@"timeStamp"];
+  
+  // Add 16 hours to the time stamp and set the task to expire then
+  NSDate *currentDate = [dict objectForKey:@"timeStamp"];
+  NSDateComponents *comps = [[NSDateComponents alloc] init];
+  [comps setHour:16];
+  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  newTask.expiration = [gregorian dateByAddingComponents:comps toDate:currentDate options:0];
+  [comps release];
+  
   newTask.completed = [NSNumber numberWithBool:NO];
   newTask.content = [dict objectForKey:@"content"];
   

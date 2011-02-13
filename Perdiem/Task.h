@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface Task : NSManagedObject {
+@interface Task : NSManagedObject
+{
 @private
 }
-@property (nonatomic, retain) NSString * content;
-@property (nonatomic, retain) NSNumber * completed;
-@property (nonatomic, retain) NSDate * timeStamp;
+@property (nonatomic, retain) NSString *content;
+@property (nonatomic, retain) NSNumber *completed;
+@property (nonatomic, retain) NSDate *timeStamp;
+@property (nonatomic, retain) NSDate *expiration;
 
 - (void)toggle;
 + (Task *)taskFromDictionary:(NSDictionary *)dict;

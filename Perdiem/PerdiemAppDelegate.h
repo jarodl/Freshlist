@@ -20,7 +20,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-- (void)removeExpiredTasks;
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 

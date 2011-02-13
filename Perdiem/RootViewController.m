@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  [self removeExpiredTasks];
+  
   // Set up the edit and add buttons.
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presentNewTaskView)];
@@ -40,6 +43,37 @@
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   
   self.title = @"Today";
+}
+
+- (void)removeExpiredTasks
+{
+  NSManagedObjectContext *moc = [self managedObjectContext];
+  NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
+  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+  [request setEntity:entityDescription];
+  
+  NSDate *now = [NSDate date];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                            @"expiration < %@", now];
+  [request setPredicate:predicate];
+  
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                      initWithKey:@"timeStamp" ascending:YES];
+  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+  [sortDescriptor release];
+  
+  NSError *error = nil;
+  NSArray *array = [moc executeFetchRequest:request error:&error];
+  if (array == nil)
+  {
+    // Deal with error...
+  }
+  else
+  {
+    for (Task *expiredTask in array) {
+      [moc deleteObject:expiredTask];
+    }
+  }
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification
