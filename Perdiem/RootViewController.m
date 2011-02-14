@@ -21,6 +21,7 @@
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
+@synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
 
@@ -32,9 +33,11 @@
   
   // Set up the edit and add buttons.
   self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(presentSettingsView)];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presentNewTaskView)];
   UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  self.toolbarItems = [NSArray arrayWithObjects:space, addButton, nil];
+  self.toolbarItems = [NSArray arrayWithObjects:settingsButton, space, addButton, nil];
+  [settingsButton release];
   [space release];
   [addButton release];
   
@@ -194,7 +197,17 @@
   [self presentModalViewController:newTaskView animated:YES];
 }
 
+- (void)presentSettingsView
+{
+  [self presentModalViewController:settingsView animated:YES];
+}
+
 - (IBAction)dismissNewTaskView
+{
+  [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)dismissSettingsView
 {
   [self dismissModalViewControllerAnimated:YES];
 }

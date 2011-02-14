@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
+		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
 		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -54,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		7A1BD4CE13099C5B00F52EF6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +233,8 @@
 				7AC1516D130781A100DFF2EF /* NewTaskViewController.m */,
 				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
+				7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */,
+				7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A1BD4CE13099C5B00F52EF6 /* settings.png */,
 				7ACEDF3F1308F6F200106413 /* checked.png */,
 				7ACEDF401308F6F200106413 /* unchecked.png */,
 			);
@@ -375,6 +383,7 @@
 				7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */,
 				7ACEDF411308F6F200106413 /* checked.png in Resources */,
 				7ACEDF421308F6F200106413 /* unchecked.png in Resources */,
+				7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +435,7 @@
 				7ACEDF331308DE7E00106413 /* AIBarGradientMatte.m in Sources */,
 				7ACEDF341308DE7E00106413 /* AIShineGloss.m in Sources */,
 				7ACEDF371308DE9400106413 /* AIBarGradientMatteBottom.m in Sources */,
+				7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
