@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingsViewController : UIViewController {
-    
+@interface SettingsViewController : UITableViewController
+{
 }
+
+- (IBAction)saveSettings;
 
 @end

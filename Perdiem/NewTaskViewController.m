@@ -32,7 +32,7 @@
   NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSDate date], newTaskField.text, nil]
                                                    forKeys:[NSArray arrayWithObjects:@"timeStamp", @"content", nil]];
   [Task taskFromDictionary:task];
-  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:NO];
+  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
 }
 
 -(void) keyboardWillShow:(NSNotification *)notification

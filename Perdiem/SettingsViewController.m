@@ -7,11 +7,17 @@
 //
 
 #import "SettingsViewController.h"
+#import "RootViewController.h"
 #import "Globals.h"
 
 @implementation SettingsViewController
 
 #pragma mark - View lifecycle
+
+- (IBAction)saveSettings
+{
+  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad
 {
