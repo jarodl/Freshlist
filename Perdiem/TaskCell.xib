@@ -51,7 +51,7 @@
 							<object class="IBUIImageView" id="938596182">
 								<reference key="NSNextResponder" ref="806442696"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 9}, {18, 19}}</string>
+								<string key="NSFrameSize">{38, 40}</string>
 								<reference key="NSSuperview" ref="806442696"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1058917816"/>
@@ -63,13 +63,12 @@
 							</object>
 							<object class="IBUILabel" id="1058917816">
 								<reference key="NSNextResponder" ref="806442696"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{55, 9}, {245, 21}}</string>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{46, 10}, {234, 20}}</string>
 								<reference key="NSSuperview" ref="806442696"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -120,6 +119,7 @@
 				<int key="IBUIAccessoryType">1</int>
 				<reference key="IBUIContentView" ref="806442696"/>
 				<int key="IBUILineBreakMode">5</int>
+				<bool key="IBUIShouldIndentWhileEditing">NO</bool>
 				<string key="IBUIReuseIdentifier">TaskCell</string>
 			</object>
 		</object>
@@ -176,8 +176,8 @@
 						<reference key="object" ref="76075731"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1058917816"/>
 							<reference ref="938596182"/>
+							<reference ref="1058917816"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Task Cell</string>

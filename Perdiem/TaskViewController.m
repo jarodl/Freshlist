@@ -84,80 +84,41 @@ enum TaskSectionRows {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  switch (section) {
-    case TaskSection:
-      return NumOfRowsInTaskSection;
-  }
-  
-  return 1;
+  return NumOfRowsInTaskSection;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *CellIdentifier = @"TaskCell";
 
-  if (indexPath.section == TaskSection &&
-      indexPath.row == TaskContent)
-  {
-    TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [self.cellNib instantiateWithOwner:self options:nil];
-		cell = tmpCell;
-		self.tmpCell = nil;
-    
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    return cell;
-  }
-  else
-  {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    return cell;
-  }
+  TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  [self.cellNib instantiateWithOwner:self options:nil];
+  cell = tmpCell;
+  self.tmpCell = nil;
+  
+  [self configureCell:cell atIndexPath:indexPath];
+  
+  return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  TaskCell *theCell;
-
-  switch (indexPath.section)
-  {
-    case TaskSection:
-      switch (indexPath.row)
-      {
-        case TaskContent:
-          theCell = (TaskCell *)cell;
-          [theCell setTaskContentText:selectedTask.content];
-          theCell.accessoryType = UITableViewCellAccessoryNone;
-          theCell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
-          theCell.taskContent.numberOfLines = 0;
-          [theCell.taskContent sizeToFit];
-          theCell.checked = [selectedTask.completed boolValue];
-          break;
-      }
-      break;
-  }
+  [cell setTaskContentText:selectedTask.content];
+  cell.accessoryType = UITableViewCellAccessoryNone;
+  cell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
+  cell.taskContent.numberOfLines = 0;
+  [cell.taskContent sizeToFit];
+  cell.checked = [selectedTask.completed boolValue];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if (indexPath.section == 0 &&
-      indexPath.row == 0)
-  {
-    NSString *cellText = selectedTask.content;
-    UIFont *cellFont = [UIFont boldSystemFontOfSize:17.0f];
-    CGSize constraintSize = CGSizeMake(245.0f, MAXFLOAT);
-    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
-    
-    return (labelSize.height < 40.0f) ? 40.0f : labelSize.height + 20;
-  }
-
-  return 44.0f;
+  NSString *cellText = selectedTask.content;
+  UIFont *cellFont = [UIFont boldSystemFontOfSize:17.0f];
+  CGSize constraintSize = CGSizeMake(234.0f, MAXFLOAT);
+  CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+  
+  return labelSize.height + TableViewCellContentMargin;
 }
 
 @end
