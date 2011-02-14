@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "TaskViewController.h"
 #import "TaskCell.h"
+#import "Globals.h"
 #import "Task.h"
 
 @interface RootViewController ()
@@ -40,8 +41,9 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   
   self.tableView.rowHeight = 40.0;
+  self.tableView.backgroundColor = TableBackgroundColor;
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
-  
+    
   self.title = @"Today";
 }
 

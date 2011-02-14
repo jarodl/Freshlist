@@ -8,14 +8,14 @@
 
 #import "TaskViewController.h"
 #import "TaskCell.h"
+#import "Globals.h"
 #import "Task.h"
 
-#define NumOfSections 2
+#define NumOfSections 1
 #define NumOfRowsInTaskSection 1
 
 enum TaskViewSections {
   TaskSection = 0,
-  DeleteSection = 1
 };
 
 enum TaskSectionRows {
@@ -34,12 +34,15 @@ enum TaskSectionRows {
 
 - (id)initWithTask:(Task *)task
 {
-  if ((self = [super initWithStyle:UITableViewStyleGrouped]))
+  if ((self = [super initWithStyle:UITableViewStylePlain]))
   {
     selectedTask = task;
     self.hidesBottomBarWhenPushed = YES;
     self.title = @"Task";
     self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
+
+    self.tableView.backgroundColor = TableBackgroundColor;
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
@@ -84,8 +87,6 @@ enum TaskSectionRows {
   switch (section) {
     case TaskSection:
       return NumOfRowsInTaskSection;
-    case DeleteSection:
-      return 1;
   }
   
   return 1;
@@ -140,10 +141,6 @@ enum TaskSectionRows {
           break;
       }
       break;
-    case DeleteSection:
-      cell.textLabel.textAlignment = UITextAlignmentCenter;
-      cell.textLabel.text = @"Delete";
-      break;
   }
 }
 
@@ -157,7 +154,7 @@ enum TaskSectionRows {
     CGSize constraintSize = CGSizeMake(245.0f, MAXFLOAT);
     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
     
-    return (labelSize.height < 60) ? 60.0f : labelSize.height + 40;
+    return (labelSize.height < 40.0f) ? 40.0f : labelSize.height + 20;
   }
 
   return 44.0f;

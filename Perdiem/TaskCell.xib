@@ -51,7 +51,7 @@
 							<object class="IBUIImageView" id="938596182">
 								<reference key="NSNextResponder" ref="806442696"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{11, 4}, {32, 32}}</string>
+								<string key="NSFrame">{{20, 9}, {18, 19}}</string>
 								<reference key="NSSuperview" ref="806442696"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1058917816"/>
@@ -81,12 +81,14 @@
 								</object>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
+									<bytes key="NSRGB">MC4xNDI4NTcxNDI5IDAuMTQyODU3MTQyOSAwLjE0Mjg1NzE0MjkAA</bytes>
 								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="538412073">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
+								<reference key="IBUIShadowColor" ref="538412073"/>
+								<string key="IBUIShadowOffset">{0, 1}</string>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
@@ -174,8 +176,8 @@
 						<reference key="object" ref="76075731"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="938596182"/>
 							<reference ref="1058917816"/>
+							<reference ref="938596182"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Task Cell</string>

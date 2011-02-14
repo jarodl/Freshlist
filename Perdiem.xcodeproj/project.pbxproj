@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A26546B1307CB4600B07202 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A26546A1307CB4600B07202 /* unchecked.png */; };
-		7A26546E1307CB5A00B07202 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A26546D1307CB5A00B07202 /* checked.png */; };
 		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -32,6 +30,17 @@
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
 		7ACEDF0013084AF100106413 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDEFE13084AEF00106413 /* TaskCell.m */; };
 		7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF0913084D7A00106413 /* TaskCell.xib */; };
+		7ACEDF201308D9E400106413 /* AICellGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF1F1308D9E200106413 /* AICellGradient.m */; };
+		7ACEDF221308DB3800106413 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACEDF211308DB3700106413 /* QuartzCore.framework */; };
+		7ACEDF291308DDE500106413 /* AINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF241308DDB500106413 /* AINavigationBar.m */; };
+		7ACEDF2A1308DDE500106413 /* AIToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF261308DDC900106413 /* AIToolBar.m */; };
+		7ACEDF2B1308DDE500106413 /* AIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF281308DDDA00106413 /* AIButton.m */; };
+		7ACEDF321308DE7E00106413 /* AIBarGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF2D1308DE5900106413 /* AIBarGradient.m */; };
+		7ACEDF331308DE7E00106413 /* AIBarGradientMatte.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF2F1308DE6100106413 /* AIBarGradientMatte.m */; };
+		7ACEDF341308DE7E00106413 /* AIShineGloss.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF311308DE7000106413 /* AIShineGloss.m */; };
+		7ACEDF371308DE9400106413 /* AIBarGradientMatteBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF361308DE9100106413 /* AIBarGradientMatteBottom.m */; };
+		7ACEDF411308F6F200106413 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF3F1308F6F200106413 /* checked.png */; };
+		7ACEDF421308F6F200106413 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF401308F6F200106413 /* unchecked.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7A26546A1307CB4600B07202 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		7A26546D1307CB5A00B07202 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +89,26 @@
 		7ACEDF0913084D7A00106413 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		7ACEDF11130866A900106413 /* Perdiem 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 4.xcdatamodel"; sourceTree = "<group>"; };
 		7ACEDF1813088E0B00106413 /* Perdiem 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 5.xcdatamodel"; sourceTree = "<group>"; };
+		7ACEDF1E1308D9E100106413 /* AICellGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICellGradient.h; sourceTree = "<group>"; };
+		7ACEDF1F1308D9E200106413 /* AICellGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICellGradient.m; sourceTree = "<group>"; };
+		7ACEDF211308DB3700106413 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7ACEDF231308DDB400106413 /* AINavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AINavigationBar.h; sourceTree = "<group>"; };
+		7ACEDF241308DDB500106413 /* AINavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AINavigationBar.m; sourceTree = "<group>"; };
+		7ACEDF251308DDBC00106413 /* AIToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIToolBar.h; sourceTree = "<group>"; };
+		7ACEDF261308DDC900106413 /* AIToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIToolBar.m; sourceTree = "<group>"; };
+		7ACEDF271308DDD300106413 /* AIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIButton.h; sourceTree = "<group>"; };
+		7ACEDF281308DDDA00106413 /* AIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIButton.m; sourceTree = "<group>"; };
+		7ACEDF2C1308DE5800106413 /* AIBarGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBarGradient.h; sourceTree = "<group>"; };
+		7ACEDF2D1308DE5900106413 /* AIBarGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBarGradient.m; sourceTree = "<group>"; };
+		7ACEDF2E1308DE5C00106413 /* AIBarGradientMatte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBarGradientMatte.h; sourceTree = "<group>"; };
+		7ACEDF2F1308DE6100106413 /* AIBarGradientMatte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBarGradientMatte.m; sourceTree = "<group>"; };
+		7ACEDF301308DE6700106413 /* AIShineGloss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShineGloss.h; sourceTree = "<group>"; };
+		7ACEDF311308DE7000106413 /* AIShineGloss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShineGloss.m; sourceTree = "<group>"; };
+		7ACEDF351308DE8F00106413 /* AIBarGradientMatteBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIBarGradientMatteBottom.h; sourceTree = "<group>"; };
+		7ACEDF361308DE9100106413 /* AIBarGradientMatteBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIBarGradientMatteBottom.m; sourceTree = "<group>"; };
+		7ACEDF3F1308F6F200106413 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		7ACEDF401308F6F200106413 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		7ACEDF431308FED800106413 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACEDF221308DB3800106413 /* QuartzCore.framework in Frameworks */,
 				7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */,
 				7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */,
 				7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */,
@@ -132,6 +160,7 @@
 		7A45D1611307642E00DE1BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ACEDF211308DB3700106413 /* QuartzCore.framework */,
 				7A45D1621307642E00DE1BBE /* UIKit.framework */,
 				7A45D1641307642E00DE1BBE /* Foundation.framework */,
 				7A45D1661307642E00DE1BBE /* CoreGraphics.framework */,
@@ -145,23 +174,16 @@
 			children = (
 				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
 				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
-				7A45D17C1307642E00DE1BBE /* RootViewController.h */,
-				7A45D17D1307642E00DE1BBE /* RootViewController.m */,
-				7AC1516C130781A100DFF2EF /* NewTaskViewController.h */,
-				7AC1516D130781A100DFF2EF /* NewTaskViewController.m */,
-				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
-				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
-				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
-				7A45D17F1307642E00DE1BBE /* RootViewController.xib */,
-				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
-				7ACEDEFD13084AEE00106413 /* TaskCell.h */,
-				7ACEDEFE13084AEF00106413 /* TaskCell.m */,
-				7AC1517313079BC900DFF2EF /* Task.h */,
-				7AC1517413079BC900DFF2EF /* Task.m */,
-				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
+				7ACEDF391308DFD200106413 /* Data Models */,
+				7ACEDF381308DF8F00106413 /* View Controllers */,
+				7ACEDF3B1308E01000106413 /* TableViewCells */,
+				7ACEDF3A1308DFE900106413 /* Interfaces */,
+				7ACEDF3C1308E02B00106413 /* Images */,
+				7ACEDF3D1308E03D00106413 /* Views */,
+				7ACEDF3E1308E05400106413 /* Layers */,
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
-				7A26546A1307CB4600B07202 /* unchecked.png */,
-				7A26546D1307CB5A00B07202 /* checked.png */,
+				7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */,
+				7ACEDF431308FED800106413 /* Globals.h */,
 			);
 			path = Perdiem;
 			sourceTree = "<group>";
@@ -195,6 +217,86 @@
 				7A45D1941307642E00DE1BBE /* PerdiemTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ACEDF381308DF8F00106413 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D17C1307642E00DE1BBE /* RootViewController.h */,
+				7A45D17D1307642E00DE1BBE /* RootViewController.m */,
+				7AC1516C130781A100DFF2EF /* NewTaskViewController.h */,
+				7AC1516D130781A100DFF2EF /* NewTaskViewController.m */,
+				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
+				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7ACEDF391308DFD200106413 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1517313079BC900DFF2EF /* Task.h */,
+				7AC1517413079BC900DFF2EF /* Task.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		7ACEDF3A1308DFE900106413 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
+				7A45D17F1307642E00DE1BBE /* RootViewController.xib */,
+				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		7ACEDF3B1308E01000106413 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				7ACEDEFD13084AEE00106413 /* TaskCell.h */,
+				7ACEDEFE13084AEF00106413 /* TaskCell.m */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		7ACEDF3C1308E02B00106413 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7ACEDF3F1308F6F200106413 /* checked.png */,
+				7ACEDF401308F6F200106413 /* unchecked.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		7ACEDF3D1308E03D00106413 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ACEDF231308DDB400106413 /* AINavigationBar.h */,
+				7ACEDF241308DDB500106413 /* AINavigationBar.m */,
+				7ACEDF251308DDBC00106413 /* AIToolBar.h */,
+				7ACEDF261308DDC900106413 /* AIToolBar.m */,
+				7ACEDF271308DDD300106413 /* AIButton.h */,
+				7ACEDF281308DDDA00106413 /* AIButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7ACEDF3E1308E05400106413 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				7ACEDF1E1308D9E100106413 /* AICellGradient.h */,
+				7ACEDF1F1308D9E200106413 /* AICellGradient.m */,
+				7ACEDF2C1308DE5800106413 /* AIBarGradient.h */,
+				7ACEDF2D1308DE5900106413 /* AIBarGradient.m */,
+				7ACEDF2E1308DE5C00106413 /* AIBarGradientMatte.h */,
+				7ACEDF2F1308DE6100106413 /* AIBarGradientMatte.m */,
+				7ACEDF301308DE6700106413 /* AIShineGloss.h */,
+				7ACEDF311308DE7000106413 /* AIShineGloss.m */,
+				7ACEDF351308DE8F00106413 /* AIBarGradientMatteBottom.h */,
+				7ACEDF361308DE9100106413 /* AIBarGradientMatteBottom.m */,
+			);
+			name = Layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +372,9 @@
 				7A45D16F1307642E00DE1BBE /* InfoPlist.strings in Resources */,
 				7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */,
 				7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */,
-				7A26546B1307CB4600B07202 /* unchecked.png in Resources */,
-				7A26546E1307CB5A00B07202 /* checked.png in Resources */,
 				7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */,
+				7ACEDF411308F6F200106413 /* checked.png in Resources */,
+				7ACEDF421308F6F200106413 /* unchecked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +418,14 @@
 				7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */,
 				7AC1517513079BC900DFF2EF /* Task.m in Sources */,
 				7ACEDF0013084AF100106413 /* TaskCell.m in Sources */,
+				7ACEDF201308D9E400106413 /* AICellGradient.m in Sources */,
+				7ACEDF291308DDE500106413 /* AINavigationBar.m in Sources */,
+				7ACEDF2A1308DDE500106413 /* AIToolBar.m in Sources */,
+				7ACEDF2B1308DDE500106413 /* AIButton.m in Sources */,
+				7ACEDF321308DE7E00106413 /* AIBarGradient.m in Sources */,
+				7ACEDF331308DE7E00106413 /* AIBarGradientMatte.m in Sources */,
+				7ACEDF341308DE7E00106413 /* AIShineGloss.m in Sources */,
+				7ACEDF371308DE9400106413 /* AIBarGradientMatteBottom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

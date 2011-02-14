@@ -8,20 +8,12 @@
 
 #import "NewTaskViewController.h"
 #import "RootViewController.h"
+#import "Globals.h"
 #import "Task.h"
 
 @implementation NewTaskViewController
 
 @synthesize newTaskField;
-
-//- (id)initWithContext:(NSManagedObjectContext *)c
-//{
-//  if ((self = [super init]))
-//  {
-//    context = c;
-//  }
-//  return self;
-//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -97,6 +89,8 @@
   [super viewDidLoad];
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
+  self.navigationController.navigationBar.tintColor = BarTintColor;
+  newTaskField.backgroundColor = TableBackgroundColor;
 }
 
 - (void)viewDidUnload

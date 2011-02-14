@@ -7,12 +7,18 @@
 //
 
 #import "TaskCell.h"
+#import "AICellGradient.h"
 
 @implementation TaskCell
 
 @synthesize cellIndexPath;
 @synthesize checked;
 @synthesize taskContent;
+
++ (Class)layerClass
+{
+  return [AICellGradient class];
+}
 
 - (void)setChecked:(BOOL)c
 {

@@ -7,8 +7,8 @@
 //
 
 #import "PerdiemAppDelegate.h"
-
 #import "RootViewController.h"
+#import "Globals.h"
 
 @implementation PerdiemAppDelegate
 
@@ -22,6 +22,9 @@
 {
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
+  self.navigationController.navigationBar.tintColor = BarTintColor;
+  self.navigationController.toolbar.tintColor = BarTintColor;
+  
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
   return YES;
