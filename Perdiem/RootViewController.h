@@ -26,6 +26,7 @@
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
 
+- (void)loadHeaderAndFooterShadows;
 - (void)presentNewTaskView;
 - (void)presentSettingsView;
 - (IBAction)dismissNewTaskView;

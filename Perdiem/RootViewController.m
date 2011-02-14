@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "TaskViewController.h"
+#import "AIShadowGradient.h"
 #import "TaskCell.h"
 #import "Globals.h"
 #import "Task.h"
@@ -29,6 +30,8 @@
 {
   [super viewDidLoad];
   
+  [self loadHeaderAndFooterShadows];
+  
   [self removeExpiredTasks];
   
   // Set up the edit and add buttons.
@@ -48,6 +51,30 @@
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
     
   self.title = @"Today";
+}
+
+- (void)loadHeaderAndFooterShadows
+{
+  self.tableView.contentInset = UIEdgeInsetsMake(-40.0, 0.0, -41.0, 0.0);
+	
+	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0)];
+	self.tableView.tableHeaderView = header;
+	[header release];
+	
+	AIShadowGradient	*tableHeaderShadow = [AIShadowGradient layer];
+	tableHeaderShadow.frame = header.bounds;
+	tableHeaderShadow.transform = CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.0);
+	tableHeaderShadow.opacity = 0.5;
+	[self.tableView.tableHeaderView.layer addSublayer:tableHeaderShadow];
+  
+	UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
+	self.tableView.tableFooterView = footer;
+	[footer release];
+	
+	AIShadowGradient	*tableFooterShadow = [AIShadowGradient layer];
+	tableFooterShadow.frame = footer.bounds;
+	tableFooterShadow.opacity = 0.5;
+	[self.tableView.tableFooterView.layer addSublayer:tableFooterShadow];
 }
 
 - (void)removeExpiredTasks

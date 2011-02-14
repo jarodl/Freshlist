@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
+		7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33754C1309BE5E0052F24F /* AIShadowGradient.m */; };
 		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -59,6 +60,8 @@
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A1BD4CE13099C5B00F52EF6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		7A33754B1309BE5E0052F24F /* AIShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShadowGradient.h; sourceTree = "<group>"; };
+		7A33754C1309BE5E0052F24F /* AIShadowGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShadowGradient.m; sourceTree = "<group>"; };
 		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 		7ACEDF3E1308E05400106413 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				7A33754B1309BE5E0052F24F /* AIShadowGradient.h */,
+				7A33754C1309BE5E0052F24F /* AIShadowGradient.m */,
 				7ACEDF1E1308D9E100106413 /* AICellGradient.h */,
 				7ACEDF1F1308D9E200106413 /* AICellGradient.m */,
 				7ACEDF2C1308DE5800106413 /* AIBarGradient.h */,
@@ -436,6 +441,7 @@
 				7ACEDF341308DE7E00106413 /* AIShineGloss.m in Sources */,
 				7ACEDF371308DE9400106413 /* AIBarGradientMatteBottom.m in Sources */,
 				7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */,
+				7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
