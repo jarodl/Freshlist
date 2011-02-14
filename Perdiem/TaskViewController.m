@@ -92,9 +92,13 @@ enum TaskSectionRows {
   static NSString *CellIdentifier = @"TaskCell";
 
   TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-  [self.cellNib instantiateWithOwner:self options:nil];
-  cell = tmpCell;
-  self.tmpCell = nil;
+  
+  if (cell == nil)
+  {
+    [self.cellNib instantiateWithOwner:self options:nil];
+    cell = tmpCell;
+    self.tmpCell = nil;
+  }
   
   [self configureCell:cell atIndexPath:indexPath];
   
