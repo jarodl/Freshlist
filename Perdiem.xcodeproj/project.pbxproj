@@ -32,7 +32,6 @@
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
 		7ACEDF0013084AF100106413 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDEFE13084AEF00106413 /* TaskCell.m */; };
 		7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF0913084D7A00106413 /* TaskCell.xib */; };
-		7ACEDF1B130895E500106413 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACEDF1A130895DB00106413 /* NSString+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +82,6 @@
 		7ACEDF0913084D7A00106413 /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		7ACEDF11130866A900106413 /* Perdiem 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 4.xcdatamodel"; sourceTree = "<group>"; };
 		7ACEDF1813088E0B00106413 /* Perdiem 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 5.xcdatamodel"; sourceTree = "<group>"; };
-		7ACEDF19130895D800106413 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
-		7ACEDF1A130895DB00106413 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +162,6 @@
 				7A45D16B1307642E00DE1BBE /* Supporting Files */,
 				7A26546A1307CB4600B07202 /* unchecked.png */,
 				7A26546D1307CB5A00B07202 /* checked.png */,
-				7ACEDF19130895D800106413 /* NSString+Extensions.h */,
-				7ACEDF1A130895DB00106413 /* NSString+Extensions.m */,
 			);
 			path = Perdiem;
 			sourceTree = "<group>";
@@ -321,7 +316,6 @@
 				7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */,
 				7AC1517513079BC900DFF2EF /* Task.m in Sources */,
 				7ACEDF0013084AF100106413 /* TaskCell.m in Sources */,
-				7ACEDF1B130895E500106413 /* NSString+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
