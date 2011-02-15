@@ -7,14 +7,19 @@
 //
 
 #import "NotebookView.h"
+#import "Globals.h"
 
 @implementation NotebookView
+
+@synthesize startPoint;
+@synthesize endPoint;
 
 - (id)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame]))
   {
-    // Initialization code
+    startPoint = CGPointMake(35.0, 0.0);
+    endPoint = CGPointMake(35.0, self.frame.size.height);
   }
   return self;
 }
@@ -24,14 +29,14 @@
   // Drawing code
   CGContextRef context = UIGraphicsGetCurrentContext();
   
-  UIColor *strokeColor = [UIColor colorWithRed:1.0 green:0.474 blue:0.772 alpha:1.0];
+  UIColor *strokeColor = NotebookLineColor;
   CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
   CGContextSetLineWidth(context, 0.1);
   CGContextBeginPath(context);
-  CGContextMoveToPoint(context, 35.0, 0.0);
-  CGContextAddLineToPoint(context, 35.0, self.frame.size.height);
-  CGContextMoveToPoint(context, 38.0, 0.0);
-  CGContextAddLineToPoint(context, 38.0, self.frame.size.height);
+  CGContextMoveToPoint(context, startPoint.x, startPoint.y);
+  CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
+  CGContextMoveToPoint(context, startPoint.x + 5.0f, startPoint.y);
+  CGContextAddLineToPoint(context, endPoint.x + 5.0f, endPoint.y);
   
   CGContextDrawPath(context, kCGPathStroke);
 }

@@ -1,5 +1,5 @@
 //
-//  NotebookView.h
+//  TornEdgeView.h
 //  Perdiem
 //
 //  Created by Jarod Luebbert on 2/14/11.
@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotebookView.h"
 
-@interface NotebookView : UIView
+@interface TornEdgeView : NotebookView
 {
+  UIImage *paperImage;
 }
-
-@property (nonatomic) CGPoint startPoint;
-@property (nonatomic) CGPoint endPoint;
 
 @end

@@ -11,12 +11,13 @@
 
 @class TaskCell;
 
-@interface RootViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface RootViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 {
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
   UINib *cellNib;
+  UITableView *table;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
@@ -25,6 +26,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
+@property (nonatomic, retain) IBOutlet UITableView *table;
 
 - (void)loadHeaderAndFooterShadows;
 - (void)presentNewTaskView;

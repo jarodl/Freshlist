@@ -11,6 +11,8 @@
 		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
 		7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33754C1309BE5E0052F24F /* AIShadowGradient.m */; };
 		7A337551130A1DD40052F24F /* NotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A337550130A1DD40052F24F /* NotebookView.m */; };
+		7A337553130A40150052F24F /* paperedge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A337552130A40150052F24F /* paperedge.png */; };
+		7A337556130A40BB0052F24F /* TornEdgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A337555130A40BB0052F24F /* TornEdgeView.m */; };
 		7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D1671307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -21,7 +23,6 @@
 		7A45D1781307642E00DE1BBE /* Perdiem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1761307642E00DE1BBE /* Perdiem.xcdatamodeld */; };
 		7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1791307642E00DE1BBE /* MainWindow.xib */; };
 		7A45D17E1307642E00DE1BBE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D17D1307642E00DE1BBE /* RootViewController.m */; };
-		7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D17F1307642E00DE1BBE /* RootViewController.xib */; };
 		7A45D1881307642E00DE1BBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1621307642E00DE1BBE /* UIKit.framework */; };
 		7A45D1891307642E00DE1BBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1641307642E00DE1BBE /* Foundation.framework */; };
 		7A45D18A1307642E00DE1BBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A45D1661307642E00DE1BBE /* CoreGraphics.framework */; };
@@ -65,6 +66,9 @@
 		7A33754C1309BE5E0052F24F /* AIShadowGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShadowGradient.m; sourceTree = "<group>"; };
 		7A33754F130A1DD40052F24F /* NotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookView.h; sourceTree = "<group>"; };
 		7A337550130A1DD40052F24F /* NotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookView.m; sourceTree = "<group>"; };
+		7A337552130A40150052F24F /* paperedge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperedge.png; sourceTree = "<group>"; };
+		7A337554130A40BB0052F24F /* TornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TornEdgeView.h; sourceTree = "<group>"; };
+		7A337555130A40BB0052F24F /* TornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TornEdgeView.m; sourceTree = "<group>"; };
 		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,7 +84,6 @@
 		7A45D17A1307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		7A45D17C1307642E00DE1BBE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7A45D17D1307642E00DE1BBE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		7A45D1801307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		7A45D1871307642E00DE1BBE /* PerdiemTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerdiemTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1901307642E00DE1BBE /* PerdiemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PerdiemTests-Info.plist"; sourceTree = "<group>"; };
 		7A45D1921307642E00DE1BBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -258,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
-				7A45D17F1307642E00DE1BBE /* RootViewController.xib */,
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 			);
 			name = Interfaces;
@@ -276,6 +278,7 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A337552130A40150052F24F /* paperedge.png */,
 				7A1BD4CE13099C5B00F52EF6 /* settings.png */,
 				7ACEDF3F1308F6F200106413 /* checked.png */,
 				7ACEDF401308F6F200106413 /* unchecked.png */,
@@ -294,6 +297,8 @@
 				7ACEDF281308DDDA00106413 /* AIButton.m */,
 				7A33754F130A1DD40052F24F /* NotebookView.h */,
 				7A337550130A1DD40052F24F /* NotebookView.m */,
+				7A337554130A40BB0052F24F /* TornEdgeView.h */,
+				7A337555130A40BB0052F24F /* TornEdgeView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -389,11 +394,11 @@
 			files = (
 				7A45D16F1307642E00DE1BBE /* InfoPlist.strings in Resources */,
 				7A45D17B1307642E00DE1BBE /* MainWindow.xib in Resources */,
-				7A45D1811307642E00DE1BBE /* RootViewController.xib in Resources */,
 				7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */,
 				7ACEDF411308F6F200106413 /* checked.png in Resources */,
 				7ACEDF421308F6F200106413 /* unchecked.png in Resources */,
 				7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */,
+				7A337553130A40150052F24F /* paperedge.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +453,7 @@
 				7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */,
 				7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */,
 				7A337551130A1DD40052F24F /* NotebookView.m in Sources */,
+				7A337556130A40BB0052F24F /* TornEdgeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,14 +490,6 @@
 				7A45D17A1307642E00DE1BBE /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		7A45D17F1307642E00DE1BBE /* RootViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A45D1801307642E00DE1BBE /* en */,
-			);
-			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 		7A45D1911307642E00DE1BBE /* InfoPlist.strings */ = {

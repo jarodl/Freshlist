@@ -10,4 +10,5 @@
 #define TableBackgroundColor [UIColor colorWithHue:0.580 saturation:0.0 brightness:0.97 alpha:1.0]
 #define TableViewCellHeight 40.0f
 #define TableViewCellContentMargin 24.0f
-#define SeperatorColor [UIColor colorWithHue:0.580 saturation:0.38 brightness:0.91 alpha:0.4]
+#define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.48 brightness:0.89 alpha:0.5]
+#define NotebookLineColor [UIColor colorWithRed:1.0 green:0.474 blue:0.772 alpha:1.0]

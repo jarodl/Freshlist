@@ -10,6 +10,7 @@
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
 #import "NotebookView.h"
+#import "TornEdgeView.h"
 #import "TaskCell.h"
 #import "Globals.h"
 #import "Task.h"
@@ -26,6 +27,7 @@
 @synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
+@synthesize table;
 
 - (void)viewDidLoad
 {
@@ -46,9 +48,9 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   
-  self.tableView.rowHeight = TableViewCellHeight;
-  self.tableView.backgroundColor = TableBackgroundColor;
-  self.tableView.separatorColor = SeperatorColor;
+  self.table.rowHeight = TableViewCellHeight;
+  self.table.backgroundColor = TableBackgroundColor;
+  self.table.separatorColor = SeperatorColor;
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
     
   self.title = @"Today";
@@ -56,15 +58,14 @@
 
 - (void)loadHeaderAndFooterShadows
 {
-  self.tableView.contentInset = UIEdgeInsetsMake(-40.0, 0.0, -41.0, 0.0);
+  self.table.contentInset = UIEdgeInsetsMake(8.0, 0.0, 8.0, 0.0);
 	
-	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0)];
-	self.tableView.tableHeaderView = header;
-	[header release];
+  TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 8.0)] autorelease];
+  [self.view addSubview:tornEdge];
   
-  NotebookView *background = [[NotebookView alloc] initWithFrame:self.tableView.frame];
+  NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
-  self.tableView.backgroundView = background;
+  self.table.backgroundView = background;
 }
 
 - (void)removeExpiredTasks
@@ -286,7 +287,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-  [self.tableView beginUpdates];
+  [self.table beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
@@ -295,11 +296,11 @@
   switch(type)
   {
       case NSFetchedResultsChangeInsert:
-          [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+          [self.table insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
           break;
           
       case NSFetchedResultsChangeDelete:
-          [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+          [self.table deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
           break;
   }
 }
@@ -308,7 +309,7 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-  UITableView *tableView = self.tableView;
+  UITableView *tableView = self.table;
   
   switch(type)
   {
@@ -333,7 +334,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+    [self.table endUpdates];
 }
 
 @end

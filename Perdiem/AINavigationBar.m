@@ -19,7 +19,7 @@
 {
   if ((self = [super initWithFrame:frame]))
 	{
-		self.backgroundColor = [UIColor clearColor];    
+		self.backgroundColor = [UIColor clearColor];
 	}
   return self;
 }
