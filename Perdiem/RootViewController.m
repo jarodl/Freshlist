@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
+#import "NotebookView.h"
 #import "TaskCell.h"
 #import "Globals.h"
 #import "Task.h"
@@ -60,6 +61,10 @@
 	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0)];
 	self.tableView.tableHeaderView = header;
 	[header release];
+  
+  NotebookView *background = [[NotebookView alloc] initWithFrame:self.tableView.frame];
+  background.backgroundColor = TableBackgroundColor;
+  self.tableView.backgroundView = background;
 }
 
 - (void)removeExpiredTasks
