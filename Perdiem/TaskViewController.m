@@ -42,7 +42,7 @@ enum TaskSectionRows {
     self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
 
     self.tableView.backgroundColor = TableBackgroundColor;
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }

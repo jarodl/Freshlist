@@ -15,10 +15,10 @@
 @synthesize checked;
 @synthesize taskContent;
 
-+ (Class)layerClass
-{
-  return [AICellGradient class];
-}
+//+ (Class)layerClass
+//{
+//  return [AICellGradient class];
+//}
 
 - (void)setChecked:(BOOL)c
 {
