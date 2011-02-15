@@ -24,6 +24,7 @@
 {
   checked = c;
   [self refreshCheckBoxImage];
+  [self refreshContentFont];
 }
 
 - (void)setCheckBoxImage:(UIImage *)image
@@ -60,6 +61,22 @@
 - (void)refreshCheckBoxImage
 {
   checkBox.image = checked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+}
+
+- (void)refreshContentFont
+{
+  if (checked)
+  {
+    taskContent.alpha = 0.2;
+    checkBox.alpha = 0.2;
+    self.accessoryType = UITableViewCellAccessoryNone;
+  }
+  else
+  {
+    taskContent.alpha = 1.0;
+    checkBox.alpha = 1.0;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  }
 }
 
 - (void)dealloc

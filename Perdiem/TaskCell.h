@@ -25,5 +25,6 @@
 - (void)setTaskContentText:(NSString *)text;
 - (void)toggle;
 - (void)refreshCheckBoxImage;
+- (void)refreshContentFont;
 
 @end

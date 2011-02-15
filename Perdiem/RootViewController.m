@@ -31,11 +31,10 @@
   [super viewDidLoad];
   
   [self loadHeaderAndFooterShadows];
-  
+
   [self removeExpiredTasks];
   
   // Set up the edit and add buttons.
-  self.navigationItem.rightBarButtonItem = self.editButtonItem;
   UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(presentSettingsView)];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presentNewTaskView)];
   UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
