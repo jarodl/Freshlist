@@ -28,7 +28,7 @@
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
 @property (nonatomic, retain) IBOutlet UITableView *table;
 
-- (void)loadHeaderAndFooterShadows;
+- (void)loadPaperStyles;
 - (void)presentNewTaskView;
 - (void)presentSettingsView;
 - (IBAction)dismissNewTaskView;

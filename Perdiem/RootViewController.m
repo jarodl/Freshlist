@@ -33,12 +33,15 @@
 {
   [super viewDidLoad];
   
-  [self loadHeaderAndFooterShadows];
+  [self loadPaperStyles];
 
   [self removeExpiredTasks];
   
   // Set up the edit and add buttons.
-  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStylePlain target:self action:@selector(presentSettingsView)];
+  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"]
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(presentSettingsView)];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presentNewTaskView)];
   UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   self.toolbarItems = [NSArray arrayWithObjects:settingsButton, space, addButton, nil];
@@ -56,12 +59,19 @@
   self.title = @"Today";
 }
 
-- (void)loadHeaderAndFooterShadows
+- (void)loadPaperStyles
 {
-  self.table.contentInset = UIEdgeInsetsMake(8.0, 0.0, 8.0, 0.0);
-	
-  TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 8.0)] autorelease];
+  UIImage *paper = [UIImage imageNamed:@"paperedge.png"];
+  CGFloat height = paper.size.height;
+  [paper release];
+  self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
+  TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
   [self.view addSubview:tornEdge];
+  
+  UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
+  self.table.tableHeaderView = header;
+  [header release];
+//  [tornEdge release];
   
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
