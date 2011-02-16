@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A45D15D1307642E00DE1BBE"
-               BuildableName = "Perdiem.app"
+               BuildableName = "Freshlist.app"
                BlueprintName = "Perdiem"
                ReferencedContainer = "container:Perdiem.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A45D15D1307642E00DE1BBE"
-            BuildableName = "Perdiem.app"
+            BuildableName = "Freshlist.app"
             BlueprintName = "Perdiem"
             ReferencedContainer = "container:Perdiem.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A45D15D1307642E00DE1BBE"
-            BuildableName = "Perdiem.app"
+            BuildableName = "Freshlist.app"
             BlueprintName = "Perdiem"
             ReferencedContainer = "container:Perdiem.xcodeproj">
          </BuildableReference>
