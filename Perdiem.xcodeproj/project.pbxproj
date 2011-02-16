@@ -10,6 +10,8 @@
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
 		7A2724EE130AF3A50004990A /* paperedge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724ED130AF3A50004990A /* paperedge@2x.png */; };
+		7A2724F7130B70460004990A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724F6130B70460004990A /* Icon.png */; };
+		7A2724FB130B87430004990A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724FA130B87430004990A /* Icon@2x.png */; };
 		7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33754C1309BE5E0052F24F /* AIShadowGradient.m */; };
 		7A337551130A1DD40052F24F /* NotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A337550130A1DD40052F24F /* NotebookView.m */; };
 		7A337553130A40150052F24F /* paperedge.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A337552130A40150052F24F /* paperedge.png */; };
@@ -64,6 +66,8 @@
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A1BD4CE13099C5B00F52EF6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		7A2724ED130AF3A50004990A /* paperedge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paperedge@2x.png"; sourceTree = "<group>"; };
+		7A2724F6130B70460004990A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		7A2724FA130B87430004990A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		7A33754B1309BE5E0052F24F /* AIShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShadowGradient.h; sourceTree = "<group>"; };
 		7A33754C1309BE5E0052F24F /* AIShadowGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIShadowGradient.m; sourceTree = "<group>"; };
 		7A33754F130A1DD40052F24F /* NotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookView.h; sourceTree = "<group>"; };
@@ -71,7 +75,7 @@
 		7A337552130A40150052F24F /* paperedge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperedge.png; sourceTree = "<group>"; };
 		7A337554130A40BB0052F24F /* TornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TornEdgeView.h; sourceTree = "<group>"; };
 		7A337555130A40BB0052F24F /* TornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TornEdgeView.m; sourceTree = "<group>"; };
-		7A45D15E1307642E00DE1BBE /* Perdiem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perdiem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A45D15E1307642E00DE1BBE /* Freshlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A45D1661307642E00DE1BBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,7 +171,7 @@
 		7A45D15F1307642E00DE1BBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A45D15E1307642E00DE1BBE /* Perdiem.app */,
+				7A45D15E1307642E00DE1BBE /* Freshlist.app */,
 				7A45D1871307642E00DE1BBE /* PerdiemTests.octest */,
 			);
 			name = Products;
@@ -280,6 +284,8 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A2724F6130B70460004990A /* Icon.png */,
+				7A2724FA130B87430004990A /* Icon@2x.png */,
 				7A337552130A40150052F24F /* paperedge.png */,
 				7A2724ED130AF3A50004990A /* paperedge@2x.png */,
 				7A1BD4CE13099C5B00F52EF6 /* settings.png */,
@@ -342,7 +348,7 @@
 			);
 			name = Perdiem;
 			productName = Perdiem;
-			productReference = 7A45D15E1307642E00DE1BBE /* Perdiem.app */;
+			productReference = 7A45D15E1307642E00DE1BBE /* Freshlist.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A45D1861307642E00DE1BBE /* PerdiemTests */ = {
@@ -403,6 +409,8 @@
 				7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */,
 				7A337553130A40150052F24F /* paperedge.png in Resources */,
 				7A2724EE130AF3A50004990A /* paperedge@2x.png in Resources */,
+				7A2724F7130B70460004990A /* Icon.png in Resources */,
+				7A2724FB130B87430004990A /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +558,7 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Freshlist;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -564,7 +572,7 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Freshlist;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

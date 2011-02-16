@@ -55,7 +55,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-  return @"Tell a friend about Cycle to remove all ads for free.";
+  return @"Tell a friend about Freshlist to remove all ads for free.";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

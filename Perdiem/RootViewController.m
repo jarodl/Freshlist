@@ -51,10 +51,10 @@
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   
+  self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   self.table.rowHeight = TableViewCellHeight;
   self.table.backgroundColor = TableBackgroundColor;
   self.table.separatorColor = SeperatorColor;
-  self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
     
   self.title = @"Today";
 }
