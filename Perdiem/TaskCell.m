@@ -7,6 +7,7 @@
 //
 
 #import "TaskCell.h"
+#import "Globals.h"
 #import "AICellGradient.h"
 
 @implementation TaskCell

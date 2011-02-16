@@ -217,6 +217,7 @@
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
   cell.checked = [task.completed boolValue];
   cell.cellIndexPath = indexPath;
+  cell.taskContent.textColor = TableViewCellTextColor;
   [cell setTaskContentText:task.content];
 }
 

@@ -18,8 +18,8 @@
 {
   if ((self = [super initWithFrame:frame]))
   {
-    startPoint = CGPointMake(35.0, 0.0);
-    endPoint = CGPointMake(35.0, self.frame.size.height);
+    startPoint = CGPointMake(44.0, 0.0);
+    endPoint = CGPointMake(44.0, self.frame.size.height);
   }
   return self;
 }
@@ -35,8 +35,8 @@
   CGContextBeginPath(context);
   CGContextMoveToPoint(context, startPoint.x, startPoint.y);
   CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
-  CGContextMoveToPoint(context, startPoint.x + 5.0f, startPoint.y);
-  CGContextAddLineToPoint(context, endPoint.x + 5.0f, endPoint.y);
+  CGContextMoveToPoint(context, startPoint.x + 4.0f, startPoint.y);
+  CGContextAddLineToPoint(context, endPoint.x + 4.0f, endPoint.y);
   
   CGContextDrawPath(context, kCGPathStroke);
 }
