@@ -11,8 +11,15 @@
 
 @interface SettingsViewController : UITableViewController
 {
+  NSDate *clearTime;
+  NSString *clearTimeString;
 }
 
+@property (nonatomic, retain) NSDate *clearTime;
+@property (nonatomic, retain) NSString *clearTimeString;
+
 - (IBAction)saveSettings;
+- (IBAction)cancelSave;
+- (void)clearTimeChanged:(NSNotification *)notification;
 
 @end

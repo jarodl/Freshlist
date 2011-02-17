@@ -19,6 +19,7 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;
+- (void)setDefaultClearTime;
 - (NSURL *)applicationDocumentsDirectory;
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;

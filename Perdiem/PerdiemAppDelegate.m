@@ -22,12 +22,27 @@
 {
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
+  [self setDefaultClearTime];
+  
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
   
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void)setDefaultClearTime
+{
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if ([defaults objectForKey:DefaultClearTime] == nil)
+  {
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:TimeFormatString];
+    [defaults setObject:[timeFormat dateFromString:@"12:00 AM"] forKey:DefaultClearTime];
+    [defaults synchronize];
+    [timeFormat release];
+  }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

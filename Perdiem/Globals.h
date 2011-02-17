@@ -13,3 +13,6 @@
 #define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.11 brightness:0.85 alpha:1.0]
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.58 brightness:0.90 alpha:0.7]
 #define TableViewCellTextColor [UIColor colorWithHue: 0.519 saturation:0.24 brightness:0.25 alpha:1.0]
+#define DefaultClearTime @"DefaultClearTime"
+#define ClearTimeChanged @"ClearTimeChanged" // notification
+#define TimeFormatString @"h:mm a"
