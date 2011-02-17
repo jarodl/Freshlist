@@ -33,6 +33,9 @@
   
   newTask.timeStamp = [dict objectForKey:@"timeStamp"];
   
+  // if the timeStamp is greater than the default clear time for the current date,
+  // set the clear time
+  
   // Add 16 hours to the time stamp and set the task to expire then
   NSDate *currentDate = [dict objectForKey:@"timeStamp"];
   NSDateComponents *comps = [[NSDateComponents alloc] init];

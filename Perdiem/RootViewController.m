@@ -25,7 +25,6 @@
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
-//@synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
 @synthesize table;
@@ -71,42 +70,10 @@
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
   self.table.tableHeaderView = header;
   [header release];
-//  [tornEdge release];
   
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
   self.table.backgroundView = background;
-}
-
-- (void)removeExpiredTasks
-{
-  NSManagedObjectContext *moc = [self managedObjectContext];
-  NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
-  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-  [request setEntity:entityDescription];
-  
-  NSDate *now = [NSDate date];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                            @"expiration < %@", now];
-  [request setPredicate:predicate];
-  
-  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                      initWithKey:@"timeStamp" ascending:YES];
-  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-  [sortDescriptor release];
-  
-  NSError *error = nil;
-  NSArray *array = [moc executeFetchRequest:request error:&error];
-  if (array == nil)
-  {
-    // Deal with error...
-  }
-  else
-  {
-    for (Task *expiredTask in array) {
-      [moc deleteObject:expiredTask];
-    }
-  }
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification
@@ -246,6 +213,43 @@
   [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)removeExpiredTasks
+{
+//  NSArray *allTasks = self.fetchedResultsController.fetchedObjects;
+//  
+//  for (Task *task in allTasks)
+//  {
+//  }
+
+//  NSManagedObjectContext *moc = [self managedObjectContext];
+//  NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
+//  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+//  [request setEntity:entityDescription];
+//  
+//  NSDate *now = [NSDate date];
+//  NSPredicate *predicate = [NSPredicate predicateWithFormat:
+//                            @"expiration < %@", now];
+//  [request setPredicate:predicate];
+//  
+//  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+//                                      initWithKey:@"timeStamp" ascending:YES];
+//  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+//  [sortDescriptor release];
+//  
+//  NSError *error = nil;
+//  NSArray *array = [moc executeFetchRequest:request error:&error];
+//  if (array == nil)
+//  {
+//    // Deal with error...
+//  }
+//  else
+//  {
+//    for (Task *expiredTask in array) {
+//      [moc deleteObject:expiredTask];
+//    }
+//  }
+}
+
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -297,7 +301,7 @@
 	}
     
   return __fetchedResultsController;
-}    
+}
 
 #pragma mark - Fetched results controller delegate
 
