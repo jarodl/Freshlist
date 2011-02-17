@@ -18,8 +18,8 @@
 @property (nonatomic, retain) NSDate *clearTime;
 @property (nonatomic, retain) NSString *clearTimeString;
 
-- (IBAction)saveSettings;
-- (IBAction)cancelSave;
+- (void)saveSettings;
+- (void)cancelSave;
 - (void)clearTimeChanged:(NSNotification *)notification;
 
 @end

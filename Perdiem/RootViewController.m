@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "TaskViewController.h"
+#import "SettingsViewController.h"
 #import "AIShadowGradient.h"
 #import "NotebookView.h"
 #import "TornEdgeView.h"
@@ -24,7 +25,7 @@
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
-@synthesize settingsView;
+//@synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
 @synthesize table;
@@ -227,7 +228,12 @@
 
 - (void)presentSettingsView
 {
-  [self presentModalViewController:settingsView animated:YES];
+  SettingsViewController *settingsView = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+  UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:settingsView];
+  [settingsView release];
+  navCon.delegate = self;
+  [self presentModalViewController:navCon animated:YES];
+  [navCon release];
 }
 
 - (IBAction)dismissNewTaskView

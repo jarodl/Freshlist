@@ -31,7 +31,7 @@ enum Sections {
 
 #pragma mark - View lifecycle
 
-- (IBAction)saveSettings
+- (void)saveSettings
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   [defaults setObject:clearTime forKey:DefaultClearTime];
@@ -40,26 +40,36 @@ enum Sections {
   [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)cancelSave
+- (void)cancelSave
 {
-//  [self setClearTime:[[NSUserDefaults standardUserDefaults] objectForKey:DefaultClearTime]];
+  [self setClearTime:[[NSUserDefaults standardUserDefaults] objectForKey:DefaultClearTime]];
   [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  self.title = @"Settings";
+  
+  UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveSettings)];
+  self.navigationItem.rightBarButtonItem = saveButton;
+  [saveButton release];
+  
+  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelSave)];
+  self.navigationItem.leftBarButtonItem = cancelButton;
+  [cancelButton release];
+  
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.tableView.backgroundColor = TableBackgroundColor;
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearTimeChanged:) name:ClearTimeChanged object:nil];
-//  if (clearTime == nil)
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [self setClearTime:[defaults objectForKey:DefaultClearTime]];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  [self setClearTime:[defaults objectForKey:DefaultClearTime]];
 }
 
 - (void)setClearTime:(NSDate *)time
 {
-  clearTime = time;
+  clearTime = [time retain];
   NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
   [timeFormat setDateFormat:TimeFormatString];
   self.clearTimeString = [timeFormat stringFromDate:clearTime];
@@ -74,11 +84,11 @@ enum Sections {
 
 - (void)viewDidUnload
 {
-  [super viewDidUnload];
-  
   clearTime = nil;
   clearTimeString = nil;
   [[NSNotificationCenter defaultCenter] removeObserver:self name:ClearTimeChanged object:nil];
+  
+  [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

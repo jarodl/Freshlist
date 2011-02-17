@@ -11,10 +11,10 @@
 
 @class TaskCell;
 
-@interface RootViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface RootViewController : UIViewController <UINavigationControllerDelegate, UITableViewDelegate,
+                                                  UITableViewDataSource, NSFetchedResultsControllerDelegate>
 {
   UINavigationController *newTaskView;
-  UINavigationController *settingsView;
   TaskCell *tmpCell;
   UINib *cellNib;
   UITableView *table;
@@ -23,7 +23,6 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
-@property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
 @property (nonatomic, retain) IBOutlet UITableView *table;
