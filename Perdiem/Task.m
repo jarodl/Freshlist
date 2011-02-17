@@ -39,6 +39,7 @@
   [comps setHour:16];
   NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   newTask.expiration = [gregorian dateByAddingComponents:comps toDate:currentDate options:0];
+  [gregorian release];
   [comps release];
   
   newTask.completed = [NSNumber numberWithBool:NO];

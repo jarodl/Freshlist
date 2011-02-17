@@ -63,7 +63,6 @@
 {
   UIImage *paper = [UIImage imageNamed:@"paperedge.png"];
   CGFloat height = paper.size.height;
-  [paper release];
   self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
   TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
   [self.view addSubview:tornEdge];
