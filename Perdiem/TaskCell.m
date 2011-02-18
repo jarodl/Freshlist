@@ -8,6 +8,7 @@
 
 #import "TaskCell.h"
 #import "Globals.h"
+#import "SelectedCellView.h"
 //#import "AICellGradient.h"
 
 @implementation TaskCell
@@ -23,11 +24,30 @@
 //  return [AICellGradient class];
 //}
 
+//- (void)drawRect:(CGRect)rect
+//{
+//  if (self.selected)
+//  {
+//  }
+//}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+  if ((self = [super initWithCoder:aDecoder]))
+  {
+    self.selectedBackgroundView = [[[SelectedCellView alloc] initWithFrame:self.frame] autorelease];
+    checked = NO;
+    showsAccessory = YES;
+  }
+  return self;
+}
+
 - (void)setTaskContent:(NSString *)newTaskContent
 {
   taskContent = newTaskContent;
   taskContentLabel.text = newTaskContent;
   taskContentLabel.textColor = TableViewCellTextColor;
+  taskContentLabel.highlightedTextColor = TableViewCellTextSelectedColor;
 }
 
 - (void)setCheckBox:(UIImage *)newCheckBox

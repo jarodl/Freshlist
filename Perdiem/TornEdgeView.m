@@ -7,6 +7,7 @@
 //
 
 #import "TornEdgeView.h"
+#import "TopShadow.h"
 
 @implementation TornEdgeView
 
@@ -19,6 +20,9 @@
       paperImage = [UIImage imageNamed:@"paperedge.png"];
       [self setStartPoint:CGPointMake(self.startPoint.x + 1.0f, self.startPoint.y - 3.0)];
       [self setEndPoint:CGPointMake(self.endPoint.x + 1.0f, self.endPoint.y - 3.0)];
+      TopShadow *topShadow = [[TopShadow alloc] initWithFrame:self.frame];
+      [self addSubview:topShadow];
+      [topShadow release];
     }
   
     return self;
@@ -32,7 +36,9 @@
     CGImageRef tiledImageRetRef = CGImageRetain(paperImage.CGImage); 
     CGRect imageRect = CGRectMake(0.0, 0.0, paperImage.size.width, paperImage.size.height);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGContextDrawTiledImage(context, imageRect, tiledImageRetRef);
+    
     CGImageRelease(tiledImageRetRef);
   }
   

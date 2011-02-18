@@ -36,6 +36,9 @@
 		7A45D1931307642E00DE1BBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1911307642E00DE1BBE /* InfoPlist.strings */; };
 		7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1951307642E00DE1BBE /* PerdiemTests.h */; };
 		7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1971307642E00DE1BBE /* PerdiemTests.m */; };
+		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
+		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
+		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
 		7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1516D130781A100DFF2EF /* NewTaskViewController.m */; };
 		7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517113079B5C00DFF2EF /* TaskViewController.m */; };
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
@@ -104,6 +107,12 @@
 		7A45D1971307642E00DE1BBE /* PerdiemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerdiemTests.m; sourceTree = "<group>"; };
 		7A45D1A11307648000DE1BBE /* Perdiem 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 2.xcdatamodel"; sourceTree = "<group>"; };
 		7A45D1A21307654200DE1BBE /* Perdiem 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 3.xcdatamodel"; sourceTree = "<group>"; };
+		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
+		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
+		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
+		7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopShadowGradient.m; sourceTree = "<group>"; };
+		7A822797130EFCF200CEDBA9 /* TopShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadow.h; sourceTree = "<group>"; };
+		7A822798130EFCF200CEDBA9 /* TopShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopShadow.m; sourceTree = "<group>"; };
 		7AC1516C130781A100DFF2EF /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		7AC1516D130781A100DFF2EF /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		7AC1517013079B5C00DFF2EF /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
@@ -317,6 +326,10 @@
 				7A337550130A1DD40052F24F /* NotebookView.m */,
 				7A337554130A40BB0052F24F /* TornEdgeView.h */,
 				7A337555130A40BB0052F24F /* TornEdgeView.m */,
+				7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */,
+				7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */,
+				7A822797130EFCF200CEDBA9 /* TopShadow.h */,
+				7A822798130EFCF200CEDBA9 /* TopShadow.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -336,6 +349,8 @@
 				7ACEDF311308DE7000106413 /* AIShineGloss.m */,
 				7ACEDF351308DE8F00106413 /* AIBarGradientMatteBottom.h */,
 				7ACEDF361308DE9100106413 /* AIBarGradientMatteBottom.m */,
+				7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */,
+				7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -478,6 +493,9 @@
 				7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */,
 				7A337551130A1DD40052F24F /* NotebookView.m in Sources */,
 				7A337556130A40BB0052F24F /* TornEdgeView.m in Sources */,
+				7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */,
+				7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */,
+				7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

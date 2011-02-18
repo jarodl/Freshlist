@@ -14,21 +14,22 @@
 {
 	if ((self = [super init]))
   {
-		UIColor *colorOne		= [UIColor colorWithHue:1.0 saturation:0.0 brightness:1.0 alpha:1.0];
-		UIColor *colorTwo		= [UIColor colorWithHue:0.666 saturation:0.0 brightness:0.9 alpha:1.0];
-		UIColor *colorThree	= [UIColor colorWithHue:0.666 saturation:0.0 brightness:0.9 alpha:1.0];
-		UIColor *colorFour	= [UIColor colorWithHue:0.666 saturation:0.0 brightness:0.7 alpha:1.0];
+		UIColor *shadow		= [UIColor colorWithHue:0.666 saturation:0.0 brightness:0.5 alpha:0.6];
+		UIColor *norm		= [UIColor colorWithHue:0.666 saturation:0.0 brightness:1.0 alpha:0.0];
+		UIColor *white	= [UIColor colorWithHue:0.666 saturation:0.0 brightness:0.0 alpha:0.3];
 		
-		NSArray *colors =  [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, colorThree.CGColor, colorFour.CGColor, nil];
+		NSArray *colors =  [NSArray arrayWithObjects:(id)white.CGColor, shadow.CGColor, norm.CGColor, norm.CGColor, shadow.CGColor, white.CGColor, nil];
 				
 		self.colors = colors;	
 		
-		NSNumber *stopOne		= [NSNumber numberWithFloat:0.0];
+    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
 		NSNumber *stopTwo		= [NSNumber numberWithFloat:0.02];
-		NSNumber *stopThree	        = [NSNumber numberWithFloat:0.98];
-		NSNumber *stopFour		= [NSNumber numberWithFloat:1.0];
+		NSNumber *stopThree		= [NSNumber numberWithFloat:0.15];
+		NSNumber *stopFour	        = [NSNumber numberWithFloat:0.85];
+		NSNumber *stopFive		= [NSNumber numberWithFloat:0.98];
+    NSNumber *stopSix = [NSNumber numberWithFloat:1.0];
 		
-		NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, stopThree, stopFour, nil];
+		NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, stopThree, stopFour, stopFive, stopSix, nil];
 		
 		self.locations = locations;
 

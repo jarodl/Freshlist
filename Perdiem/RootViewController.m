@@ -71,7 +71,7 @@
   
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
   self.table.tableHeaderView = header;
-  
+    
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
   self.table.backgroundView = background;
