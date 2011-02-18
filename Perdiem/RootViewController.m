@@ -21,6 +21,7 @@
 
 @implementation RootViewController
 
+@synthesize frontViewVisible;
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
@@ -41,7 +42,7 @@
   UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Info"
                                                                      style:UIBarStyleBlackOpaque
                                                                     target:self
-                                                                    action:@selector(presentSettingsView)];
+                                                                    action:@selector(flipCurrentView)];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                              target:self
                                                                              action:@selector(presentNewTaskView)];
@@ -56,7 +57,10 @@
   self.table.rowHeight = TableViewCellHeight;
   self.table.backgroundColor = TableBackgroundColor;
   self.table.separatorColor = SeperatorColor;
+  self.frontViewVisible = YES;
     
+  // stops the settingsView navigationbar from appearing too high when flipped
+  [settingsView.view removeFromSuperview];
   self.title = @"Today";
 }
 
@@ -225,9 +229,35 @@
   [self presentModalViewController:newTaskView animated:YES];
 }
 
-- (void)presentSettingsView
+- (void)flipCurrentView
 {
-  [self presentModalViewController:settingsView animated:YES];
+  // disable user interaction
+  self.navigationController.view.userInteractionEnabled = NO;
+  
+  [UIView beginAnimations:nil context:nil];
+  [UIView setAnimationDuration:0.75];
+  [UIView setAnimationDelegate:self];
+  [UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
+  
+  if (frontViewVisible)
+  {
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
+    [settingsView.view removeFromSuperview];
+    [self.navigationController.view addSubview:settingsView.view];
+  }
+  else
+  {
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
+    [settingsView.view removeFromSuperview];
+  }
+  
+  [UIView commitAnimations];
+  frontViewVisible = !frontViewVisible;
+}
+
+- (void)myTransitionDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+  self.navigationController.view.userInteractionEnabled = YES;
 }
 
 - (IBAction)dismissNewTaskView

@@ -23,7 +23,7 @@
 
 - (IBAction)saveSettings
 {
-  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
+  [(RootViewController *)self.navigationController.delegate flipCurrentView];
 }
 
 - (void)viewDidLoad

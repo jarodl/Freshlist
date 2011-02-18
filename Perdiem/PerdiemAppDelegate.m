@@ -22,6 +22,7 @@
 {
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
+  [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
   

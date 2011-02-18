@@ -13,6 +13,7 @@
 
 @interface RootViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 {
+  BOOL frontViewVisible;
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
@@ -20,6 +21,7 @@
   UITableView *table;
 }
 
+@property (assign) BOOL frontViewVisible;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
@@ -30,7 +32,8 @@
 
 - (void)loadPaperStyles;
 - (void)presentNewTaskView;
-- (void)presentSettingsView;
+- (void)flipCurrentView;
+- (void)myTransitionDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (IBAction)dismissNewTaskView;
 - (IBAction)dismissSettingsView;
 - (void)toggleTaskComplete:(NSNotification *)notification;
