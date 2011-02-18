@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0CAC16130F349500E07405 /* ShadowedTornEdgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */; };
+		7A0CAC1A130F389700E07405 /* StyledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC19130F389600E07405 /* StyledViewController.m */; };
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
 		7A2724EE130AF3A50004990A /* paperedge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724ED130AF3A50004990A /* paperedge@2x.png */; };
@@ -39,6 +41,9 @@
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
+		7A8227A4130F141F00CEDBA9 /* FullViewTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8227A3130F141F00CEDBA9 /* FullViewTaskCell.m */; };
+		7A8227A6130F148600CEDBA9 /* FullViewTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8227A5130F148600CEDBA9 /* FullViewTaskCell.xib */; };
+		7A8227B1130F1E3300CEDBA9 /* LinedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8227B0130F1E2E00CEDBA9 /* LinedView.m */; };
 		7AC1516E130781A100DFF2EF /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1516D130781A100DFF2EF /* NewTaskViewController.m */; };
 		7AC1517213079B5C00DFF2EF /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517113079B5C00DFF2EF /* TaskViewController.m */; };
 		7AC1517513079BC900DFF2EF /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1517413079BC900DFF2EF /* Task.m */; };
@@ -68,6 +73,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A0CAC14130F349400E07405 /* ShadowedTornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTornEdgeView.h; sourceTree = "<group>"; };
+		7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTornEdgeView.m; sourceTree = "<group>"; };
+		7A0CAC18130F389600E07405 /* StyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledViewController.h; sourceTree = "<group>"; };
+		7A0CAC19130F389600E07405 /* StyledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledViewController.m; sourceTree = "<group>"; };
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A1BD4CE13099C5B00F52EF6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -113,6 +122,11 @@
 		7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopShadowGradient.m; sourceTree = "<group>"; };
 		7A822797130EFCF200CEDBA9 /* TopShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadow.h; sourceTree = "<group>"; };
 		7A822798130EFCF200CEDBA9 /* TopShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopShadow.m; sourceTree = "<group>"; };
+		7A8227A2130F141F00CEDBA9 /* FullViewTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullViewTaskCell.h; sourceTree = "<group>"; };
+		7A8227A3130F141F00CEDBA9 /* FullViewTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullViewTaskCell.m; sourceTree = "<group>"; };
+		7A8227A5130F148600CEDBA9 /* FullViewTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullViewTaskCell.xib; sourceTree = "<group>"; };
+		7A8227AF130F1E2C00CEDBA9 /* LinedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedView.h; sourceTree = "<group>"; };
+		7A8227B0130F1E2E00CEDBA9 /* LinedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedView.m; sourceTree = "<group>"; };
 		7AC1516C130781A100DFF2EF /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		7AC1516D130781A100DFF2EF /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		7AC1517013079B5C00DFF2EF /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
@@ -265,6 +279,8 @@
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
 				7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */,
 				7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */,
+				7A0CAC18130F389600E07405 /* StyledViewController.h */,
+				7A0CAC19130F389600E07405 /* StyledViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -283,6 +299,7 @@
 			children = (
 				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
+				7A8227A5130F148600CEDBA9 /* FullViewTaskCell.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -292,6 +309,8 @@
 			children = (
 				7ACEDEFD13084AEE00106413 /* TaskCell.h */,
 				7ACEDEFE13084AEF00106413 /* TaskCell.m */,
+				7A8227A2130F141F00CEDBA9 /* FullViewTaskCell.h */,
+				7A8227A3130F141F00CEDBA9 /* FullViewTaskCell.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -330,6 +349,10 @@
 				7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */,
 				7A822797130EFCF200CEDBA9 /* TopShadow.h */,
 				7A822798130EFCF200CEDBA9 /* TopShadow.m */,
+				7A8227AF130F1E2C00CEDBA9 /* LinedView.h */,
+				7A8227B0130F1E2E00CEDBA9 /* LinedView.m */,
+				7A0CAC14130F349400E07405 /* ShadowedTornEdgeView.h */,
+				7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -438,6 +461,7 @@
 				7A2D9859130C2D230080063F /* checked@2x.png in Resources */,
 				7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */,
 				7A2D985E130CB6F20080063F /* settings@2x.png in Resources */,
+				7A8227A6130F148600CEDBA9 /* FullViewTaskCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +520,10 @@
 				7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */,
 				7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */,
 				7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */,
+				7A8227A4130F141F00CEDBA9 /* FullViewTaskCell.m in Sources */,
+				7A8227B1130F1E3300CEDBA9 /* LinedView.m in Sources */,
+				7A0CAC16130F349500E07405 /* ShadowedTornEdgeView.m in Sources */,
+				7A0CAC1A130F389700E07405 /* StyledViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

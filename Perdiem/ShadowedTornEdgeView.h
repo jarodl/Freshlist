@@ -1,15 +1,14 @@
 //
-//  TornEdgeView.h
+//  ShadowedTornEdgeView.h
 //  Perdiem
 //
-//  Created by Jarod Luebbert on 2/14/11.
+//  Created by Jarod Luebbert on 2/18/11.
 //  Copyright 2011 Franana Games. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "NotebookView.h"
 
-@interface TornEdgeView : UIView
+@interface ShadowedTornEdgeView : NotebookView
 {
   UIImage *paperImage;
 }

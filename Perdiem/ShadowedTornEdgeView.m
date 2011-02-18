@@ -1,26 +1,30 @@
 //
-//  TornEdgeView.m
+//  ShadowedTornEdgeView.m
 //  Perdiem
 //
-//  Created by Jarod Luebbert on 2/14/11.
+//  Created by Jarod Luebbert on 2/18/11.
 //  Copyright 2011 Franana Games. All rights reserved.
 //
 
-#import "TornEdgeView.h"
+#import "ShadowedTornEdgeView.h"
 #import "TopShadow.h"
 
-@implementation TornEdgeView
+@implementation ShadowedTornEdgeView
 
 - (id)initWithFrame:(CGRect)frame
 {
-    if ((self = [super initWithFrame:frame]))
-    {
-      self.opaque = YES;
-      self.backgroundColor = [UIColor clearColor];
-      paperImage = [UIImage imageNamed:@"paperedge.png"];
-    }
-  
-    return self;
+  if ((self = [super initWithFrame:frame]))
+  {
+    self.opaque = YES;
+    self.backgroundColor = [UIColor clearColor];
+    paperImage = [UIImage imageNamed:@"paperedge.png"];
+    [self setStartPoint:CGPointMake(self.startPoint.x + 1.0f, self.startPoint.y - 3.0)];
+    [self setEndPoint:CGPointMake(self.endPoint.x + 1.0f, self.endPoint.y - 3.0)];
+    TopShadow *topShadow = [[TopShadow alloc] initWithFrame:self.frame];
+    [self addSubview:topShadow];
+    [topShadow release];
+  }
+  return self;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -38,11 +42,6 @@
   }
   
   [super drawRect:rect];
-}
-
-- (void)dealloc
-{
-    [super dealloc];
 }
 
 @end

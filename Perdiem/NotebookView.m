@@ -31,7 +31,7 @@
   
   UIColor *strokeColor = NotebookLineColor;
   CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
-  CGContextSetLineWidth(context, 0.1);
+  CGContextSetLineWidth(context, 1.0);
   CGContextBeginPath(context);
   CGContextMoveToPoint(context, startPoint.x, startPoint.y);
   CGContextAddLineToPoint(context, endPoint.x, endPoint.y);

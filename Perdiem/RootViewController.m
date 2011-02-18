@@ -10,7 +10,7 @@
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
 #import "NotebookView.h"
-#import "TornEdgeView.h"
+#import "ShadowedTornEdgeView.h"
 #import "TaskCell.h"
 #import "Globals.h"
 #import "Task.h"
@@ -70,7 +70,7 @@
   CGFloat height = paper.size.height;
   self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
   
-  TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
+  ShadowedTornEdgeView *tornEdge = [[[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
   [self.view addSubview:tornEdge];
   
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
@@ -183,9 +183,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  
   TaskViewController *taskView = [[TaskViewController alloc] initWithTask:(Task *)managedObject];
   [self.navigationController pushViewController:taskView animated:YES];
   [taskView release];
+  
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

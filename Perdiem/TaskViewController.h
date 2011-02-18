@@ -9,18 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @class Task;
-@class TaskCell;
+@class FullViewTaskCell;
 
 @interface TaskViewController : UITableViewController
 {
   Task *selectedTask;
-  TaskCell *tmpCell;
+  FullViewTaskCell *tmpCell;
   UINib *cellNib;
 }
 
 @property (nonatomic, retain) Task *selectedTask;
 @property (nonatomic, retain) UINib *cellNib;
-@property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
+@property (nonatomic, retain) IBOutlet FullViewTaskCell *tmpCell;
 
 - (id)initWithTask:(Task *)task;
 - (void)toggleTaskComplete:(NSNotification *)notification;

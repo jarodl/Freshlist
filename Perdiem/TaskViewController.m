@@ -7,7 +7,9 @@
 //
 
 #import "TaskViewController.h"
-#import "TaskCell.h"
+#import "FullViewTaskCell.h"
+#import "TornEdgeView.h"
+#import "LinedView.h"
 #import "Globals.h"
 #import "Task.h"
 
@@ -23,7 +25,7 @@ enum TaskSectionRows {
 };
 
 @interface TaskViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation TaskViewController
@@ -39,10 +41,13 @@ enum TaskSectionRows {
     selectedTask = task;
     self.hidesBottomBarWhenPushed = YES;
     self.title = @"Task";
-    self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
-
-    self.tableView.backgroundColor = TableBackgroundColor;
+    self.cellNib = [UINib nibWithNibName:@"FullViewTaskCell" bundle:nil];
+    self.tableView.backgroundColor = DarkTableBackgroundColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    TornEdgeView *tornEdge = [[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 15.0)];
+    self.tableView.tableFooterView = tornEdge;
+    [tornEdge release];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
@@ -65,8 +70,6 @@ enum TaskSectionRows {
 {
   // Releases the view if it doesn't have a superview.
   [super didReceiveMemoryWarning];
-  
-  // Release any cached data, images, etc that aren't in use.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -94,16 +97,19 @@ enum TaskSectionRows {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *CellIdentifier = @"TaskCell";
+  static NSString *CellIdentifier = @"FullViewTaskCell";
 
-  TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  FullViewTaskCell *cell = (FullViewTaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   
   if (cell == nil)
   {
     [self.cellNib instantiateWithOwner:self options:nil];
     cell = tmpCell;
-    cell.showsAccessory = NO;
     self.tmpCell = nil;
+    
+    LinedView *bg = [[LinedView alloc] initWithFrame:cell.frame];
+    cell.backgroundView = bg;
+    [bg release];
   }
   
   [self configureCell:cell atIndexPath:indexPath];
@@ -111,13 +117,9 @@ enum TaskSectionRows {
   return cell;
 }
 
-- (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   cell.taskContent = selectedTask.content;
-//  cell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
-//  cell.taskContent.numberOfLines = 0;
-//  [cell.taskContent sizeToFit];
-  cell.checked = [selectedTask.completed boolValue];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,7 +129,7 @@ enum TaskSectionRows {
   CGSize constraintSize = CGSizeMake(234.0f, MAXFLOAT);
   CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
   
-  return labelSize.height + TableViewCellContentMargin;
+  return (labelSize.height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : labelSize.height;
 }
 
 @end

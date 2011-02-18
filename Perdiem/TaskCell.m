@@ -9,7 +9,6 @@
 #import "TaskCell.h"
 #import "Globals.h"
 #import "SelectedCellView.h"
-//#import "AICellGradient.h"
 
 @implementation TaskCell
 
@@ -18,18 +17,6 @@
 @synthesize cellIndexPath;
 @synthesize checked;
 @synthesize showsAccessory;
-
-//+ (Class)layerClass
-//{
-//  return [AICellGradient class];
-//}
-
-//- (void)drawRect:(CGRect)rect
-//{
-//  if (self.selected)
-//  {
-//  }
-//}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
