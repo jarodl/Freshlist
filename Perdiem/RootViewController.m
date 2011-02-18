@@ -213,6 +213,7 @@
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+  cell.showsAccessory = YES;
   cell.cellIndexPath = indexPath;
   cell.taskContent = task.content;
   cell.checked = [task.completed boolValue];

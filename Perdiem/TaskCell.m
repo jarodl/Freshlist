@@ -16,6 +16,7 @@
 @synthesize checkBox;
 @synthesize cellIndexPath;
 @synthesize checked;
+@synthesize showsAccessory;
 
 //+ (Class)layerClass
 //{
@@ -79,7 +80,8 @@
   {
     taskContentLabel.alpha = 1.0;
     checkBoxView.alpha = 1.0;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (showsAccessory)
+      self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
 }
 

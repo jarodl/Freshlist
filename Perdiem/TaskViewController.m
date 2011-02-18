@@ -77,6 +77,11 @@ enum TaskSectionRows {
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
   return NumOfSections;
@@ -97,6 +102,7 @@ enum TaskSectionRows {
   {
     [self.cellNib instantiateWithOwner:self options:nil];
     cell = tmpCell;
+    cell.showsAccessory = NO;
     self.tmpCell = nil;
   }
   
@@ -108,8 +114,6 @@ enum TaskSectionRows {
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   cell.taskContent = selectedTask.content;
-//  [cell setTaskContentText:selectedTask.content];
-//  cell.accessoryType = UITableViewCellAccessoryNone;
 //  cell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
 //  cell.taskContent.numberOfLines = 0;
 //  [cell.taskContent sizeToFit];

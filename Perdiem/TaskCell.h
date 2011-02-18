@@ -12,6 +12,7 @@
 @interface TaskCell : UITableViewCell
 {
   BOOL checked;
+  BOOL showsAccessory;
 
   UIImage *checkBox;
   NSString *taskContent;
@@ -25,6 +26,7 @@
 @property (nonatomic, retain, setter = setCheckBox:) UIImage *checkBox;
 @property (retain) NSIndexPath *cellIndexPath;
 @property (nonatomic, setter = setChecked:) BOOL checked;
+@property (nonatomic) BOOL showsAccessory;
 
 - (void)toggle;
 - (void)refreshCheckBoxImage;
