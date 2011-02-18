@@ -70,7 +70,6 @@
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
   self.table.tableHeaderView = header;
   [header release];
-//  [tornEdge release];
   
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
@@ -131,19 +130,18 @@
   return [sectionInfo numberOfObjects];
 }
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   static NSString *CellIdentifier = @"TaskCell";
   
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  TaskCell *cell = (TaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (cell == nil)
   {
     [self.cellNib instantiateWithOwner:self options:nil];
 		cell = tmpCell;
 		self.tmpCell = nil;
   }
-
+  
   [self configureCell:cell atIndexPath:indexPath];
   return cell;
 }
@@ -183,6 +181,7 @@
   TaskViewController *taskView = [[TaskViewController alloc] initWithTask:(Task *)managedObject];
   [self.navigationController pushViewController:taskView animated:YES];
   [taskView release];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -195,10 +194,10 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
+  [super viewDidUnload];
+  
+  cellNib = nil;
+  tmpCell = nil;
 }
 
 - (void)dealloc
@@ -214,10 +213,9 @@
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-  cell.checked = [task.completed boolValue];
   cell.cellIndexPath = indexPath;
-  cell.taskContent.textColor = TableViewCellTextColor;
-  [cell setTaskContentText:task.content];
+  cell.taskContent = task.content;
+  cell.checked = [task.completed boolValue];
 }
 
 - (void)presentNewTaskView

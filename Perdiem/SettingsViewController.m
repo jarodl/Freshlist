@@ -33,13 +33,6 @@
   self.tableView.backgroundColor = TableBackgroundColor;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return YES;
@@ -50,12 +43,12 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-  return @"Upgrades";
+  return @"Upgrade";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-  return @"Tell a friend about Freshlist to remove all ads for free.";
+  return @"For a limited time, tell a friend about Freshlist to remove all ads for free.";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,7 +69,7 @@
   
   if (cell == nil)
   {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
   
@@ -89,12 +82,12 @@
 {
   switch (indexPath.row) {
     case 0:
-      cell.textLabel.text = @"Go Premium";
-      cell.detailTextLabel.text = @"New theme, remove all ads";
+      cell.textLabel.text = @"Purchase";
+      cell.detailTextLabel.text = @"$1.99";
       break;
     case 1:
       cell.textLabel.text = @"Tell A Friend";
-      cell.detailTextLabel.text = @"Remove all ads for free";
+      cell.detailTextLabel.text = @"Free";
     default:
       break;
   }

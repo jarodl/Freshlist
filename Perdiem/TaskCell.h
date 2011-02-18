@@ -7,22 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
+//#import <QuartzCore/QuartzCore.h>
 
 @interface TaskCell : UITableViewCell
 {
   BOOL checked;
-  IBOutlet UIImageView *checkBox;
-  IBOutlet UILabel *taskContent;
+
+  UIImage *checkBox;
+  NSString *taskContent;
   NSIndexPath *cellIndexPath;
+  
+  IBOutlet UILabel *taskContentLabel;  
+  IBOutlet UIImageView *checkBoxView;
 }
 
-@property (nonatomic, retain) NSIndexPath *cellIndexPath;
-@property (nonatomic) BOOL checked;
-@property (nonatomic, retain) IBOutlet UILabel *taskContent;
+@property (nonatomic, retain, setter = setTaskContent:) NSString *taskContent;
+@property (nonatomic, retain, setter = setCheckBox:) UIImage *checkBox;
+@property (retain) NSIndexPath *cellIndexPath;
+@property (nonatomic, setter = setChecked:) BOOL checked;
 
-- (void)setCheckBoxImage:(UIImage *)image;
-- (void)setTaskContentText:(NSString *)text;
 - (void)toggle;
 - (void)refreshCheckBoxImage;
 - (void)refreshContentFont;

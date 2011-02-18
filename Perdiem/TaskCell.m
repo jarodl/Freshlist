@@ -8,40 +8,43 @@
 
 #import "TaskCell.h"
 #import "Globals.h"
-#import "AICellGradient.h"
+//#import "AICellGradient.h"
 
 @implementation TaskCell
 
+@synthesize taskContent;
+@synthesize checkBox;
 @synthesize cellIndexPath;
 @synthesize checked;
-@synthesize taskContent;
 
 //+ (Class)layerClass
 //{
 //  return [AICellGradient class];
 //}
 
-- (void)setChecked:(BOOL)c
+- (void)setTaskContent:(NSString *)newTaskContent
 {
-  checked = c;
+  taskContent = newTaskContent;
+  taskContentLabel.text = newTaskContent;
+}
+
+- (void)setCheckBox:(UIImage *)newCheckBox
+{
+  checkBox = newCheckBox;
+  checkBoxView.image = checkBox;
+}
+
+- (void)setChecked:(BOOL)isChecked
+{
+  checked = isChecked;
   [self refreshCheckBoxImage];
   [self refreshContentFont];
-}
-
-- (void)setCheckBoxImage:(UIImage *)image
-{
-  checkBox.image = image;
-}
-
-- (void)setTaskContentText:(NSString *)text
-{
-  taskContent.text = text;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
   CGPoint location = [(UITouch *)[touches anyObject] locationInView:self];
-  if (CGRectContainsPoint(checkBox.frame, location))
+  if (CGRectContainsPoint(checkBoxView.frame, location))
   {
     [self toggle];
     return;
@@ -61,21 +64,21 @@
 
 - (void)refreshCheckBoxImage
 {
-  checkBox.image = checked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+  checkBoxView.image = checked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
 }
 
 - (void)refreshContentFont
 {
   if (checked)
   {
-    taskContent.alpha = 0.2;
-    checkBox.alpha = 0.2;
+    taskContentLabel.alpha = 0.2;
+    checkBoxView.alpha = 0.2;
     self.accessoryType = UITableViewCellAccessoryNone;
   }
   else
   {
-    taskContent.alpha = 1.0;
-    checkBox.alpha = 1.0;
+    taskContentLabel.alpha = 1.0;
+    checkBoxView.alpha = 1.0;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
 }

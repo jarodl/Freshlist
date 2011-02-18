@@ -107,11 +107,12 @@ enum TaskSectionRows {
 
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  [cell setTaskContentText:selectedTask.content];
-  cell.accessoryType = UITableViewCellAccessoryNone;
-  cell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
-  cell.taskContent.numberOfLines = 0;
-  [cell.taskContent sizeToFit];
+  cell.taskContent = selectedTask.content;
+//  [cell setTaskContentText:selectedTask.content];
+//  cell.accessoryType = UITableViewCellAccessoryNone;
+//  cell.taskContent.lineBreakMode = UILineBreakModeWordWrap;
+//  cell.taskContent.numberOfLines = 0;
+//  [cell.taskContent sizeToFit];
   cell.checked = [selectedTask.completed boolValue];
 }
 
