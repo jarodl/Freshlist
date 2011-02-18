@@ -27,6 +27,7 @@
 {
   taskContent = newTaskContent;
   taskContentLabel.text = newTaskContent;
+  taskContentLabel.textColor = TableViewCellTextColor;
 }
 
 - (void)setCheckBox:(UIImage *)newCheckBox

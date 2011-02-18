@@ -35,7 +35,7 @@
   [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
 }
 
--(void) keyboardWillShow:(NSNotification *)notification
+- (void)keyboardWillShow:(NSNotification *)notification
 {
   /*
    Reduce the size of the text view so that it's not obscured by the keyboard.
@@ -68,6 +68,11 @@
   [UIView commitAnimations];
 }
 
+- (void)textViewDidChange:(UITextView *)textView
+{
+  saveTaskButton.enabled = ![textView.text isEqualToString:@""];
+}
+
 - (void)dealloc
 {
   [super dealloc];
@@ -91,6 +96,7 @@
   [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   newTaskField.backgroundColor = TableBackgroundColor;
+  newTaskField.delegate = self;
 }
 
 - (void)viewDidUnload

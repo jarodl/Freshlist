@@ -11,6 +11,7 @@
 @interface NewTaskViewController : UIViewController <UITextViewDelegate>
 {
   UITextView *newTaskField;
+  IBOutlet UIBarButtonItem *saveTaskButton;
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *newTaskField;
