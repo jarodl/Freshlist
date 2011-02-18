@@ -37,16 +37,17 @@
 
   [self removeExpiredTasks];
   
-  // Set up the edit and add buttons.
-  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"]
-                                                                     style:UIBarButtonItemStylePlain
+  // Set up the info and add button.
+  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Info"
+                                                                     style:UIBarStyleBlackOpaque
                                                                     target:self
                                                                     action:@selector(presentSettingsView)];
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(presentNewTaskView)];
-  UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  self.toolbarItems = [NSArray arrayWithObjects:settingsButton, space, addButton, nil];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(presentNewTaskView)];
+  self.navigationItem.rightBarButtonItem = addButton;
+  self.navigationItem.leftBarButtonItem = settingsButton;
   [settingsButton release];
-  [space release];
   [addButton release];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
@@ -64,12 +65,12 @@
   UIImage *paper = [UIImage imageNamed:@"paperedge.png"];
   CGFloat height = paper.size.height;
   self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
+  
   TornEdgeView *tornEdge = [[[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
   [self.view addSubview:tornEdge];
   
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
   self.table.tableHeaderView = header;
-  [header release];
   
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
