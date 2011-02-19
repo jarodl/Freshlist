@@ -6,12 +6,12 @@
 //  Copyright 2011 Jarod Luebbert. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "StyledViewController.h"
 
 @class Task;
 @class FullViewTaskCell;
 
-@interface TaskViewController : UITableViewController
+@interface TaskViewController : StyledViewController
 {
   Task *selectedTask;
   FullViewTaskCell *tmpCell;

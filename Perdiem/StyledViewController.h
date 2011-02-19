@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface StyledViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    
+  UITableView *table;
+  BOOL showsNotebookLines;
 }
+
+@property (nonatomic, retain) IBOutlet UITableView *table;
+@property (assign) BOOL showsNotebookLines;
 
 @end

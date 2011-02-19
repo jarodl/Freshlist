@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A0CAC16130F349500E07405 /* ShadowedTornEdgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */; };
 		7A0CAC1A130F389700E07405 /* StyledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC19130F389600E07405 /* StyledViewController.m */; };
+		7A0CAC1C130F3BA900E07405 /* StyledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC1B130F3BA900E07405 /* StyledViewController.xib */; };
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A1BD4CF13099C5B00F52EF6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CE13099C5B00F52EF6 /* settings.png */; };
 		7A2724EE130AF3A50004990A /* paperedge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724ED130AF3A50004990A /* paperedge@2x.png */; };
@@ -77,6 +78,7 @@
 		7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTornEdgeView.m; sourceTree = "<group>"; };
 		7A0CAC18130F389600E07405 /* StyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledViewController.h; sourceTree = "<group>"; };
 		7A0CAC19130F389600E07405 /* StyledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledViewController.m; sourceTree = "<group>"; };
+		7A0CAC1B130F3BA900E07405 /* StyledViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StyledViewController.xib; sourceTree = "<group>"; };
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A1BD4CE13099C5B00F52EF6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 				7A8227A5130F148600CEDBA9 /* FullViewTaskCell.xib */,
+				7A0CAC1B130F3BA900E07405 /* StyledViewController.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */,
 				7A2D985E130CB6F20080063F /* settings@2x.png in Resources */,
 				7A8227A6130F148600CEDBA9 /* FullViewTaskCell.xib in Resources */,
+				7A0CAC1C130F3BA900E07405 /* StyledViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

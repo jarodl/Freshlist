@@ -11,6 +11,9 @@
 @interface ShadowedTornEdgeView : NotebookView
 {
   UIImage *paperImage;
+  BOOL showsNotebookLines;
 }
+
+@property (assign) BOOL showsNotebookLines;
 
 @end

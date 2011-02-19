@@ -28,11 +28,10 @@
 @synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
-@synthesize table;
 
 - (void)viewDidLoad
 {
-  [super viewDidLoad];
+  showsNotebookLines = YES;
   
   [self loadPaperStyles];
 
@@ -55,24 +54,18 @@
   
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   self.table.rowHeight = TableViewCellHeight;
-  self.table.backgroundColor = TableBackgroundColor;
   self.table.separatorColor = SeperatorColor;
   self.frontViewVisible = YES;
     
   // stops the settingsView navigationbar from appearing too high when flipped
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
+  
+  [super viewDidLoad];
 }
 
 - (void)loadPaperStyles
 {
-  UIImage *paper = [UIImage imageNamed:@"paperedge.png"];
-  CGFloat height = paper.size.height;
-  self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
-  
-  ShadowedTornEdgeView *tornEdge = [[[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
-  [self.view addSubview:tornEdge];
-  
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
   self.table.tableHeaderView = header;
     
@@ -185,6 +178,7 @@
   NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
   
   TaskViewController *taskView = [[TaskViewController alloc] initWithTask:(Task *)managedObject];
+  taskView.showsNotebookLines = NO;
   [self.navigationController pushViewController:taskView animated:YES];
   [taskView release];
   

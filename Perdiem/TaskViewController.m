@@ -36,18 +36,21 @@ enum TaskSectionRows {
 
 - (id)initWithTask:(Task *)task
 {
-  if ((self = [super initWithStyle:UITableViewStylePlain]))
+  if ((self = [super initWithNibName:@"StyledViewController" bundle:nil]))
   {
     selectedTask = task;
     self.hidesBottomBarWhenPushed = YES;
     self.title = @"Task";
     self.cellNib = [UINib nibWithNibName:@"FullViewTaskCell" bundle:nil];
-    self.tableView.backgroundColor = DarkTableBackgroundColor;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.table.backgroundColor = DarkTableBackgroundColor;
+    self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     TornEdgeView *tornEdge = [[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 15.0)];
-    self.tableView.tableFooterView = tornEdge;
+    self.table.tableFooterView = tornEdge;
     [tornEdge release];
+    showsNotebookLines = NO;
+    
+    self.table.backgroundColor = TableBackgroundColor;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
@@ -58,7 +61,7 @@ enum TaskSectionRows {
 - (void)toggleTaskComplete:(NSNotification *)notification
 {
   [selectedTask toggle];
-  [self.tableView reloadData];
+  [self.table reloadData];
 }
 
 - (void)dealloc
@@ -82,7 +85,7 @@ enum TaskSectionRows {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  [table deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -99,7 +102,7 @@ enum TaskSectionRows {
 {
   static NSString *CellIdentifier = @"FullViewTaskCell";
 
-  FullViewTaskCell *cell = (FullViewTaskCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  FullViewTaskCell *cell = (FullViewTaskCell *)[table dequeueReusableCellWithIdentifier:CellIdentifier];
   
   if (cell == nil)
   {

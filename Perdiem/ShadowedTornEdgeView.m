@@ -11,6 +11,8 @@
 
 @implementation ShadowedTornEdgeView
 
+@synthesize showsNotebookLines;
+
 - (id)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame]))
@@ -23,6 +25,7 @@
     TopShadow *topShadow = [[TopShadow alloc] initWithFrame:self.frame];
     [self addSubview:topShadow];
     [topShadow release];
+    showsNotebookLines = YES;
   }
   return self;
 }
@@ -40,8 +43,8 @@
     
     CGImageRelease(tiledImageRetRef);
   }
-  
-  [super drawRect:rect];
+  if (showsNotebookLines)
+    [super drawRect:rect];
 }
 
 @end

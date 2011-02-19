@@ -29,7 +29,7 @@
   CGContextBeginPath(context);
   
   CGFloat y = lineHeight + 20.0;
-  for (int i = 0; i < numOfLines; i++)
+  for (int i = 0; i < numOfLines && y + 10 < height; i++)
   {
     CGContextMoveToPoint(context, 0.0, y);
     CGContextAddLineToPoint(context, rect.size.width, y);

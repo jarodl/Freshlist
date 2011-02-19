@@ -8,17 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "StyledViewController.h"
 
 @class TaskCell;
 
-@interface RootViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface RootViewController : StyledViewController <NSFetchedResultsControllerDelegate>
 {
   BOOL frontViewVisible;
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
   UINib *cellNib;
-  UITableView *table;
 }
 
 @property (assign) BOOL frontViewVisible;
@@ -28,7 +28,6 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
-@property (nonatomic, retain) IBOutlet UITableView *table;
 
 - (void)loadPaperStyles;
 - (void)presentNewTaskView;
