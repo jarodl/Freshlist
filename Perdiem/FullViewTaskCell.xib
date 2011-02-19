@@ -99,6 +99,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="485624927"/>
 				<reference key="IBUIBackgroundColor" ref="347394221"/>
+				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClipsSubviews">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">2</int>
@@ -223,8 +224,27 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">StyledViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">table</string>
+						<string key="NS.object.0">UITableView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">table</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">table</string>
+							<string key="candidateClassName">UITableView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/StyledViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">TaskViewController</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="superclassName">StyledViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">tmpCell</string>
 						<string key="NS.object.0">FullViewTaskCell</string>

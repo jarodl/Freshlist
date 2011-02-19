@@ -45,17 +45,20 @@ enum TaskSectionRows {
     self.table.backgroundColor = DarkTableBackgroundColor;
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    TornEdgeView *tornEdge = [[TornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 15.0)];
-    self.table.tableFooterView = tornEdge;
-    [tornEdge release];
     showsNotebookLines = NO;
-    
-    self.table.backgroundColor = TableBackgroundColor;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
   
   return self;
+}
+
+- (void)viewDidLoad
+{
+  UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
+  footer.backgroundColor = TableBackgroundColor;
+  self.table.tableFooterView = footer;
+  [super viewDidLoad];
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification
@@ -77,8 +80,7 @@ enum TaskSectionRows {
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  // Return YES for supported orientations
-  return YES;
+  return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 #pragma mark - Table view data source
@@ -110,15 +112,24 @@ enum TaskSectionRows {
     cell = tmpCell;
     self.tmpCell = nil;
     
-    LinedView *bg = [[LinedView alloc] initWithFrame:cell.frame];
-    cell.backgroundView = bg;
-    [bg release];
+    cell.contentView.backgroundColor = TableBackgroundColor;
+    
+//    LinedView *bg = [[LinedView alloc] initWithFrame:cell.frame];
+//    cell.backgroundView = bg;
+//    [bg release];
   }
   
   [self configureCell:cell atIndexPath:indexPath];
   
   return cell;
 }
+
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//  UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
+//  footer.backgroundColor = TableBackgroundColor;
+//  return [footer autorelease];
+//}
 
 - (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {

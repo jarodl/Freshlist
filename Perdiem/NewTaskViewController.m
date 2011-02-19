@@ -7,6 +7,7 @@
 //
 
 #import "NewTaskViewController.h"
+#import "CustomNavigationBar.h"
 #import "RootViewController.h"
 #import "Globals.h"
 #import "Task.h"
@@ -97,6 +98,9 @@
   self.navigationController.navigationBar.tintColor = BarTintColor;
   newTaskField.backgroundColor = TableBackgroundColor;
   newTaskField.delegate = self;
+  
+  CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
+  [customNavBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
 }
 
 - (void)viewDidUnload
@@ -108,7 +112,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   // Return YES for supported orientations
-  return YES;
+  return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 @end

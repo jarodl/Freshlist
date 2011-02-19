@@ -13,6 +13,6 @@
 {
 }
 
-- (IBAction)saveSettings;
+- (void)saveSettings;
 
 @end

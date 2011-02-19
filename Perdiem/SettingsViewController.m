@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "CustomNavigationBar.h"
 #import "RootViewController.h"
 #import "Globals.h"
 
@@ -21,7 +22,7 @@
 
 #pragma mark - View lifecycle
 
-- (IBAction)saveSettings
+- (void)saveSettings
 {
   [(RootViewController *)self.navigationController.delegate flipCurrentView];
 }
@@ -29,13 +30,21 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.navigationController.navigationBar.tintColor = BarTintColor;
-  self.tableView.backgroundColor = TableBackgroundColor;
+  self.tableView.backgroundColor = CardboardBackgroundColor;
+  self.navigationController.navigationBar.tintColor = CardboardButtonColor;
+  
+  CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
+  [customNavBar setBackgroundWith:[UIImage imageNamed:@"cardboard_navbar"]];
+
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings)];
+  self.navigationItem.leftBarButtonItem = backButton;
+  
+  self.tableView.separatorColor = CardboardSeparatorColor;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return YES;
+  return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 #pragma -
@@ -71,6 +80,8 @@
   {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = CardboardCellTextColor;
   }
   
   [self configureCell:cell atIndexPath:indexPath];

@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "CustomNavigationBar.h"
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
 #import "NotebookView.h"
@@ -37,6 +38,10 @@
 
   [self removeExpiredTasks];
   
+  // custom nav bar
+  CustomNavigationBar *navBar = (CustomNavigationBar *)self.navigationController.navigationBar;
+  [navBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
+  
   // Set up the info and add button.
   UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Info"
                                                                      style:UIBarStyleBlackOpaque
@@ -66,7 +71,7 @@
 
 - (void)loadPaperStyles
 {
-  UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, 0.0f)];
+  UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.0)] autorelease];
   self.table.tableHeaderView = header;
     
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
@@ -114,7 +119,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

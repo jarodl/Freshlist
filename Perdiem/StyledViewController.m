@@ -8,6 +8,7 @@
 
 #import "StyledViewController.h"
 #import "ShadowedTornEdgeView.h"
+#import "CustomNavigationBar.h"
 #import "Globals.h"
 
 @implementation StyledViewController
@@ -28,19 +29,18 @@
 
 #pragma mark - View lifecycle
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   
-  UIImage *paper = [UIImage imageNamed:@"paperedge.png"];
+  UIImage *paper = [UIImage imageNamed:@"paperTear"];
   CGFloat height = paper.size.height;
-  self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
+  self.table.contentInset = UIEdgeInsetsMake(height - 5, 0.0, height - 5, 0.0);
+  
   ShadowedTornEdgeView *tornEdge = [[[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
   tornEdge.showsNotebookLines = showsNotebookLines;
   [self.view addSubview:tornEdge];
-  
-  self.table.backgroundColor = TableBackgroundColor;
+  self.table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taskViewBackground"]];
 }
 
 - (void)viewDidUnload
@@ -50,7 +50,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return YES;
+  return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

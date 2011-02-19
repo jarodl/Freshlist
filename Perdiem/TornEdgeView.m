@@ -17,28 +17,31 @@
     {
       self.opaque = YES;
       self.backgroundColor = [UIColor clearColor];
-      paperImage = [UIImage imageNamed:@"paperedge.png"];
+      paperImage = [UIImage imageNamed:@"paperTear"];
+      UIImageView *imageView = [[UIImageView alloc] initWithImage:paperImage];
+      [self addSubview:imageView];
+      [imageView release];
     }
   
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
-{
-  //Since we are retaining the image, we append with RetRef.  this reminds us to release at a later date.
-  if (paperImage)
-  {
-    CGImageRef tiledImageRetRef = CGImageRetain(paperImage.CGImage); 
-    CGRect imageRect = CGRectMake(0.0, 0.0, paperImage.size.width, paperImage.size.height);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextDrawTiledImage(context, imageRect, tiledImageRetRef);
-    
-    CGImageRelease(tiledImageRetRef);
-  }
-  
-  [super drawRect:rect];
-}
+//- (void)drawRect:(CGRect)rect
+//{
+//  //Since we are retaining the image, we append with RetRef.  this reminds us to release at a later date.
+//  if (paperImage)
+//  {
+//    CGImageRef tiledImageRetRef = CGImageRetain(paperImage.CGImage); 
+//    CGRect imageRect = CGRectMake(0.0, 0.0, paperImage.size.width, paperImage.size.height);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    CGContextDrawTiledImage(context, imageRect, tiledImageRetRef);
+//    
+//    CGImageRelease(tiledImageRetRef);
+//  }
+//  
+//  [super drawRect:rect];
+//}
 
 - (void)dealloc
 {
