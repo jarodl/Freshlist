@@ -58,7 +58,15 @@ enum TaskSectionRows {
   UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
   footer.backgroundColor = TableBackgroundColor;
   self.table.tableFooterView = footer;
-  [super viewDidLoad];
+  
+  UIImageView *header = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewHeader"]];
+  header.backgroundColor = [UIColor clearColor];
+  self.table.tableHeaderView = header;
+  [super viewDidLoad];  
+  CGFloat height = header.frame.size.height;
+  self.table.contentInset = UIEdgeInsetsMake(-height, 0, height, 0);
+  
+
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification

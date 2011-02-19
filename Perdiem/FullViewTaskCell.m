@@ -17,6 +17,7 @@
 {
   taskContent = newTaskContent;
   taskContentLabel.text = newTaskContent;
+  taskContentLabel.textColor = TableViewCellTextColor;
 }
 
 - (void)dealloc

@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.tableView.backgroundColor = CardboardBackgroundColor;
+  self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cardboardBackground"]];
   self.navigationController.navigationBar.tintColor = CardboardButtonColor;
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
@@ -91,7 +91,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  switch (indexPath.row) {
+  switch (indexPath.row)
+  {
     case 0:
       cell.textLabel.text = @"Purchase";
       cell.detailTextLabel.text = @"$1.99";
