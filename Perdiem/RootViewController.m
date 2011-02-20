@@ -32,8 +32,6 @@
 
 - (void)viewDidLoad
 {
-  showsNotebookLines = YES;
-  
   [self loadPaperStyles];
 
   [self removeExpiredTasks];

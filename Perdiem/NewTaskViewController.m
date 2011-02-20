@@ -19,13 +19,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  [newTaskField becomeFirstResponder];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
+  saveTaskButton.enabled = NO;
   newTaskField.text = @"";
+  [newTaskField becomeFirstResponder];
 }
 
 - (void)saveTask
