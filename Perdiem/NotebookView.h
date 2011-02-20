@@ -10,6 +10,7 @@
 
 @interface NotebookView : UIView
 {
+  BOOL hasHighResScreen;
 }
 
 @property (nonatomic) CGPoint startPoint;

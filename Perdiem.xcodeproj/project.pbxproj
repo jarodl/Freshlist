@@ -23,6 +23,7 @@
 		7A17C2731310663E001F306B /* taskViewHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2721310663E001F306B /* taskViewHeader@2x.png */; };
 		7A17C27613106BB3001F306B /* taskViewHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C27513106BB3001F306B /* taskViewHeader.png */; };
 		7A17C278131073EB001F306B /* cardboardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C277131073EB001F306B /* cardboardBackground.png */; };
+		7A17C27A1310F814001F306B /* paperTear.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2791310F814001F306B /* paperTear.png */; };
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A2724F7130B70460004990A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724F6130B70460004990A /* Icon.png */; };
 		7A2724FB130B87430004990A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724FA130B87430004990A /* Icon@2x.png */; };
@@ -102,6 +103,7 @@
 		7A17C2721310663E001F306B /* taskViewHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskViewHeader@2x.png"; sourceTree = "<group>"; };
 		7A17C27513106BB3001F306B /* taskViewHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskViewHeader.png; sourceTree = "<group>"; };
 		7A17C277131073EB001F306B /* cardboardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardboardBackground.png; sourceTree = "<group>"; };
+		7A17C2791310F814001F306B /* paperTear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperTear.png; sourceTree = "<group>"; };
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A2724F6130B70460004990A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				7A86C2A3130F9E7D00F20055 /* taskViewFooter.png */,
 				7A86C2A9130FBB6E00F20055 /* taskViewFooter@2x.png */,
 				7A86C2AB130FBE1600F20055 /* paperTear@2x.png */,
+				7A17C2791310F814001F306B /* paperTear.png */,
 				7A17C277131073EB001F306B /* cardboardBackground.png */,
 				7ACEDF3F1308F6F200106413 /* checked.png */,
 				7A17C2721310663E001F306B /* taskViewHeader@2x.png */,
@@ -490,6 +493,7 @@
 				7A17C2731310663E001F306B /* taskViewHeader@2x.png in Resources */,
 				7A17C27613106BB3001F306B /* taskViewHeader.png in Resources */,
 				7A17C278131073EB001F306B /* cardboardBackground.png in Resources */,
+				7A17C27A1310F814001F306B /* paperTear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

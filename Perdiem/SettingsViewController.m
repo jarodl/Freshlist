@@ -82,6 +82,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = CardboardCellTextColor;
+    cell.detailTextLabel.textColor = CardboardLightTextColor;
   }
   
   [self configureCell:cell atIndexPath:indexPath];

@@ -20,7 +20,9 @@
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.58 brightness:.60 alpha:0.3]
 #define LineHeight 17.0f;
 
-#define CardboardBackgroundColor [UIColor colorWithHue:0.0916 saturation:0.0 brightness:0.96 alpha:1.0]
-#define CardboardSeparatorColor [UIColor colorWithHue:0.0916 saturation:0.0 brightness:0.68 alpha:1.0]
-#define CardboardCellTextColor [UIColor colorWithHue:0.0916 saturation:0.0 brightness:0.25 alpha:1.0]
-#define CardboardButtonColor [UIColor colorWithHue:0.0916 saturation:0.0 brightness:0.88 alpha:1.0]
+#define CardboardBackgroundColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.70 alpha:1.0]
+#define CardboardSeparatorColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.45 alpha:1.0]
+#define CardboardLightTextColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.35 alpha:1.0]
+#define CardboardCellTextColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.25 alpha:1.0]
+#define CardboardDarkTextColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.12 alpha:1.0]
+#define CardboardButtonColor [UIColor colorWithHue:0.0583 saturation:0.20 brightness:0.20 alpha:1.0]

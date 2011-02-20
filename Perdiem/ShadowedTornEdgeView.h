@@ -8,12 +8,9 @@
 
 #import "NotebookView.h"
 
-@interface ShadowedTornEdgeView : NotebookView
+@interface ShadowedTornEdgeView : UIView
 {
   UIImage *paperImage;
-  BOOL showsNotebookLines;
 }
-
-@property (assign) BOOL showsNotebookLines;
 
 @end

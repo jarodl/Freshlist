@@ -20,6 +20,14 @@
   {
     startPoint = CGPointMake(44.0, 0.0);
     endPoint = CGPointMake(44.0, self.frame.size.height);
+    
+    hasHighResScreen = NO;
+    if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
+      CGFloat scale = [[UIScreen mainScreen] scale];
+      if (scale > 1.0) {
+        hasHighResScreen = YES;
+      }
+    }
   }
   return self;
 }
@@ -35,8 +43,12 @@
   CGContextBeginPath(context);
   CGContextMoveToPoint(context, startPoint.x, startPoint.y);
   CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
-  CGContextMoveToPoint(context, startPoint.x + 4.0f, startPoint.y);
-  CGContextAddLineToPoint(context, endPoint.x + 4.0f, endPoint.y);
+  
+  if (hasHighResScreen)
+  {
+    CGContextMoveToPoint(context, startPoint.x + 4.0f, startPoint.y);
+    CGContextAddLineToPoint(context, endPoint.x + 4.0f, endPoint.y);
+  }
   
   CGContextDrawPath(context, kCGPathStroke);
 }

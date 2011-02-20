@@ -35,10 +35,9 @@
   
   UIImage *paper = [UIImage imageNamed:@"paperTear"];
   CGFloat height = paper.size.height;
-  self.table.contentInset = UIEdgeInsetsMake(height - 5, 0.0, height - 5, 0.0);
+  self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
   
   ShadowedTornEdgeView *tornEdge = [[[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
-  tornEdge.showsNotebookLines = showsNotebookLines;
   [self.view addSubview:tornEdge];
   self.table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taskViewBackground"]];
 }
