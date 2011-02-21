@@ -78,6 +78,7 @@
 		7ACEDF221308DB3800106413 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACEDF211308DB3700106413 /* QuartzCore.framework */; };
 		7ACEDF411308F6F200106413 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF3F1308F6F200106413 /* checked.png */; };
 		7ACEDF421308F6F200106413 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACEDF401308F6F200106413 /* unchecked.png */; };
+		7AFA26821313176300A917AC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AFA26811313176300A917AC /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		7ACEDF3F1308F6F200106413 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		7ACEDF401308F6F200106413 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		7ACEDF431308FED800106413 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		7AFA26811313176300A917AC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFA26821313176300A917AC /* iAd.framework in Frameworks */,
 				7ACEDF221308DB3800106413 /* QuartzCore.framework in Frameworks */,
 				7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */,
 				7A45D1651307642E00DE1BBE /* Foundation.framework in Frameworks */,
@@ -242,6 +245,7 @@
 		7A45D1611307642E00DE1BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AFA26811313176300A917AC /* iAd.framework */,
 				7ACEDF211308DB3700106413 /* QuartzCore.framework */,
 				7A45D1621307642E00DE1BBE /* UIKit.framework */,
 				7A45D1641307642E00DE1BBE /* Foundation.framework */,

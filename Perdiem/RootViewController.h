@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "StyledTableViewController.h"
+#import <iAd/iAd.h>
 
 @class TaskCell;
 
-@interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate>
+@interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
 {
   BOOL frontViewVisible;
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
   UINib *cellNib;
+  ADBannerView *bannerView;
 }
 
 @property (assign) BOOL frontViewVisible;
@@ -28,6 +30,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
+@property (nonatomic, retain) ADBannerView *bannerView;
 
 - (void)loadPaperStyles;
 - (void)presentNewTaskView;
@@ -37,5 +40,10 @@
 - (IBAction)dismissSettingsView;
 - (void)toggleTaskComplete:(NSNotification *)notification;
 - (void)removeExpiredTasks;
+
+// iAd
+- (void)createBannerView;
+- (void)showBanner;
+- (void)hideBanner;
 
 @end

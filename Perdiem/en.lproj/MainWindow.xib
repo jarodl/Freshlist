@@ -54,7 +54,6 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -100,7 +99,6 @@
 									<string key="NSFrameSize">{320, 416}</string>
 									<reference key="NSSuperview" ref="948544497"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<object class="NSColor" key="IBUIBackgroundColor">
 										<int key="NSColorSpace">3</int>
 										<bytes key="NSWhite">MQA</bytes>
@@ -112,7 +110,7 @@
 									<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 									<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
 									<float key="IBUIRowHeight">44</float>
-									<float key="IBUISectionHeaderHeight">22</float>
+									<float key="IBUISectionHeaderHeight">21</float>
 									<float key="IBUISectionFooterHeight">22</float>
 								</object>
 							</object>
@@ -177,7 +175,6 @@
 									<string key="NSFrameSize">{320, 416}</string>
 									<reference key="NSSuperview" ref="119920327"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<object class="NSColor" key="IBUIBackgroundColor">
 										<int key="NSColorSpace">1</int>
 										<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -242,7 +239,7 @@
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<int key="IBUIBarStyle">1</int>
 				</object>
-				<object class="NSArray" key="IBUIViewControllers">
+				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="337868936">
 						<bool key="IBUIAutoresizesArchivedViewToFullSize">NO</bool>
@@ -257,7 +254,6 @@
 									<string key="NSFrameSize">{320, 416}</string>
 									<reference key="NSSuperview" ref="389714103"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<object class="NSColor" key="IBUIBackgroundColor">
 										<int key="NSColorSpace">10</int>
 										<object class="NSImage" key="NSImage">
@@ -593,6 +589,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">83</int>
 						<reference key="object" ref="21906848"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="948544497"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -715,7 +714,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">109</int>
+			<int key="maxID">114</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -837,12 +836,14 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bannerView</string>
 							<string>newTaskView</string>
 							<string>settingsView</string>
 							<string>tmpCell</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>ADBannerView</string>
 							<string>UINavigationController</string>
 							<string>UINavigationController</string>
 							<string>TaskCell</string>
@@ -852,12 +853,17 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bannerView</string>
 							<string>newTaskView</string>
 							<string>settingsView</string>
 							<string>tmpCell</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">bannerView</string>
+								<string key="candidateClassName">ADBannerView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">newTaskView</string>
 								<string key="candidateClassName">UINavigationController</string>

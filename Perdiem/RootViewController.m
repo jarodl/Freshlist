@@ -29,11 +29,10 @@
 @synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
+@synthesize bannerView;
 
 - (void)viewDidLoad
 {
-
-  
   [self loadPaperStyles];
 
   [self removeExpiredTasks];
@@ -57,7 +56,22 @@
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
   
+  [self createBannerView];
+  
   [super viewDidLoad];
+}
+
+- (void)viewDidUnload
+{
+  [super viewDidUnload];
+  
+  cellNib = nil;
+  tmpCell = nil;
+  
+  if (self.bannerView) {
+    bannerView.delegate = nil;
+    self.bannerView = nil;
+  }
 }
 
 - (void)loadPaperStyles
@@ -191,16 +205,13 @@
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
-  
-  cellNib = nil;
-  tmpCell = nil;
-}
-
 - (void)dealloc
 {
+  if (bannerView) {
+    bannerView.delegate = nil;
+    [bannerView release];
+  }
+  
   [__fetchedResultsController release];
   [__managedObjectContext release];
   [newTaskView release];
@@ -235,6 +246,7 @@
   
   if (frontViewVisible)
   {
+    [self hideBanner];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
@@ -243,10 +255,11 @@
   {
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
+    [self showBanner];
   }
-  
-  [UIView commitAnimations];
+
   frontViewVisible = !frontViewVisible;
+  [UIView commitAnimations];
 }
 
 - (void)myTransitionDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
@@ -369,6 +382,91 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.table endUpdates];
+}
+
+#pragma mark -
+#pragma mark ADBannerViewDelegate methods
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+  if (frontViewVisible) {
+    [self showBanner];
+  }
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+  [self hideBanner];
+}
+
+//- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
+//{
+//  return YES;
+//}
+//
+//- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+//{
+//	
+//}
+
+- (void)createBannerView
+{
+  Class cls = NSClassFromString(@"ADBannerView");
+  if (cls) {
+    ADBannerView *adView = [[cls alloc] initWithFrame:CGRectZero];
+    adView.requiredContentSizeIdentifiers = [NSSet setWithObjects:
+                                             ADBannerContentSizeIdentifierPortrait,
+                                             nil];
+		
+    // Set the current size based on device orientation
+    adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+    adView.delegate = self;
+		
+    adView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleRightMargin;
+		
+    // Set initial frame to be offscreen
+    CGRect bannerFrame = adView.frame;
+    bannerFrame.origin.y = self.view.frame.size.height;
+    adView.frame = bannerFrame;
+		
+    self.bannerView = adView;
+    [self.view addSubview:adView];
+    [adView release];
+  }
+}
+
+- (void)showBanner
+{
+  CGFloat fullViewHeight = self.view.frame.size.height;
+  CGRect tableFrame = self.table.frame;
+  CGRect bannerFrame = self.bannerView.frame;
+  
+  // Shrink the tableview to create space for banner
+  tableFrame.size.height = fullViewHeight - bannerFrame.size.height;
+  
+  // Move banner onscreen
+  bannerFrame.origin.y = fullViewHeight - bannerFrame.size.height; 
+	
+  [UIView beginAnimations:@"showBanner" context:NULL];
+  self.table.frame = tableFrame;
+  self.bannerView.frame = bannerFrame;
+  [UIView commitAnimations];
+}
+
+- (void)hideBanner
+{
+  // Grow the tableview to occupy space left by banner
+  CGFloat fullViewHeight = self.view.frame.size.height;
+  CGRect tableFrame = self.table.frame;
+  tableFrame.size.height = fullViewHeight;
+	
+  // Move the banner view offscreen
+  CGRect bannerFrame = self.bannerView.frame;
+  bannerFrame.origin.y = fullViewHeight;
+	
+  self.table.frame = tableFrame;
+  self.bannerView.frame = bannerFrame;
 }
 
 @end
