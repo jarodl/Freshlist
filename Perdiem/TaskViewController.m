@@ -167,7 +167,7 @@ enum TaskSectionRows {
   CGSize constraintSize = CGSizeMake(234.0f, MAXFLOAT);
   CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
   
-  return (labelSize.height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : labelSize.height;
+  return (labelSize.height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : labelSize.height + SingleTableViewCellMargin;
 }
 
 @end
