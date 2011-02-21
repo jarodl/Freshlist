@@ -6,14 +6,10 @@
 //  Copyright 2011 Jarod Luebbert. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TaskCell.h"
 
-@interface FullViewTaskCell : UITableViewCell
+@interface FullViewTaskCell : TaskCell
 {
-  NSString *taskContent;
-  IBOutlet UILabel *taskContentLabel;  
 }
-
-@property (nonatomic, retain, setter = setTaskContent:) NSString *taskContent;
 
 @end

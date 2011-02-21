@@ -51,11 +51,6 @@
 #pragma -
 #pragma TableViewDelegate
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-  return @"Upgrade";
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
   return @"For a limited time, tell a friend about Freshlist to remove all ads for free.";

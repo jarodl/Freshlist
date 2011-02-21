@@ -306,18 +306,13 @@
 			children = (
 				7A45D17C1307642E00DE1BBE /* RootViewController.h */,
 				7A45D17D1307642E00DE1BBE /* RootViewController.m */,
-				7A0CAC2C130F546100E07405 /* CustomNavigationBar.h */,
-				7A0CAC2D130F546100E07405 /* CustomNavigationBar.m */,
 				7AC1516C130781A100DFF2EF /* NewTaskViewController.h */,
 				7AC1516D130781A100DFF2EF /* NewTaskViewController.m */,
 				7AC1517013079B5C00DFF2EF /* TaskViewController.h */,
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
 				7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */,
 				7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */,
-				7A0CAC18130F389600E07405 /* StyledViewController.h */,
-				7A0CAC19130F389600E07405 /* StyledViewController.m */,
-				7A17C28B131192E1001F306B /* StyledTableViewController.h */,
-				7A17C28C131192E5001F306B /* StyledTableViewController.m */,
+				7AFA264B131301F600A917AC /* Customized Controllers */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -424,6 +419,19 @@
 				7A0CAC21130F4ECD00E07405 /* CardboardGradient.m */,
 			);
 			name = Layers;
+			sourceTree = "<group>";
+		};
+		7AFA264B131301F600A917AC /* Customized Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CAC2C130F546100E07405 /* CustomNavigationBar.h */,
+				7A0CAC2D130F546100E07405 /* CustomNavigationBar.m */,
+				7A0CAC18130F389600E07405 /* StyledViewController.h */,
+				7A0CAC19130F389600E07405 /* StyledViewController.m */,
+				7A17C28B131192E1001F306B /* StyledTableViewController.h */,
+				7A17C28C131192E5001F306B /* StyledTableViewController.m */,
+			);
+			name = "Customized Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

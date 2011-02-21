@@ -11,8 +11,6 @@
 
 @implementation FullViewTaskCell
 
-@synthesize taskContent;
-
 - (void)setTaskContent:(NSString *)newTaskContent
 {
   taskContent = newTaskContent;
@@ -22,7 +20,7 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+  [super dealloc];
 }
 
 @end

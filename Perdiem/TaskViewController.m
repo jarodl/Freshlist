@@ -10,7 +10,7 @@
 #import "CustomNavigationBar.h"
 #import "FullViewTaskCell.h"
 #import "TornEdgeView.h"
-#import "LinedView.h"
+//#import "LinedView.h"
 #import "Globals.h"
 #import "Task.h"
 
@@ -135,9 +135,9 @@ enum TaskSectionRows {
     [self.cellNib instantiateWithOwner:self options:nil];
     cell = tmpCell;
     self.tmpCell = nil;
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = TableBackgroundColor;
-    
+//    
 //    LinedView *bg = [[LinedView alloc] initWithFrame:cell.frame];
 //    cell.backgroundView = bg;
 //    [bg release];
@@ -148,16 +148,11 @@ enum TaskSectionRows {
   return cell;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-//{
-//  UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
-//  footer.backgroundColor = TableBackgroundColor;
-//  return [footer autorelease];
-//}
-
 - (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   cell.taskContent = selectedTask.content;
+  cell.checked = [selectedTask.completed integerValue];
+  cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
