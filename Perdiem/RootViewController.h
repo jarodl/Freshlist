@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "StyledViewController.h"
+#import "StyledTableViewController.h"
 
 @class TaskCell;
 
-@interface RootViewController : StyledViewController <NSFetchedResultsControllerDelegate>
+@interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate>
 {
   BOOL frontViewVisible;
   UINavigationController *newTaskView;

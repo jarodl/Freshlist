@@ -56,7 +56,7 @@
 }
 
 // With a custom back button, we have to provide the action. We simply pop the view controller
-- (IBAction)back:(id)sender
+- (void)back
 {
   [self.navigationController popViewControllerAnimated:YES];
 }
@@ -98,7 +98,7 @@
   [button setBackgroundImage:buttonHighlightImage forState:UIControlStateSelected];
 
   // Add an action for going back
-  [button addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+  [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
 
   return button;
 }

@@ -6,9 +6,9 @@
 //  Copyright 2011 Franana Games. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "StyledTableViewController.h"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController : StyledTableViewController
 {
 }
 

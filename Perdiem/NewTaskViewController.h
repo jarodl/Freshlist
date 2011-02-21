@@ -6,16 +6,20 @@
 //  Copyright 2011 Jarod Luebbert. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "StyledViewController.h"
 
-@interface NewTaskViewController : UIViewController <UITextViewDelegate>
+@interface NewTaskViewController : StyledViewController <UITextViewDelegate>
 {
   UITextView *newTaskField;
-  IBOutlet UIBarButtonItem *saveTaskButton;
+  UIBarButtonItem *saveTaskButton;
+  UIBarButtonItem *cancelButton;
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *newTaskField;
+@property (nonatomic, retain) UIBarButtonItem *saveTaskButton;
+@property (nonatomic, retain) UIBarButtonItem *cancelButton;
 
-- (IBAction)saveTask;
+- (void)saveTask;
+- (void)cancel;
 
 @end

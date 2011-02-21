@@ -38,5 +38,6 @@
 -(void) clearBackground;
 -(UIButton*) backButtonWith:(UIImage*)backButtonImage highlight:(UIImage*)backButtonHighlightImage leftCapWidth:(CGFloat)capWidth;
 -(void) setText:(NSString*)text onBackButton:(UIButton*)backButton;
+- (void)back;
 
 @end

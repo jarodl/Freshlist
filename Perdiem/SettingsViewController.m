@@ -30,16 +30,17 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cardboardBackground"]];
+  self.table.backgroundColor = CardboardBackgroundColor;
   self.navigationController.navigationBar.tintColor = CardboardButtonColor;
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
   [customNavBar setBackgroundWith:[UIImage imageNamed:@"cardboard_navbar"]];
 
-  UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings)];
-  self.navigationItem.leftBarButtonItem = backButton;
+  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Back" withImageName:@"cardboardBarButton"];
+  UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
+  [leftButton addTarget:self action:@selector(saveSettings) forControlEvents:UIControlEventTouchUpInside];
   
-  self.tableView.separatorColor = CardboardSeparatorColor;
+  self.table.separatorColor = CardboardSeparatorColor;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -50,15 +51,15 @@
 #pragma -
 #pragma TableViewDelegate
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-  return @"Upgrade";
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-  return @"For a limited time, tell a friend about Freshlist to remove all ads for free.";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//  return @"Upgrade";
+//}
+//
+//- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+//{
+//  return @"For a limited time, tell a friend about Freshlist to remove all ads for free.";
+//}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

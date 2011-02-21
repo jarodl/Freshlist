@@ -24,6 +24,14 @@
 		7A17C27613106BB3001F306B /* taskViewHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C27513106BB3001F306B /* taskViewHeader.png */; };
 		7A17C278131073EB001F306B /* cardboardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C277131073EB001F306B /* cardboardBackground.png */; };
 		7A17C27A1310F814001F306B /* paperTear.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2791310F814001F306B /* paperTear.png */; };
+		7A17C28413111322001F306B /* customBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C28313111322001F306B /* customBarButton@2x.png */; };
+		7A17C28D131192EE001F306B /* StyledTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A17C28C131192E5001F306B /* StyledTableViewController.m */; };
+		7A17C28F1311C1C0001F306B /* customBarButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C28E1311C1C0001F306B /* customBarButtonPress.png */; };
+		7A17C2931311C5C8001F306B /* customBarButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2921311C5C8001F306B /* customBarButtonPress@2x.png */; };
+		7A17C2951311D3DA001F306B /* cardboardBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2941311D3DA001F306B /* cardboardBarButton@2x.png */; };
+		7A17C2981311D948001F306B /* cardboardBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2961311D945001F306B /* cardboardBarButton.png */; };
+		7A17C2991311D948001F306B /* cardboardBarButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2971311D946001F306B /* cardboardBarButtonPress.png */; };
+		7A17C29B1311DA25001F306B /* cardboardBarButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C29A1311DA24001F306B /* cardboardBarButtonPress@2x.png */; };
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
 		7A2724F7130B70460004990A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724F6130B70460004990A /* Icon.png */; };
 		7A2724FB130B87430004990A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724FA130B87430004990A /* Icon@2x.png */; };
@@ -104,6 +112,15 @@
 		7A17C27513106BB3001F306B /* taskViewHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskViewHeader.png; sourceTree = "<group>"; };
 		7A17C277131073EB001F306B /* cardboardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardboardBackground.png; sourceTree = "<group>"; };
 		7A17C2791310F814001F306B /* paperTear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperTear.png; sourceTree = "<group>"; };
+		7A17C28313111322001F306B /* customBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customBarButton@2x.png"; sourceTree = "<group>"; };
+		7A17C28B131192E1001F306B /* StyledTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledTableViewController.h; sourceTree = "<group>"; };
+		7A17C28C131192E5001F306B /* StyledTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledTableViewController.m; sourceTree = "<group>"; };
+		7A17C28E1311C1C0001F306B /* customBarButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customBarButtonPress.png; sourceTree = "<group>"; };
+		7A17C2921311C5C8001F306B /* customBarButtonPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customBarButtonPress@2x.png"; sourceTree = "<group>"; };
+		7A17C2941311D3DA001F306B /* cardboardBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardboardBarButton@2x.png"; sourceTree = "<group>"; };
+		7A17C2961311D945001F306B /* cardboardBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardboardBarButton.png; sourceTree = "<group>"; };
+		7A17C2971311D946001F306B /* cardboardBarButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardboardBarButtonPress.png; sourceTree = "<group>"; };
+		7A17C29A1311DA24001F306B /* cardboardBarButtonPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardboardBarButtonPress@2x.png"; sourceTree = "<group>"; };
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		7A2724F6130B70460004990A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -297,6 +314,8 @@
 				7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */,
 				7A0CAC18130F389600E07405 /* StyledViewController.h */,
 				7A0CAC19130F389600E07405 /* StyledViewController.m */,
+				7A17C28B131192E1001F306B /* StyledTableViewController.h */,
+				7A17C28C131192E5001F306B /* StyledTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -335,6 +354,13 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A17C2961311D945001F306B /* cardboardBarButton.png */,
+				7A17C2971311D946001F306B /* cardboardBarButtonPress.png */,
+				7A17C28313111322001F306B /* customBarButton@2x.png */,
+				7A17C28E1311C1C0001F306B /* customBarButtonPress.png */,
+				7A17C2921311C5C8001F306B /* customBarButtonPress@2x.png */,
+				7A17C2941311D3DA001F306B /* cardboardBarButton@2x.png */,
+				7A17C29A1311DA24001F306B /* cardboardBarButtonPress@2x.png */,
 				7A17C27513106BB3001F306B /* taskViewHeader.png */,
 				7A86C2A5130FAAC600F20055 /* taskViewBackground.png */,
 				7A0CAC39130F7AF600E07405 /* customBarButton.png */,
@@ -494,6 +520,13 @@
 				7A17C27613106BB3001F306B /* taskViewHeader.png in Resources */,
 				7A17C278131073EB001F306B /* cardboardBackground.png in Resources */,
 				7A17C27A1310F814001F306B /* paperTear.png in Resources */,
+				7A17C28413111322001F306B /* customBarButton@2x.png in Resources */,
+				7A17C28F1311C1C0001F306B /* customBarButtonPress.png in Resources */,
+				7A17C2931311C5C8001F306B /* customBarButtonPress@2x.png in Resources */,
+				7A17C2951311D3DA001F306B /* cardboardBarButton@2x.png in Resources */,
+				7A17C2981311D948001F306B /* cardboardBarButton.png in Resources */,
+				7A17C2991311D948001F306B /* cardboardBarButtonPress.png in Resources */,
+				7A17C29B1311DA25001F306B /* cardboardBarButtonPress@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +585,7 @@
 				7A0CAC1F130F4E0200E07405 /* CardboardNavBar.m in Sources */,
 				7A0CAC22130F4ECD00E07405 /* CardboardGradient.m in Sources */,
 				7A0CAC2E130F546300E07405 /* CustomNavigationBar.m in Sources */,
+				7A17C28D131192EE001F306B /* StyledTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

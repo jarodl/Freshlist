@@ -7,6 +7,7 @@
 //
 
 #import "TaskViewController.h"
+#import "CustomNavigationBar.h"
 #import "FullViewTaskCell.h"
 #import "TornEdgeView.h"
 #import "LinedView.h"
@@ -55,6 +56,9 @@ enum TaskSectionRows {
 
 - (void)viewDidLoad
 {
+  [self loadShadowedTornEdge];
+  [super viewDidLoad];
+  
   UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
   footer.backgroundColor = TableBackgroundColor;
   self.table.tableFooterView = footer;
@@ -65,8 +69,20 @@ enum TaskSectionRows {
   [super viewDidLoad];  
   CGFloat height = header.frame.size.height;
   self.table.contentInset = UIEdgeInsetsMake(-height, 0, height, 0);
-  
 
+  CustomNavigationBar *customNavigationBar = (CustomNavigationBar *)self.navigationController.navigationBar;
+  // Create a custom back button
+  UIButton* backButton = [customNavigationBar backButtonWith:[UIImage imageNamed:@"navigationBarBackButton"]
+                                                   highlight:nil
+                                                leftCapWidth:14.0];
+  backButton.titleLabel.textColor = [UIColor whiteColor];
+  [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+  self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
+}
+
+- (void)back
+{
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification

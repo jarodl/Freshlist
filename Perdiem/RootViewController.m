@@ -32,26 +32,19 @@
 
 - (void)viewDidLoad
 {
+
+  
   [self loadPaperStyles];
 
   [self removeExpiredTasks];
   
-  // custom nav bar
-  CustomNavigationBar *navBar = (CustomNavigationBar *)self.navigationController.navigationBar;
-  [navBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
+  self.navigationItem.rightBarButtonItem = [self customBarButtonItemWithText:@"New" withImageName:@"customBarButton"];
+  UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
+  [rightButton addTarget:self action:@selector(presentNewTaskView) forControlEvents:UIControlEventTouchUpInside];
   
-  // Set up the info and add button.
-  UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Info"
-                                                                     style:UIBarStyleBlackOpaque
-                                                                    target:self
-                                                                    action:@selector(flipCurrentView)];
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                             target:self
-                                                                             action:@selector(presentNewTaskView)];
-  self.navigationItem.rightBarButtonItem = addButton;
-  self.navigationItem.leftBarButtonItem = settingsButton;
-  [settingsButton release];
-  [addButton release];
+  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Info" withImageName:@"customBarButton"];
+  UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
+  [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   
@@ -75,6 +68,8 @@
   NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
   background.backgroundColor = TableBackgroundColor;
   self.table.backgroundView = background;
+  
+  [self loadShadowedTornEdge];
 }
 
 - (void)removeExpiredTasks

@@ -15,6 +15,8 @@
 @implementation NewTaskViewController
 
 @synthesize newTaskField;
+@synthesize saveTaskButton;
+@synthesize cancelButton;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -29,6 +31,11 @@
   NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSDate date], newTaskField.text, nil]
                                                    forKeys:[NSArray arrayWithObjects:@"timeStamp", @"content", nil]];
   [Task taskFromDictionary:task];
+  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
+}
+
+- (void)cancel
+{
   [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
 }
 
@@ -95,8 +102,15 @@
   newTaskField.backgroundColor = TableBackgroundColor;
   newTaskField.delegate = self;
   
-  CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
-  [customNavBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
+  cancelButton = [self customBarButtonItemWithText:@"Cancel" withImageName:@"customBarButton"];
+  self.navigationItem.leftBarButtonItem = cancelButton;
+  UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
+  [leftButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+  
+  saveTaskButton = [self customBarButtonItemWithText:@"Save" withImageName:@"customBarButton"];
+  self.navigationItem.rightBarButtonItem = saveTaskButton;
+  UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
+  [rightButton addTarget:self action:@selector(saveTask) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidUnload

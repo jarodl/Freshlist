@@ -6,12 +6,12 @@
 //  Copyright 2011 Jarod Luebbert. All rights reserved.
 //
 
-#import "StyledViewController.h"
+#import "StyledTableViewController.h"
 
 @class Task;
 @class FullViewTaskCell;
 
-@interface TaskViewController : StyledViewController
+@interface TaskViewController : StyledTableViewController
 {
   Task *selectedTask;
   FullViewTaskCell *tmpCell;
@@ -24,5 +24,6 @@
 
 - (id)initWithTask:(Task *)task;
 - (void)toggleTaskComplete:(NSNotification *)notification;
+- (void)back;
 
 @end
