@@ -33,8 +33,6 @@
 		7A17C29B1311DA25001F306B /* cardboardBarButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C29A1311DA24001F306B /* cardboardBarButtonPress@2x.png */; };
 		7A17C29F1311E842001F306B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C29E1311E83F001F306B /* Default.png */; };
 		7A1BD4CC13099AD800F52EF6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */; };
-		7A2724F7130B70460004990A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724F6130B70460004990A /* Icon.png */; };
-		7A2724FB130B87430004990A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2724FA130B87430004990A /* Icon@2x.png */; };
 		7A2D9859130C2D230080063F /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2D9858130C2D230080063F /* checked@2x.png */; };
 		7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2D985B130C2D400080063F /* unchecked@2x.png */; };
 		7A33754D1309BE5E0052F24F /* AIShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33754C1309BE5E0052F24F /* AIShadowGradient.m */; };
@@ -58,6 +56,8 @@
 		7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1951307642E00DE1BBE /* PerdiemTests.h */; };
 		7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1971307642E00DE1BBE /* PerdiemTests.m */; };
 		7A4F0E811311E99200C713C1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E801311E99200C713C1 /* Default@2x.png */; };
+		7A4F0E83131287F600C713C1 /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E82131287F500C713C1 /* Icon_57.png */; };
+		7A4F0E851312880C00C713C1 /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E841312880B00C713C1 /* Icon_114.png */; };
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
@@ -124,8 +124,6 @@
 		7A17C29E1311E83F001F306B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		7A1BD4CA13099AD800F52EF6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		7A1BD4CB13099AD800F52EF6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		7A2724F6130B70460004990A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		7A2724FA130B87430004990A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		7A2D9858130C2D230080063F /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked@2x.png"; sourceTree = "<group>"; };
 		7A2D985B130C2D400080063F /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
 		7A33754B1309BE5E0052F24F /* AIShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIShadowGradient.h; sourceTree = "<group>"; };
@@ -158,6 +156,8 @@
 		7A45D1A11307648000DE1BBE /* Perdiem 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 2.xcdatamodel"; sourceTree = "<group>"; };
 		7A45D1A21307654200DE1BBE /* Perdiem 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 3.xcdatamodel"; sourceTree = "<group>"; };
 		7A4F0E801311E99200C713C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		7A4F0E82131287F500C713C1 /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_57.png; path = ../Icon_57.png; sourceTree = "<group>"; };
+		7A4F0E841312880B00C713C1 /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_114.png; path = ../Icon_114.png; sourceTree = "<group>"; };
 		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
 		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
 		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
@@ -356,6 +356,8 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A4F0E841312880B00C713C1 /* Icon_114.png */,
+				7A4F0E82131287F500C713C1 /* Icon_57.png */,
 				7A17C29E1311E83F001F306B /* Default.png */,
 				7A4F0E801311E99200C713C1 /* Default@2x.png */,
 				7A17C2961311D945001F306B /* cardboardBarButton.png */,
@@ -373,8 +375,6 @@
 				7A0CAC33130F6A2700E07405 /* cardboard_navbar.png */,
 				7A0CAC3B130F7EB800E07405 /* cardboard_navbar@2x.png */,
 				7A0CAC31130F600800E07405 /* blue_navbar@2x.png */,
-				7A2724F6130B70460004990A /* Icon.png */,
-				7A2724FA130B87430004990A /* Icon@2x.png */,
 				7A86C2A7130FBB6200F20055 /* taskViewBackground@2x.png */,
 				7A86C2A3130F9E7D00F20055 /* taskViewFooter.png */,
 				7A86C2A9130FBB6E00F20055 /* taskViewFooter@2x.png */,
@@ -501,8 +501,6 @@
 				7ACEDF0A13084D7A00106413 /* TaskCell.xib in Resources */,
 				7ACEDF411308F6F200106413 /* checked.png in Resources */,
 				7ACEDF421308F6F200106413 /* unchecked.png in Resources */,
-				7A2724F7130B70460004990A /* Icon.png in Resources */,
-				7A2724FB130B87430004990A /* Icon@2x.png in Resources */,
 				7A2D9859130C2D230080063F /* checked@2x.png in Resources */,
 				7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */,
 				7A8227A6130F148600CEDBA9 /* FullViewTaskCell.xib in Resources */,
@@ -531,6 +529,8 @@
 				7A17C29B1311DA25001F306B /* cardboardBarButtonPress@2x.png in Resources */,
 				7A17C29F1311E842001F306B /* Default.png in Resources */,
 				7A4F0E811311E99200C713C1 /* Default@2x.png in Resources */,
+				7A4F0E83131287F600C713C1 /* Icon_57.png in Resources */,
+				7A4F0E851312880C00C713C1 /* Icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,7 +650,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
@@ -665,7 +665,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -682,7 +682,7 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Freshlist;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -698,7 +698,7 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Freshlist;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
