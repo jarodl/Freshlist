@@ -16,6 +16,7 @@
 @interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
 {
   BOOL frontViewVisible;
+  BOOL bannerIsVisible;
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
@@ -43,6 +44,7 @@
 
 // iAd
 - (void)createBannerView;
+//- (void)layoutBanner:(BOOL)animated;
 - (void)showBanner;
 - (void)hideBanner;
 

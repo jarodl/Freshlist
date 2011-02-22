@@ -57,14 +57,13 @@
   self.title = @"Today";
   
   [self createBannerView];
+  [self showBanner];
   
   [super viewDidLoad];
 }
 
 - (void)viewDidUnload
 {
-  [super viewDidUnload];
-  
   cellNib = nil;
   tmpCell = nil;
   
@@ -73,6 +72,18 @@
     self.bannerView = nil;
   }
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self showBanner];
+}
+
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+////  [self hideBanner];
+//  [super viewWillDisappear:animated];
+//}
 
 - (void)loadPaperStyles
 {
@@ -199,10 +210,10 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
+  // Releases the view if it doesn't have a superview.
+  [super didReceiveMemoryWarning];
+  
+  // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 - (void)dealloc
@@ -250,6 +261,7 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
+    [self showBanner];
   }
   else
   {
@@ -283,7 +295,7 @@
 {
   if (__fetchedResultsController != nil)
   {
-      return __fetchedResultsController;
+    return __fetchedResultsController;
   }
   
   /*
@@ -381,7 +393,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.table endUpdates];
+  [self.table endUpdates];
 }
 
 #pragma mark -
@@ -389,50 +401,77 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-  if (frontViewVisible) {
+  if (frontViewVisible)
+  {
     [self showBanner];
   }
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-  [self hideBanner];
+  if (bannerIsVisible)
+  {
+    [self hideBanner];
+  }
 }
 
-//- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
-//{
-//  return YES;
-//}
-//
-//- (void)bannerViewActionDidFinish:(ADBannerView *)banner
-//{
-//	
-//}
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
+{
+  return YES;
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+}
 
 - (void)createBannerView
 {
   Class cls = NSClassFromString(@"ADBannerView");
   if (cls) {
-    ADBannerView *adView = [[cls alloc] initWithFrame:CGRectZero];
-    adView.requiredContentSizeIdentifiers = [NSSet setWithObjects:
-                                             ADBannerContentSizeIdentifierPortrait,
-                                             nil];
-		
-    // Set the current size based on device orientation
-    adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
-    adView.delegate = self;
-		
-    adView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleRightMargin;
-		
-    // Set initial frame to be offscreen
-    CGRect bannerFrame = adView.frame;
-    bannerFrame.origin.y = self.view.frame.size.height;
-    adView.frame = bannerFrame;
-		
-    self.bannerView = adView;
-    [self.view addSubview:adView];
-    [adView release];
+    ADBannerView *adBanner = [[cls alloc] initWithFrame:CGRectZero];
+    
+    // Depending on our orientation when this method is called, we set our initial content size.
+    // If you only support portrait or landscape orientations, then you can remove this check and
+    // select either ADBannerContentSizeIdentifierPortrait (if portrait only) or ADBannerContentSizeIdentifierLandscape (if landscape only).
+    NSString *contentSize;
+    if (&ADBannerContentSizeIdentifierPortrait != nil)
+    {
+      contentSize = ADBannerContentSizeIdentifierPortrait;
+    }
+    else
+    {
+      // user the older sizes 
+      contentSize = ADBannerContentSizeIdentifier320x50;
+    }
+    
+    // Calculate the intial location for the banner.
+    // We want this banner to be at the bottom of the view controller, but placed
+    // offscreen to ensure that the user won't see the banner until its ready.
+    // We'll be informed when we have an ad to show because -bannerViewDidLoadAd: will be called.
+    CGRect frame;
+    frame.size = [ADBannerView sizeFromBannerContentSizeIdentifier:contentSize];
+    frame.origin = CGPointMake(0.0f, CGRectGetMaxY(self.view.bounds));
+    
+    // Now set the banner view's frame
+    adBanner.frame = frame;
+    
+    // Set the delegate to self, so that we are notified of ad responses.
+    adBanner.delegate = self;
+    
+    // Set the autoresizing mask so that the banner is pinned to the bottom
+    adBanner.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+    
+    // Since we support all orientations in this view controller, support portrait and landscape content sizes.
+    // If you only supported landscape or portrait, you could remove the other from this set
+    adBanner.requiredContentSizeIdentifiers =
+    (&ADBannerContentSizeIdentifierPortrait != nil) ?
+    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, ADBannerContentSizeIdentifierLandscape, nil] : 
+    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, ADBannerContentSizeIdentifier480x32, nil];
+    
+    // At this point the ad banner is now be visible and looking for an ad.
+    self.bannerView = adBanner;
+    [self.view addSubview:adBanner];
+    [adBanner release];
   }
 }
 
@@ -452,6 +491,7 @@
   self.table.frame = tableFrame;
   self.bannerView.frame = bannerFrame;
   [UIView commitAnimations];
+  bannerIsVisible = YES;
 }
 
 - (void)hideBanner
@@ -467,6 +507,7 @@
 	
   self.table.frame = tableFrame;
   self.bannerView.frame = bannerFrame;
+  bannerIsVisible = NO;
 }
 
 @end
