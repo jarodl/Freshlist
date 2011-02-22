@@ -57,6 +57,7 @@ enum TaskSectionRows {
 - (void)viewDidLoad
 {
   [self loadShadowedTornEdge];
+  
   [super viewDidLoad];
   
   UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];

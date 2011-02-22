@@ -55,7 +55,8 @@
   self.title = @"Today";
   
   [self createBannerView];
-  [self showBanner];
+  [self layoutBanner:NO];
+  [self removeExpiredTasks];
   
   [super viewDidLoad];
 }
@@ -70,19 +71,6 @@
     self.bannerView = nil;
   }
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-  [super viewWillAppear:animated];
-  [self showBanner];
-  [self removeExpiredTasks];
-}
-
-//- (void)viewWillDisappear:(BOOL)animated
-//{
-////  [self hideBanner];
-//  [super viewWillDisappear:animated];
-//}
 
 - (void)loadPaperStyles
 {
@@ -178,13 +166,13 @@
     NSError *error = nil;
     if (![context save:&error])
     {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+      /*
+       Replace this implementation with code to handle the error appropriately.
+       
+       abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+       */
+      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      abort();
     }
   }   
 }
@@ -253,22 +241,21 @@
   [UIView setAnimationDuration:0.75];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
-  
+
   if (frontViewVisible)
   {
-    [self hideBanner];
+    [self removeBanner];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
-    [self showBanner];
   }
   else
   {
+    [self addBanner];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
-    [self showBanner];
   }
-
+  
   frontViewVisible = !frontViewVisible;
   [UIView commitAnimations];
 }
@@ -402,16 +389,13 @@
 {
   if (frontViewVisible)
   {
-    [self showBanner];
+    [self layoutBanner:YES];
   }
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-  if (bannerIsVisible)
-  {
-    [self hideBanner];
-  }
+  [self layoutBanner:YES];
 }
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
@@ -429,9 +413,6 @@
   if (cls) {
     ADBannerView *adBanner = [[cls alloc] initWithFrame:CGRectZero];
     
-    // Depending on our orientation when this method is called, we set our initial content size.
-    // If you only support portrait or landscape orientations, then you can remove this check and
-    // select either ADBannerContentSizeIdentifierPortrait (if portrait only) or ADBannerContentSizeIdentifierLandscape (if landscape only).
     NSString *contentSize;
     if (&ADBannerContentSizeIdentifierPortrait != nil)
     {
@@ -443,10 +424,6 @@
       contentSize = ADBannerContentSizeIdentifier320x50;
     }
     
-    // Calculate the intial location for the banner.
-    // We want this banner to be at the bottom of the view controller, but placed
-    // offscreen to ensure that the user won't see the banner until its ready.
-    // We'll be informed when we have an ad to show because -bannerViewDidLoadAd: will be called.
     CGRect frame;
     frame.size = [ADBannerView sizeFromBannerContentSizeIdentifier:contentSize];
     frame.origin = CGPointMake(0.0f, CGRectGetMaxY(self.view.bounds));
@@ -464,8 +441,8 @@
     // If you only supported landscape or portrait, you could remove the other from this set
     adBanner.requiredContentSizeIdentifiers =
     (&ADBannerContentSizeIdentifierPortrait != nil) ?
-    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, ADBannerContentSizeIdentifierLandscape, nil] : 
-    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, ADBannerContentSizeIdentifier480x32, nil];
+    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
+    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
     
     // At this point the ad banner is now be visible and looking for an ad.
     self.bannerView = adBanner;
@@ -474,39 +451,40 @@
   }
 }
 
-- (void)showBanner
+- (void)layoutBanner:(BOOL)animated
 {
-  CGFloat fullViewHeight = self.view.frame.size.height;
-  CGRect tableFrame = self.table.frame;
-  CGRect bannerFrame = self.bannerView.frame;
+  CGRect contentFrame = self.table.frame;
+	CGPoint bannerOrigin = CGPointMake(CGRectGetMinX(contentFrame), CGRectGetMaxY(contentFrame));
+  CGFloat bannerHeight = 0.0f;
   
-  // Shrink the tableview to create space for banner
-  tableFrame.size.height = fullViewHeight - bannerFrame.size.height;
-  
-  // Move banner onscreen
-  bannerFrame.origin.y = fullViewHeight - bannerFrame.size.height; 
+  bannerHeight = bannerView.frame.size.height;
 	
-  [UIView beginAnimations:@"showBanner" context:NULL];
-  self.table.frame = tableFrame;
-  self.bannerView.frame = bannerFrame;
-  [UIView commitAnimations];
-  bannerIsVisible = YES;
+  // Depending on if the banner has been loaded, we adjust the content frame and banner location
+  // to accomodate the ad being on or off screen.
+  // This layout is for an ad at the bottom of the view.
+  if (bannerView.bannerLoaded)
+  {
+    contentFrame.size.height -= bannerHeight;
+		bannerOrigin.y -= bannerHeight;
+  }
+  else if (!self.navigationController.view.userInteractionEnabled || !bannerView.bannerLoaded)
+  {
+		bannerOrigin.y += bannerHeight;
+  }
+  
+  self.table.frame = contentFrame;
+  [self.table layoutIfNeeded];
+  bannerView.frame = CGRectMake(bannerOrigin.x, bannerOrigin.y,  bannerView.frame.size.width, bannerView.frame.size.height);
 }
 
-- (void)hideBanner
+- (void)removeBanner
 {
-  // Grow the tableview to occupy space left by banner
-  CGFloat fullViewHeight = self.view.frame.size.height;
-  CGRect tableFrame = self.table.frame;
-  tableFrame.size.height = fullViewHeight;
-	
-  // Move the banner view offscreen
-  CGRect bannerFrame = self.bannerView.frame;
-  bannerFrame.origin.y = fullViewHeight;
-	
-  self.table.frame = tableFrame;
-  self.bannerView.frame = bannerFrame;
-  bannerIsVisible = NO;
+  [self.bannerView removeFromSuperview];
+}
+
+- (void)addBanner
+{
+  [self.view addSubview:bannerView];
 }
 
 @end
