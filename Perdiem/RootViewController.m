@@ -244,14 +244,12 @@
 
   if (frontViewVisible)
   {
-    [self removeBanner];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
   }
   else
   {
-    [self addBanner];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
   }
@@ -467,7 +465,7 @@
     contentFrame.size.height -= bannerHeight;
 		bannerOrigin.y -= bannerHeight;
   }
-  else if (!self.navigationController.view.userInteractionEnabled || !bannerView.bannerLoaded)
+  else
   {
 		bannerOrigin.y += bannerHeight;
   }
@@ -475,16 +473,6 @@
   self.table.frame = contentFrame;
   [self.table layoutIfNeeded];
   bannerView.frame = CGRectMake(bannerOrigin.x, bannerOrigin.y,  bannerView.frame.size.width, bannerView.frame.size.height);
-}
-
-- (void)removeBanner
-{
-  [self.bannerView removeFromSuperview];
-}
-
-- (void)addBanner
-{
-  [self.view addSubview:bannerView];
 }
 
 @end

@@ -44,7 +44,5 @@
 // iAd
 - (void)createBannerView;
 - (void)layoutBanner:(BOOL)animated;
-- (void)removeBanner;
-- (void)addBanner;
 
 @end
