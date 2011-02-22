@@ -34,8 +34,6 @@
 - (void)viewDidLoad
 {
   [self loadPaperStyles];
-
-  [self removeExpiredTasks];
   
   self.navigationItem.rightBarButtonItem = [self customBarButtonItemWithText:@"New" withImageName:@"customBarButton"];
   UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
@@ -77,6 +75,7 @@
 {
   [super viewWillAppear:animated];
   [self showBanner];
+  [self removeExpiredTasks];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated

@@ -101,6 +101,7 @@
   self.navigationController.navigationBar.tintColor = BarTintColor;
   newTaskField.backgroundColor = TableBackgroundColor;
   newTaskField.delegate = self;
+  newTaskField.textColor = TableViewCellTextColor;
   
   cancelButton = [self customBarButtonItemWithText:@"Cancel" withImageName:@"customBarButton"];
   self.navigationItem.leftBarButtonItem = cancelButton;
