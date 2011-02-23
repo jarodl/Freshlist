@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "PerdiemAppDelegate.h"
 #import "CustomNavigationBar.h"
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
@@ -15,6 +16,7 @@
 #import "TaskCell.h"
 #import "Globals.h"
 #import "Task.h"
+#import <iAd/iAd.h>
 
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -23,13 +25,13 @@
 @implementation RootViewController
 
 @synthesize frontViewVisible;
+@synthesize bannerIsVisible;
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize newTaskView;
 @synthesize settingsView;
 @synthesize cellNib;
 @synthesize tmpCell;
-@synthesize bannerView;
 
 - (void)viewDidLoad
 {
@@ -49,11 +51,13 @@
   self.table.rowHeight = TableViewCellHeight;
   self.table.separatorColor = SeperatorColor;
   self.frontViewVisible = YES;
+  self.bannerIsVisible = NO;
     
   // stops the settingsView navigationbar from appearing too high when flipped
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
-  
+    
+  NSLog(@"calling create banner");
   [self createBannerView];
   [self layoutBanner:NO];
   
@@ -62,13 +66,12 @@
 
 - (void)viewDidUnload
 {
+  ADBannerView *adBanner = SharedAdBannerView;
+	adBanner.delegate = nil;
+	[adBanner removeFromSuperview];
+
   cellNib = nil;
   tmpCell = nil;
-  
-  if (self.bannerView) {
-    bannerView.delegate = nil;
-    self.bannerView = nil;
-  }
 }
 
 - (void)loadPaperStyles
@@ -136,8 +139,6 @@
     {
       /*
        Replace this implementation with code to handle the error appropriately.
-       
-       abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
        */
       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
       abort();
@@ -173,11 +174,6 @@
 
 - (void)dealloc
 {
-  if (bannerView) {
-    bannerView.delegate = nil;
-    [bannerView release];
-  }
-  
   [__fetchedResultsController release];
   [__managedObjectContext release];
   [newTaskView release];
@@ -205,7 +201,7 @@
   // disable user interaction
   self.navigationController.view.userInteractionEnabled = NO;
   
-  [UIView beginAnimations:nil context:nil];
+  [UIView beginAnimations:@"flipCurrentView" context:nil];
   [UIView setAnimationDuration:0.75];
   [UIView setAnimationDelegate:self];
   [UIView setAnimationDidStopSelector:@selector(myTransitionDidStop:finished:context:)];
@@ -215,14 +211,16 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
+    self.frontViewVisible = NO;
   }
   else
   {
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
+    self.frontViewVisible = YES;
   }
   
-  frontViewVisible = !frontViewVisible;
+  [self layoutBanner:NO];
   [UIView commitAnimations];
 }
 
@@ -353,7 +351,8 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-  if (frontViewVisible)
+  // If we don't already have an add and the root view is showing, display one
+  if (!bannerIsVisible && frontViewVisible)
   {
     [self layoutBanner:YES];
   }
@@ -377,7 +376,7 @@
 {
   Class cls = NSClassFromString(@"ADBannerView");
   if (cls) {
-    ADBannerView *adBanner = [[cls alloc] initWithFrame:CGRectZero];
+    ADBannerView *adBanner = SharedAdBannerView;
     
     NSString *contentSize;
     if (&ADBannerContentSizeIdentifierPortrait != nil)
@@ -411,36 +410,42 @@
     [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
     
     // At this point the ad banner is now be visible and looking for an ad.
-    self.bannerView = adBanner;
     [self.view addSubview:adBanner];
-    [adBanner release];
   }
 }
 
 - (void)layoutBanner:(BOOL)animated
 {
+  ADBannerView *adBanner = SharedAdBannerView;
   CGRect contentFrame = self.table.frame;
-	CGPoint bannerOrigin = CGPointMake(CGRectGetMinX(contentFrame), CGRectGetMaxY(contentFrame));
+	CGFloat y = CGRectGetMaxY(contentFrame);
   CGFloat bannerHeight = 0.0f;
   
-  bannerHeight = bannerView.frame.size.height;
+  bannerHeight = adBanner.frame.size.height;
 	
   // Depending on if the banner has been loaded, we adjust the content frame and banner location
   // to accomodate the ad being on or off screen.
   // This layout is for an ad at the bottom of the view.
-  if (bannerView.bannerLoaded)
+  if (adBanner.bannerLoaded && !bannerIsVisible && frontViewVisible)
   {
     contentFrame.size.height -= bannerHeight;
-		bannerOrigin.y -= bannerHeight;
+		y -= bannerHeight;
+    self.bannerIsVisible = YES;
+  }
+  else if (adBanner.bannerLoaded && bannerIsVisible)
+  {
+    contentFrame.size.height += bannerHeight;
+		y += bannerHeight;
+    self.bannerIsVisible = NO;
   }
   else
-  {
-		bannerOrigin.y += bannerHeight;
-  }
+    return;
   
+  [UIView beginAnimations:@"layoutBanner" context:nil];
   self.table.frame = contentFrame;
   [self.table layoutIfNeeded];
-  bannerView.frame = CGRectMake(bannerOrigin.x, bannerOrigin.y,  bannerView.frame.size.width, bannerView.frame.size.height);
+  adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
+  [UIView commitAnimations];
 }
 
 @end

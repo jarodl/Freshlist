@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+
+#define SharedAdBannerView ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).bannerView
 
 @interface PerdiemAppDelegate : NSObject <UIApplicationDelegate>
 {
+  ADBannerView *bannerView;
 }
 
+@property (nonatomic, retain) ADBannerView *bannerView;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

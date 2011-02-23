@@ -16,21 +16,21 @@
 @interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
 {
   BOOL frontViewVisible;
+  BOOL bannerIsVisisble;
   UINavigationController *newTaskView;
   UINavigationController *settingsView;
   TaskCell *tmpCell;
   UINib *cellNib;
-  ADBannerView *bannerView;
 }
 
 @property (assign) BOOL frontViewVisible;
+@property (assign) BOOL bannerIsVisible;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
 @property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
-@property (nonatomic, retain) ADBannerView *bannerView;
 
 - (void)loadPaperStyles;
 - (void)presentNewTaskView;

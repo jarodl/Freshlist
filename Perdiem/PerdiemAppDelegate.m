@@ -13,6 +13,7 @@
 
 @implementation PerdiemAppDelegate
 
+@synthesize bannerView;
 @synthesize window=_window;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize managedObjectModel=__managedObjectModel;
@@ -52,12 +53,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+  
+	// Set the autoresizing mask so that the banner is pinned to the bottom
+	self.bannerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+  
+	// Since we support all orientations, support portrait and landscape content sizes.
+	// If you only supported landscape or portrait, you could remove the other from this set
+	self.bannerView.requiredContentSizeIdentifiers = (&ADBannerContentSizeIdentifierPortrait != nil) ?
+  [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
+  [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
+  
+  NSLog(@"set up banner");
+  
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
-  
+    
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
   return YES;
@@ -104,12 +118,13 @@
 
 - (void)dealloc
 {
+  [bannerView release];
   [_window release];
   [__managedObjectContext release];
   [__managedObjectModel release];
   [__persistentStoreCoordinator release];
   [_navigationController release];
-    [super dealloc];
+  [super dealloc];
 }
 
 - (void)awakeFromNib
