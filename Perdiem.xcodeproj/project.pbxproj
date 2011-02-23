@@ -57,6 +57,8 @@
 		7A4F0E83131287F600C713C1 /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E82131287F500C713C1 /* Icon_57.png */; };
 		7A4F0E851312880C00C713C1 /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E841312880B00C713C1 /* Icon_114.png */; };
 		7A6B6217131576D5009D13B3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B6216131576D5009D13B3 /* InfoViewController.xib */; };
+		7A758DD91315970A00928E25 /* addButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A758DD81315970A00928E25 /* addButtonPress.png */; };
+		7A758DDC1315980700928E25 /* settingsButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A758DDB1315980700928E25 /* settingsButtonPress.png */; };
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
@@ -163,6 +165,8 @@
 		7A4F0E82131287F500C713C1 /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_57.png; path = ../Icon_57.png; sourceTree = "<group>"; };
 		7A4F0E841312880B00C713C1 /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_114.png; path = ../Icon_114.png; sourceTree = "<group>"; };
 		7A6B6216131576D5009D13B3 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		7A758DD81315970A00928E25 /* addButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButtonPress.png; sourceTree = "<group>"; };
+		7A758DDB1315980700928E25 /* settingsButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButtonPress.png; sourceTree = "<group>"; };
 		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
 		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
 		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
@@ -369,7 +373,9 @@
 			isa = PBXGroup;
 			children = (
 				7A018E2B1314F44400A8234A /* settingsButton.png */,
+				7A758DDB1315980700928E25 /* settingsButtonPress.png */,
 				7A018E281314F43B00A8234A /* addButton.png */,
+				7A758DD81315970A00928E25 /* addButtonPress.png */,
 				7AFDB56A1314BD8000FE61F5 /* followButton.png */,
 				7AFDB5701314DC7D00FE61F5 /* followButton@2x.png */,
 				7AFDB5681314BCA300FE61F5 /* upgradeButton.png */,
@@ -563,6 +569,8 @@
 				7A2A3F4F13155C0C00A95656 /* RootViewController.xib in Resources */,
 				7A2A3F5113155CD000A95656 /* NewTaskViewController.xib in Resources */,
 				7A6B6217131576D5009D13B3 /* InfoViewController.xib in Resources */,
+				7A758DD91315970A00928E25 /* addButtonPress.png in Resources */,
+				7A758DDC1315980700928E25 /* settingsButtonPress.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

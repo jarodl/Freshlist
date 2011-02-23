@@ -35,10 +35,27 @@
 @synthesize cellNib;
 @synthesize tmpCell;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  self.frontViewVisible = YES;
+  [self layoutBanner:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+  self.frontViewVisible = NO;
+  [self layoutBanner:YES];
+}
+
 - (void)viewDidLoad
 {
   PerdiemAppDelegate *delegate = (PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate];
   self.managedObjectContext = delegate.managedObjectContext;
+  
+  // load the info view, this should probably be taken care of elsewhere
+  InfoViewController *info = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+  [settingsView pushViewController:info animated:NO];
+  [info release];
   
   [self loadPaperStyles];
   
@@ -51,12 +68,7 @@
   [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
-  
-  // load the info view, this should probably be taken care of elsewhere
-  InfoViewController *info = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
-  [settingsView pushViewController:info animated:NO];
-  [info release];
-  
+    
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   self.table.rowHeight = TableViewCellHeight;
   self.table.separatorColor = SeperatorColor;
@@ -67,7 +79,6 @@
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
     
-  NSLog(@"calling create banner");
   [self createBannerView];
   [self layoutBanner:NO];
   
@@ -422,9 +433,6 @@
     (&ADBannerContentSizeIdentifierPortrait != nil) ?
     [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
     [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-    
-    // At this point the ad banner is now be visible and looking for an ad.
-    [self.view addSubview:adBanner];
   }
 }
 
@@ -444,12 +452,14 @@
   {
     contentFrame.size.height -= bannerHeight;
 		y -= bannerHeight;
+    [self.view addSubview:adBanner];
     self.bannerIsVisible = YES;
   }
   else if (adBanner.bannerLoaded && bannerIsVisible)
   {
     contentFrame.size.height += bannerHeight;
 		y += bannerHeight;
+    [adBanner removeFromSuperview];
     self.bannerIsVisible = NO;
   }
   else

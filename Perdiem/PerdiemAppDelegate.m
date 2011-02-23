@@ -67,7 +67,6 @@
 	self.bannerView.requiredContentSizeIdentifiers = (&ADBannerContentSizeIdentifierPortrait != nil) ?
   [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
   [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-  NSLog(@"set up banner");
 
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
