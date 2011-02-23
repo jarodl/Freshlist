@@ -9,6 +9,8 @@
 #import "RootViewController.h"
 #import "PerdiemAppDelegate.h"
 #import "CustomNavigationBar.h"
+#import "NewTaskViewController.h"
+#import "InfoViewController.h"
 #import "TaskViewController.h"
 #import "AIShadowGradient.h"
 #import "NotebookView.h"
@@ -28,13 +30,16 @@
 @synthesize bannerIsVisible;
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
-@synthesize newTaskView;
 @synthesize settingsView;
+@synthesize newTaskView;
 @synthesize cellNib;
 @synthesize tmpCell;
 
 - (void)viewDidLoad
 {
+  PerdiemAppDelegate *delegate = (PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate];
+  self.managedObjectContext = delegate.managedObjectContext;
+  
   [self loadPaperStyles];
   
   self.navigationItem.rightBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"addButton"];
@@ -46,6 +51,11 @@
   [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
+  
+  // load the info view, this should probably be taken care of elsewhere
+  InfoViewController *info = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+  [settingsView pushViewController:info animated:NO];
+  [info release];
   
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   self.table.rowHeight = TableViewCellHeight;
@@ -176,6 +186,7 @@
 {
   [__fetchedResultsController release];
   [__managedObjectContext release];
+  [settingsView release];
   [newTaskView release];
   [cellNib release];
   [tmpCell release];
@@ -193,7 +204,10 @@
 
 - (void)presentNewTaskView
 {
+  NewTaskViewController *newTask = [[NewTaskViewController alloc] initWithNibName:@"NewTaskViewController" bundle:nil];
+  [newTaskView pushViewController:newTask animated:NO];
   [self presentModalViewController:newTaskView animated:YES];
+  [newTask release];
 }
 
 - (void)flipCurrentView

@@ -53,21 +53,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+  // Override point for customization after application launch.
+  // Add the navigation controller's view to the window and display.
+  RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+  [self.navigationController pushViewController:rootViewController animated:NO];
+  [rootViewController release];
   
+  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
 	// Set the autoresizing mask so that the banner is pinned to the bottom
 	self.bannerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-  
 	// Since we support all orientations, support portrait and landscape content sizes.
 	// If you only supported landscape or portrait, you could remove the other from this set
 	self.bannerView.requiredContentSizeIdentifiers = (&ADBannerContentSizeIdentifierPortrait != nil) ?
   [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
   [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-  
   NSLog(@"set up banner");
-  
-  // Override point for customization after application launch.
-  // Add the navigation controller's view to the window and display.
+
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
@@ -129,8 +130,6 @@
 
 - (void)awakeFromNib
 {
-  RootViewController *rootViewController = (RootViewController *)[self.navigationController topViewController];
-  rootViewController.managedObjectContext = self.managedObjectContext;
 }
 
 - (void)saveContext

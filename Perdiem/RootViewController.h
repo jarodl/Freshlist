@@ -17,8 +17,8 @@
 {
   BOOL frontViewVisible;
   BOOL bannerIsVisisble;
-  UINavigationController *newTaskView;
   UINavigationController *settingsView;
+  UINavigationController *newTaskView;
   TaskCell *tmpCell;
   UINib *cellNib;
 }
@@ -27,8 +27,8 @@
 @property (assign) BOOL bannerIsVisible;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
 @property (nonatomic, retain) IBOutlet UINavigationController *settingsView;
+@property (nonatomic, retain) IBOutlet UINavigationController *newTaskView;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
 

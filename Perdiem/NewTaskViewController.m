@@ -98,10 +98,11 @@
   [super viewDidLoad];
   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
   [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
-  self.navigationController.navigationBar.tintColor = BarTintColor;
+  
   newTaskField.backgroundColor = TableBackgroundColor;
-  newTaskField.delegate = self;
   newTaskField.textColor = TableViewCellTextColor;
+  
+  self.title = @"New Task";
   
   cancelButton = [self customBarButtonItemWithText:@"Cancel" withImageName:@"customBarButton"];
   self.navigationItem.leftBarButtonItem = cancelButton;
@@ -122,7 +123,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  // Return YES for supported orientations
   return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 

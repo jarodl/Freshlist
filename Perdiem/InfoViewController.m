@@ -23,7 +23,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.navigationController.navigationBar.tintColor = CardboardButtonColor;
+  
+  self.title = @"Freshlist";
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
   [customNavBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
