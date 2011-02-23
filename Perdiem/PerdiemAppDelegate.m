@@ -9,6 +9,7 @@
 #import "PerdiemAppDelegate.h"
 #import "RootViewController.h"
 #import "Globals.h"
+#import "Task.h"
 
 @implementation PerdiemAppDelegate
 
@@ -18,10 +19,42 @@
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 @synthesize navigationController=_navigationController;
 
+- (void)removeExpiredTasks
+{
+  NSManagedObjectContext *moc = self.managedObjectContext;
+  NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
+  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+  [request setEntity:entityDescription];
+  
+  NSDate *now = [NSDate date];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                            @"expiration < %@", now];
+  [request setPredicate:predicate];
+  
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                      initWithKey:@"timeStamp" ascending:YES];
+  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+  [sortDescriptor release];
+  
+  NSError *error = nil;
+  NSArray *array = [moc executeFetchRequest:request error:&error];
+  if (array == nil)
+  {
+    // Deal with error...
+  }
+  else
+  {
+    for (Task *expiredTask in array) {
+      [moc deleteObject:expiredTask];
+    }
+  }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
+  [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
   
@@ -45,6 +78,7 @@
    Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
    If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
    */
+  [self removeExpiredTasks];
   [self saveContext];
 }
 
@@ -80,8 +114,8 @@
 
 - (void)awakeFromNib
 {
-    RootViewController *rootViewController = (RootViewController *)[self.navigationController topViewController];
-    rootViewController.managedObjectContext = self.managedObjectContext;
+  RootViewController *rootViewController = (RootViewController *)[self.navigationController topViewController];
+  rootViewController.managedObjectContext = self.managedObjectContext;
 }
 
 - (void)saveContext
