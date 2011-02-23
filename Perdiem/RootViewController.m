@@ -35,11 +35,11 @@
 {
   [self loadPaperStyles];
   
-  self.navigationItem.rightBarButtonItem = [self customBarButtonItemWithText:@"New" withImageName:@"customBarButton"];
+  self.navigationItem.rightBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"addButton"];
   UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
   [rightButton addTarget:self action:@selector(presentNewTaskView) forControlEvents:UIControlEventTouchUpInside];
   
-  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Info" withImageName:@"customBarButton"];
+  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"settingsButton"];
   UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
   [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
   

@@ -31,7 +31,13 @@
   UIImage* buttonImage = nil;
   UIImage* buttonPressedImage = nil;
   NSUInteger buttonWidth = 0;
-  if (location == CapLeftAndRight)
+  if (buttonText == nil)
+  {
+    buttonImage = [UIImage imageNamed:imageName];
+    buttonPressedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@Press", imageName]];
+    buttonWidth = buttonImage.size.width;
+  }
+  else if (location == CapLeftAndRight)
   {
     buttonWidth = BUTTON_WIDTH;
     buttonImage = [[UIImage imageNamed:imageName] stretchableImageWithLeftCapWidth:CAP_WIDTH topCapHeight:0.0];
@@ -50,16 +56,20 @@
   
   UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
   button.frame = CGRectMake(0.0, 0.0, buttonWidth, buttonImage.size.height);
+  [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+  [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+  [button setBackgroundImage:buttonPressedImage forState:UIControlStateSelected];
+  button.adjustsImageWhenHighlighted = NO;
+  
+  if (buttonText == nil)
+    return button;
+
   button.titleLabel.font = [UIFont boldSystemFontOfSize:[UIFont smallSystemFontSize]];
   button.titleLabel.textColor = [UIColor whiteColor];
   button.titleLabel.shadowOffset = CGSizeMake(0,-1);
   button.titleLabel.shadowColor = [UIColor darkGrayColor];
   
   [button setTitle:buttonText forState:UIControlStateNormal];
-  [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-  [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
-  [button setBackgroundImage:buttonPressedImage forState:UIControlStateSelected];
-  button.adjustsImageWhenHighlighted = NO;
   
   return button;
 }
