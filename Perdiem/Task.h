@@ -18,7 +18,4 @@
 @property (nonatomic, retain) NSDate *timeStamp;
 @property (nonatomic, retain) NSDate *expiration;
 
-- (void)toggle;
-+ (Task *)taskFromDictionary:(NSDictionary *)dict;
-
 @end

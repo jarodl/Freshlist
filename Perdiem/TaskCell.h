@@ -8,27 +8,32 @@
 
 #import <UIKit/UIKit.h>
 
+@class Task;
+@protocol TaskCellDelegate;
+
 @interface TaskCell : UITableViewCell
 {
-  BOOL checked;
+  Task *task;
   BOOL showsAccessory;
 
   UIImage *checkBox;
   NSString *taskContent;
-  NSIndexPath *cellIndexPath;
   
   IBOutlet UILabel *taskContentLabel;  
   IBOutlet UIImageView *checkBoxView;
+  id <TaskCellDelegate> delegate;
 }
 
+@property (nonatomic, retain) Task *task;
 @property (nonatomic, retain, setter = setTaskContent:) NSString *taskContent;
 @property (nonatomic, retain, setter = setCheckBox:) UIImage *checkBox;
-@property (retain) NSIndexPath *cellIndexPath;
-@property (nonatomic, setter = setChecked:) BOOL checked;
 @property (nonatomic) BOOL showsAccessory;
+@property (nonatomic, retain) id<TaskCellDelegate> delegate;
 
-- (void)toggle;
-- (void)refreshCheckBoxImage;
-- (void)refreshContentFont;
+- (void)refreshCell;
 
+@end
+
+@protocol TaskCellDelegate <NSObject>
+- (void)cellWasChecked;
 @end

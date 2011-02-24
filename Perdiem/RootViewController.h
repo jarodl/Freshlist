@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "StyledTableViewController.h"
+#import "NewTaskViewController.h"
+#import "TaskCell.h"
 #import <iAd/iAd.h>
 
 @class TaskCell;
+@class Task;
 
-@interface RootViewController : StyledTableViewController <NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
+@interface RootViewController : StyledTableViewController <TaskCellDelegate, TaskAddDelegate, NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
 {
   BOOL frontViewVisible;
   BOOL bannerIsVisisble;
@@ -39,11 +42,10 @@
 - (IBAction)dismissNewTaskView;
 - (IBAction)dismissSettingsView;
 - (void)toggleTaskComplete:(NSNotification *)notification;
+//- (void)showTask:(Task *)task animated:(BOOL)animated;
 
 // iAd
 - (void)createBannerView;
 - (void)layoutBanner:(BOOL)animated;
-//- (void)disableAds;
-//- (void)enableAds;
 
 @end

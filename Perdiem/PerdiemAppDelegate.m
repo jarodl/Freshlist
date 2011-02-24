@@ -24,7 +24,7 @@
 {
   NSManagedObjectContext *moc = self.managedObjectContext;
   NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
-  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+  NSFetchRequest *request = [[NSFetchRequest alloc] init];
   [request setEntity:entityDescription];
   
   NSDate *now = [NSDate date];
@@ -32,10 +32,10 @@
                             @"expiration < %@", now];
   [request setPredicate:predicate];
   
-  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                      initWithKey:@"timeStamp" ascending:YES];
-  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-  [sortDescriptor release];
+//  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+//                                      initWithKey:@"timeStamp" ascending:YES];
+//  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+//  [sortDescriptor release];
   
   NSError *error = nil;
   NSArray *array = [moc executeFetchRequest:request error:&error];
@@ -49,6 +49,8 @@
       [moc deleteObject:expiredTask];
     }
   }
+  
+  [request release];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -168,6 +170,7 @@
     {
         __managedObjectContext = [[NSManagedObjectContext alloc] init];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+      [__managedObjectContext setRetainsRegisteredObjects:YES];
     }
     return __managedObjectContext;
 }

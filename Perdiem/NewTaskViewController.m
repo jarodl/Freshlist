@@ -8,15 +8,16 @@
 
 #import "NewTaskViewController.h"
 #import "CustomNavigationBar.h"
-#import "RootViewController.h"
 #import "Globals.h"
 #import "Task.h"
 
 @implementation NewTaskViewController
 
+@synthesize task;
 @synthesize newTaskField;
 @synthesize saveTaskButton;
 @synthesize cancelButton;
+@synthesize delegate;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -28,15 +29,56 @@
 
 - (void)saveTask
 {
-  NSDictionary *task = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSDate date], newTaskField.text, nil]
-                                                   forKeys:[NSArray arrayWithObjects:@"timeStamp", @"content", nil]];
-  [Task taskFromDictionary:task];
-  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
+  task.content = newTaskField.text;
+  NSDate *now = [NSDate date];
+  task.timeStamp = now;
+//  task.completed = [NSNumber numberWithBool:NO];
+  
+  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  NSDateComponents *comps = [[NSDateComponents alloc] init];
+  [comps setDay:1];
+  // move the expiration date forward one day
+  NSDate *expirationDate = [gregorian dateByAddingComponents:comps toDate:now options:0];
+  [comps release];
+  // then set the time to midnight
+  NSDateComponents *expirationComps = [gregorian components:(NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:expirationDate];
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"M/d/yyyy"];
+  expirationDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%i/%i/%i",
+                                                  [expirationComps month], [expirationComps day], [expirationComps year]]];
+  [dateFormatter release];
+  [gregorian release];
+  
+  task.expiration = expirationDate;
+  
+  NSError *error = nil;
+	if (![task.managedObjectContext save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
+  
+  [self.delegate newTaskViewController:self didAddTask:task];
 }
 
 - (void)cancel
 {
-  [(RootViewController *)self.navigationController.delegate dismissModalViewControllerAnimated:YES];
+  [task.managedObjectContext deleteObject:task];
+  
+  NSError *error = nil;
+	if (![task.managedObjectContext save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}		
+  
+  [self.delegate newTaskViewController:self didAddTask:nil];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -79,6 +121,10 @@
 
 - (void)dealloc
 {
+  [newTaskField release];
+  [saveTaskButton release];
+  [cancelButton release];
+  [task release];
   [super dealloc];
 }
 
@@ -118,6 +164,9 @@
 - (void)viewDidUnload
 {
   [super viewDidUnload];
+  newTaskField = nil;
+  saveTaskButton = nil;
+  cancelButton = nil;
   [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 

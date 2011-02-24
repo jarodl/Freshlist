@@ -56,9 +56,9 @@ enum TaskSectionRows {
 
 - (void)viewDidLoad
 {
-  [self loadShadowedTornEdge];
-  
   [super viewDidLoad];
+  
+  [self loadShadowedTornEdge];
   
   UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
   footer.backgroundColor = TableBackgroundColor;
@@ -78,7 +78,10 @@ enum TaskSectionRows {
                                                 leftCapWidth:14.0];
   backButton.titleLabel.textColor = [UIColor whiteColor];
   [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-  self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
+  
+  UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+  self.navigationItem.leftBarButtonItem = back;
+  [back release];
 }
 
 - (void)back
@@ -88,12 +91,15 @@ enum TaskSectionRows {
 
 - (void)toggleTaskComplete:(NSNotification *)notification
 {
-  [selectedTask toggle];
+//  [selectedTask toggle];
   [self.table reloadData];
 }
 
 - (void)dealloc
 {
+  [selectedTask release];
+  [tmpCell release];
+  [cellNib release];
   [super dealloc];
 }
 
@@ -138,10 +144,6 @@ enum TaskSectionRows {
     self.tmpCell = nil;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = TableBackgroundColor;
-//    
-//    LinedView *bg = [[LinedView alloc] initWithFrame:cell.frame];
-//    cell.backgroundView = bg;
-//    [bg release];
   }
   
   [self configureCell:cell atIndexPath:indexPath];
@@ -152,7 +154,6 @@ enum TaskSectionRows {
 - (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   cell.taskContent = selectedTask.content;
-  cell.checked = [selectedTask.completed integerValue];
   cell.accessoryType = UITableViewCellAccessoryNone;
 }
 

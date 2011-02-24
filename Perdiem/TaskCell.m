@@ -8,46 +8,28 @@
 
 #import "TaskCell.h"
 #import "Globals.h"
+#import "Task.h"
 #import "SelectedCellView.h"
 
 @implementation TaskCell
 
 @synthesize taskContent;
 @synthesize checkBox;
-@synthesize cellIndexPath;
-@synthesize checked;
 @synthesize showsAccessory;
+@synthesize task;
+@synthesize delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
   if ((self = [super initWithCoder:aDecoder]))
   {
-    self.selectedBackgroundView = [[[SelectedCellView alloc] initWithFrame:self.frame] autorelease];
-    checked = NO;
+    SelectedCellView *background = [[SelectedCellView alloc] initWithFrame:self.frame];
+    self.selectedBackgroundView = background;
+    [background release];
+    
     showsAccessory = YES;
   }
   return self;
-}
-
-- (void)setTaskContent:(NSString *)newTaskContent
-{
-  taskContent = newTaskContent;
-  taskContentLabel.text = newTaskContent;
-  taskContentLabel.textColor = TableViewCellTextColor;
-  taskContentLabel.highlightedTextColor = TableViewCellTextSelectedColor;
-}
-
-- (void)setCheckBox:(UIImage *)newCheckBox
-{
-  checkBox = newCheckBox;
-  checkBoxView.image = checkBox;
-}
-
-- (void)setChecked:(BOOL)isChecked
-{
-  checked = isChecked;
-  [self refreshCheckBoxImage];
-  [self refreshContentFont];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -55,49 +37,52 @@
   CGPoint location = [(UITouch *)[touches anyObject] locationInView:self];
   if (CGRectContainsPoint(checkBoxView.frame, location))
   {
-    [self toggle];
+    BOOL comp = ![task.completed boolValue];
+    task.completed = [NSNumber numberWithBool:comp];
+    
+    [self refreshCell];
+    [delegate cellWasChecked];
+    [self.contentView setNeedsLayout];
     return;
   }
   
   [super touchesBegan:touches withEvent:event];
 }
 
-- (void)toggle
+- (void)setTask:(Task *)newTask
 {
-  checked = !checked;
-  NSDictionary *userInfo = nil;
-  if (cellIndexPath)
-    userInfo = [NSDictionary dictionaryWithObject:cellIndexPath forKey:@"indexPath"];
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskCellToggled" object:nil userInfo:userInfo];
-}
-
-- (void)refreshCheckBoxImage
-{
-  checkBoxView.image = checked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
-}
-
-- (void)refreshContentFont
-{
-  if (checked)
+  if (newTask != task)
   {
-    taskContentLabel.alpha = 0.2;
+    [task release];
+    task = [newTask retain];
+  }
+  
+  taskContentLabel.text = task.content;
+  
+  [self refreshCell];
+}
+
+- (void)refreshCell
+{
+  if (task.completed)
+  {
+    checkBoxView.image = [UIImage imageNamed:@"checked"];
     checkBoxView.alpha = 0.2;
-    self.accessoryType = UITableViewCellAccessoryNone;
+    taskContentLabel.alpha = 0.2;
   }
   else
   {
+    checkBoxView.image = [UIImage imageNamed:@"unchecked"];
     taskContentLabel.alpha = 1.0;
     checkBoxView.alpha = 1.0;
-    if (showsAccessory)
-      self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
 }
 
 - (void)dealloc
 {
+  [task release];
   [checkBox release];
   [taskContent release];
-  [cellIndexPath release];
   [super dealloc];
 }
 

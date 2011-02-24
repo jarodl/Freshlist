@@ -23,7 +23,9 @@
 
 - (UIBarButtonItem *)customBarButtonItemWithText:(NSString *)buttonText withImageName:(NSString *)imageName
 {
-  return [[[UIBarButtonItem alloc] initWithCustomView:[self customButtonWithText:buttonText stretch:CapLeftAndRight withImageName:imageName]] autorelease];
+  return [[[UIBarButtonItem alloc] initWithCustomView:[self customButtonWithText:buttonText
+                                                                         stretch:CapLeftAndRight
+                                                                   withImageName:imageName]] autorelease];
 }
 
 -(UIButton*)customButtonWithText:(NSString*)buttonText stretch:(CapLocation)location withImageName:(NSString *)imageName
@@ -48,9 +50,16 @@
   {
     buttonWidth = BUTTON_SEGMENT_WIDTH;
     
-    buttonImage = [self image:[[UIImage imageNamed:@"customBarButton"] stretchableImageWithLeftCapWidth:CAP_WIDTH topCapHeight:0.0] withCap:location capWidth:CAP_WIDTH buttonWidth:buttonWidth];
+    buttonImage = [self image:[[UIImage imageNamed:@"customBarButton"] stretchableImageWithLeftCapWidth:CAP_WIDTH
+                                                                                           topCapHeight:0.0]
+                      withCap:location
+                     capWidth:CAP_WIDTH
+                  buttonWidth:buttonWidth];
     buttonPressedImage = [self image:[[UIImage imageNamed:[NSString stringWithFormat:@"%@Press", imageName]]
-                                      stretchableImageWithLeftCapWidth:CAP_WIDTH topCapHeight:0.0] withCap:location capWidth:CAP_WIDTH buttonWidth:buttonWidth];
+                                      stretchableImageWithLeftCapWidth:CAP_WIDTH topCapHeight:0.0]
+                             withCap:location
+                            capWidth:CAP_WIDTH
+                         buttonWidth:buttonWidth];
   }
   
   
@@ -79,13 +88,16 @@
   UIGraphicsBeginImageContextWithOptions(CGSizeMake(buttonWidth, image.size.height), NO, 0.0);
   
   if (location == CapLeft)
-    // To draw the left cap and not the right, we start at 0, and increase the width of the image by the cap width to push the right cap out of view
+    // To draw the left cap and not the right, we start at 0, and increase
+    // the width of the image by the cap width to push the right cap out of view
     [image drawInRect:CGRectMake(0, 0, buttonWidth + capWidth, image.size.height)];
   else if (location == CapRight)
-    // To draw the right cap and not the left, we start at negative the cap width and increase the width of the image by the cap width to push the left cap out of view
+    // To draw the right cap and not the left, we start at negative the cap
+    // width and increase the width of the image by the cap width to push the left cap out of view
     [image drawInRect:CGRectMake(0.0-capWidth, 0, buttonWidth + capWidth, image.size.height)];
   else if (location == CapMiddle)
-    // To draw neither cap, we start at negative the cap width and increase the width of the image by both cap widths to push out both caps out of view
+    // To draw neither cap, we start at negative the cap width and increase the
+    // width of the image by both cap widths to push out both caps out of view
     [image drawInRect:CGRectMake(0.0-capWidth, 0, buttonWidth + (capWidth * 2), image.size.height)];
   
   UIImage* resultImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -97,18 +109,6 @@
 - (void)dealloc
 {
   [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
 }
 
 @end

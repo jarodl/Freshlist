@@ -43,7 +43,10 @@
 // Save the background image and call setNeedsDisplay to force a redraw
 -(void) setBackgroundWith:(UIImage*)backgroundImage
 {
-  self.navigationBarBackgroundImage = [[[UIImageView alloc] initWithFrame:self.frame] autorelease];
+  UIImageView *navBarImage = [[UIImageView alloc] initWithFrame:self.frame];
+  self.navigationBarBackgroundImage = navBarImage;
+  [navBarImage release];
+  
   navigationBarBackgroundImage.image = backgroundImage;
   [self setNeedsDisplay];
 }

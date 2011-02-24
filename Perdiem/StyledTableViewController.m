@@ -19,6 +19,12 @@
   [super dealloc];
 }
 
+- (void)viewDidUnload
+{
+  table = nil;
+  [super viewDidUnload];
+}
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -30,8 +36,10 @@
   CGFloat height = paper.size.height;
   self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
   
-  ShadowedTornEdgeView *tornEdge = [[[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)] autorelease];
+  ShadowedTornEdgeView *tornEdge = [[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)];
   [self.view addSubview:tornEdge];
+  [tornEdge release];
+  
   self.table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taskViewBackground"]];
 }
 

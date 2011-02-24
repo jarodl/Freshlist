@@ -23,7 +23,6 @@
 @property (nonatomic, retain) IBOutlet FullViewTaskCell *tmpCell;
 
 - (id)initWithTask:(Task *)task;
-- (void)toggleTaskComplete:(NSNotification *)notification;
 - (void)back;
 
 @end

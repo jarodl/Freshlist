@@ -20,6 +20,23 @@
 #import "Task.h"
 #import <iAd/iAd.h>
 
+#define FT_SAVE_MOC(_ft_moc) \
+do { \
+NSError* _ft_save_error; \
+if(![_ft_moc save:&_ft_save_error]) { \
+NSLog(@"Failed to save to data store: %@", [_ft_save_error localizedDescription]); \
+NSArray* _ft_detailedErrors = [[_ft_save_error userInfo] objectForKey:NSDetailedErrorsKey]; \
+if(_ft_detailedErrors != nil && [_ft_detailedErrors count] > 0) { \
+for(NSError* _ft_detailedError in _ft_detailedErrors) { \
+NSLog(@"DetailedError: %@", [_ft_detailedError userInfo]); \
+} \
+} \
+else { \
+NSLog(@"%@", [_ft_save_error userInfo]); \
+} \
+} \
+} while(0);
+
 @interface RootViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -97,21 +114,21 @@
 
 - (void)loadPaperStyles
 {
-  UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.0)] autorelease];
+  UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.0)];
   self.table.tableHeaderView = header;
+  [header release];
     
-  NotebookView *background = [[[NotebookView alloc] initWithFrame:self.table.frame] autorelease];
+  NotebookView *background = [[NotebookView alloc] initWithFrame:self.table.frame];
   background.backgroundColor = TableBackgroundColor;
   self.table.backgroundView = background;
+  [background release];
   
   [self loadShadowedTornEdge];
 }
 
 - (void)toggleTaskComplete:(NSNotification *)notification
 {
-  NSIndexPath *indexPath = [notification.userInfo objectForKey:@"indexPath"];
-  Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-  [task toggle];
+  [self.table reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -139,6 +156,7 @@
   {
     [self.cellNib instantiateWithOwner:self options:nil];
 		cell = tmpCell;
+    cell.delegate = self;
 		self.tmpCell = nil;
   }
   
@@ -155,15 +173,16 @@
     [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     
     // Save the context.
-    NSError *error = nil;
-    if (![context save:&error])
-    {
-      /*
-       Replace this implementation with code to handle the error appropriately.
-       */
-      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-      abort();
-    }
+//    NSError *error = nil;
+    FT_SAVE_MOC(context);
+//    if (![context save:&error])
+//    {
+//      /*
+//       Replace this implementation with code to handle the error appropriately.
+//       */
+//      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//      abort();
+//    }
   }   
 }
 
@@ -175,9 +194,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
   
-  TaskViewController *taskView = [[TaskViewController alloc] initWithTask:(Task *)managedObject];
+  TaskViewController *taskView = [[TaskViewController alloc] initWithTask:task];
   taskView.showsNotebookLines = NO;
   [self.navigationController pushViewController:taskView animated:YES];
   [taskView release];
@@ -207,18 +226,25 @@
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
   Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-  cell.showsAccessory = YES;
-  cell.cellIndexPath = indexPath;
-  cell.taskContent = task.content;
-  cell.checked = [task.completed boolValue];
+  cell.task = task;
 }
 
 - (void)presentNewTaskView
 {
-  NewTaskViewController *newTask = [[NewTaskViewController alloc] initWithNibName:@"NewTaskViewController" bundle:nil];
-  [newTaskView pushViewController:newTask animated:NO];
+  NewTaskViewController *newTaskCon = [[NewTaskViewController alloc] initWithNibName:@"NewTaskViewController" bundle:nil];
+  newTaskCon.delegate = self;
+  
+  Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:self.managedObjectContext];
+  newTaskCon.task = newTask;
+  
+  [newTaskView pushViewController:newTaskCon animated:NO];
   [self presentModalViewController:newTaskView animated:YES];
-  [newTask release];
+  [newTaskCon release];
+}
+
+- (void)newTaskViewController:(NewTaskViewController *)newTaskViewController didAddTask:(Task *)task
+{
+  [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)flipCurrentView
@@ -307,15 +333,13 @@
   {
     /*
      Replace this implementation with code to handle the error appropriately.
-
-     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
      */
     NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     abort();
 	}
     
   return __fetchedResultsController;
-}    
+}
 
 #pragma mark - Fetched results controller delegate
 
@@ -452,14 +476,14 @@
   {
     contentFrame.size.height -= bannerHeight;
 		y -= bannerHeight;
-    [self.view addSubview:adBanner];
+//    [self.view addSubview:adBanner];
     self.bannerIsVisible = YES;
   }
   else if (adBanner.bannerLoaded && bannerIsVisible)
   {
     contentFrame.size.height += bannerHeight;
 		y += bannerHeight;
-    [adBanner removeFromSuperview];
+//    [adBanner removeFromSuperview];
     self.bannerIsVisible = NO;
   }
   else
@@ -470,6 +494,20 @@
   [self.table layoutIfNeeded];
   adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
   [UIView commitAnimations];
+}
+
+- (void)cellWasChecked
+{
+//  [self.table reloadData];
+//  NSError *error = nil;
+//	if (![self.managedObjectContext save:&error]) {
+//		/*
+//		 Replace this implementation with code to handle the error appropriately.
+//		 */
+//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//		abort();
+//	}	
+//  [self.table reloadData];
 }
 
 @end
