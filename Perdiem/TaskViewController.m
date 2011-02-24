@@ -89,12 +89,6 @@ enum TaskSectionRows {
   [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)toggleTaskComplete:(NSNotification *)notification
-{
-//  [selectedTask toggle];
-  [self.table reloadData];
-}
-
 - (void)dealloc
 {
   [selectedTask release];
@@ -153,7 +147,7 @@ enum TaskSectionRows {
 
 - (void)configureCell:(FullViewTaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-  cell.taskContent = selectedTask.content;
+  cell.task = selectedTask;
   cell.accessoryType = UITableViewCellAccessoryNone;
 }
 

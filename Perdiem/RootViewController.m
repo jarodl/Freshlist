@@ -66,9 +66,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 - (void)viewDidLoad
 {
-  PerdiemAppDelegate *delegate = (PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate];
-  self.managedObjectContext = delegate.managedObjectContext;
-  
   // load the info view, this should probably be taken care of elsewhere
   InfoViewController *info = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
   [settingsView pushViewController:info animated:NO];
@@ -319,7 +316,10 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   
   // Edit the section name key path and cache name if appropriate.
   // nil for section name key path means "no sections".
-  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc]
+                                                           initWithFetchRequest:fetchRequest
+                                                           managedObjectContext:self.managedObjectContext
+                                                           sectionNameKeyPath:nil cacheName:@"Freshlist"];
   aFetchedResultsController.delegate = self;
   self.fetchedResultsController = aFetchedResultsController;
   
@@ -457,6 +457,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
     (&ADBannerContentSizeIdentifierPortrait != nil) ?
     [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
     [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
+    
+    [self.view addSubview:adBanner];
   }
 }
 
@@ -498,16 +500,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 - (void)cellWasChecked
 {
-//  [self.table reloadData];
-//  NSError *error = nil;
-//	if (![self.managedObjectContext save:&error]) {
-//		/*
-//		 Replace this implementation with code to handle the error appropriately.
-//		 */
-//		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//		abort();
-//	}	
-//  [self.table reloadData];
+  [self.table reloadData];
 }
 
 @end

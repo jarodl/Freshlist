@@ -39,10 +39,8 @@
   {
     BOOL comp = ![task.completed boolValue];
     task.completed = [NSNumber numberWithBool:comp];
-    
     [self refreshCell];
     [delegate cellWasChecked];
-    [self.contentView setNeedsLayout];
     return;
   }
   
@@ -64,17 +62,22 @@
 
 - (void)refreshCell
 {
-  if (task.completed)
+  taskContentLabel.textColor = TableViewCellTextColor;
+  
+  if ([task.completed boolValue])
   {
     checkBoxView.image = [UIImage imageNamed:@"checked"];
     checkBoxView.alpha = 0.2;
     taskContentLabel.alpha = 0.2;
+    self.accessoryType = UITableViewCellAccessoryNone;
   }
   else
   {
     checkBoxView.image = [UIImage imageNamed:@"unchecked"];
     taskContentLabel.alpha = 1.0;
     checkBoxView.alpha = 1.0;
+    if (showsAccessory)
+      self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
 }
 

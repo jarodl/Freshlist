@@ -31,12 +31,7 @@
   NSPredicate *predicate = [NSPredicate predicateWithFormat:
                             @"expiration < %@", now];
   [request setPredicate:predicate];
-  
-//  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-//                                      initWithKey:@"timeStamp" ascending:YES];
-//  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-//  [sortDescriptor release];
-  
+    
   NSError *error = nil;
   NSArray *array = [moc executeFetchRequest:request error:&error];
   if (array == nil)
@@ -58,6 +53,7 @@
   // Override point for customization after application launch.
   // Add the navigation controller's view to the window and display.
   RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+  rootViewController.managedObjectContext = self.managedObjectContext;
   [self.navigationController pushViewController:rootViewController animated:NO];
   [rootViewController release];
   
