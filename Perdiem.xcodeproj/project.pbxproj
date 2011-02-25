@@ -15,8 +15,6 @@
 		7A0CAC1F130F4E0200E07405 /* CardboardNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC1E130F4E0100E07405 /* CardboardNavBar.m */; };
 		7A0CAC22130F4ECD00E07405 /* CardboardGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC21130F4ECD00E07405 /* CardboardGradient.m */; };
 		7A0CAC2E130F546300E07405 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC2D130F546100E07405 /* CustomNavigationBar.m */; };
-		7A0CAC30130F59E900E07405 /* blue_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC2F130F59E900E07405 /* blue_navbar.png */; };
-		7A0CAC32130F600800E07405 /* blue_navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC31130F600800E07405 /* blue_navbar@2x.png */; };
 		7A0CAC37130F774D00E07405 /* navigationBarBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC35130F774D00E07405 /* navigationBarBackButton.png */; };
 		7A0CAC38130F774D00E07405 /* navigationBarBackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC36130F774D00E07405 /* navigationBarBackButton@2x.png */; };
 		7A0CAC3A130F7AF600E07405 /* customBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC39130F7AF600E07405 /* customBarButton.png */; };
@@ -62,6 +60,8 @@
 		7A7AEA9A1316F9AF00EFD5AB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7AEA991316F9AF00EFD5AB /* StoreKit.framework */; };
 		7A7AEA9F1316FF4A00EFD5AB /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEA9E1316FF4A00EFD5AB /* InAppPurchaseManager.m */; };
 		7A7AEAA21316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */; };
+		7A7AEAA91318484B00EFD5AB /* customNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */; };
+		7A7AEAAB1318599F00EFD5AB /* customNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AEAAA1318599F00EFD5AB /* customNavBar.png */; };
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
@@ -119,8 +119,6 @@
 		7A0CAC21130F4ECD00E07405 /* CardboardGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardboardGradient.m; sourceTree = "<group>"; };
 		7A0CAC2C130F546100E07405 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
 		7A0CAC2D130F546100E07405 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
-		7A0CAC2F130F59E900E07405 /* blue_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_navbar.png; sourceTree = "<group>"; };
-		7A0CAC31130F600800E07405 /* blue_navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue_navbar@2x.png"; sourceTree = "<group>"; };
 		7A0CAC35130F774D00E07405 /* navigationBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackButton.png; sourceTree = "<group>"; };
 		7A0CAC36130F774D00E07405 /* navigationBarBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackButton@2x.png"; sourceTree = "<group>"; };
 		7A0CAC39130F7AF600E07405 /* customBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customBarButton.png; sourceTree = "<group>"; };
@@ -145,7 +143,7 @@
 		7A337550130A1DD40052F24F /* NotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookView.m; sourceTree = "<group>"; };
 		7A337554130A40BB0052F24F /* TornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TornEdgeView.h; sourceTree = "<group>"; };
 		7A337555130A40BB0052F24F /* TornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TornEdgeView.m; sourceTree = "<group>"; };
-		7A45D15E1307642E00DE1BBE /* Freshlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A45D15E1307642E00DE1BBE /* Todokyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todokyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A45D1661307642E00DE1BBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -179,6 +177,8 @@
 		7A7AEA9E1316FF4A00EFD5AB /* InAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseManager.m; sourceTree = "<group>"; };
 		7A7AEAA01316FFFB00EFD5AB /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
+		7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customNavBar@2x.png"; sourceTree = "<group>"; };
+		7A7AEAAA1318599F00EFD5AB /* customNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customNavBar.png; sourceTree = "<group>"; };
 		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
 		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
 		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		7A45D15F1307642E00DE1BBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A45D15E1307642E00DE1BBE /* Freshlist.app */,
+				7A45D15E1307642E00DE1BBE /* Todokyo.app */,
 				7A45D1871307642E00DE1BBE /* PerdiemTests.octest */,
 			);
 			name = Products;
@@ -402,6 +402,8 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */,
+				7A7AEAAA1318599F00EFD5AB /* customNavBar.png */,
 				7A940E0513161AA400449099 /* addButton@2x.png */,
 				7A940E0613161AA400449099 /* addButtonPress@2x.png */,
 				7A940E0713161AA400449099 /* settingsButton@2x.png */,
@@ -428,7 +430,6 @@
 				7A0CAC36130F774D00E07405 /* navigationBarBackButton@2x.png */,
 				7A17C27513106BB3001F306B /* taskViewHeader.png */,
 				7A86C2A5130FAAC600F20055 /* taskViewBackground.png */,
-				7A0CAC31130F600800E07405 /* blue_navbar@2x.png */,
 				7A86C2A7130FBB6200F20055 /* taskViewBackground@2x.png */,
 				7A86C2A3130F9E7D00F20055 /* taskViewFooter.png */,
 				7A86C2A9130FBB6E00F20055 /* taskViewFooter@2x.png */,
@@ -439,7 +440,6 @@
 				7ACEDF401308F6F200106413 /* unchecked.png */,
 				7A2D9858130C2D230080063F /* checked@2x.png */,
 				7A2D985B130C2D400080063F /* unchecked@2x.png */,
-				7A0CAC2F130F59E900E07405 /* blue_navbar.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 			);
 			name = Perdiem;
 			productName = Perdiem;
-			productReference = 7A45D15E1307642E00DE1BBE /* Freshlist.app */;
+			productReference = 7A45D15E1307642E00DE1BBE /* Todokyo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A45D1861307642E00DE1BBE /* PerdiemTests */ = {
@@ -572,8 +572,6 @@
 				7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */,
 				7A8227A6130F148600CEDBA9 /* FullViewTaskCell.xib in Resources */,
 				7A0CAC1C130F3BA900E07405 /* StyledViewController.xib in Resources */,
-				7A0CAC30130F59E900E07405 /* blue_navbar.png in Resources */,
-				7A0CAC32130F600800E07405 /* blue_navbar@2x.png in Resources */,
 				7A0CAC37130F774D00E07405 /* navigationBarBackButton.png in Resources */,
 				7A0CAC38130F774D00E07405 /* navigationBarBackButton@2x.png in Resources */,
 				7A0CAC3A130F7AF600E07405 /* customBarButton.png in Resources */,
@@ -609,6 +607,8 @@
 				7A940E0A13161AA600449099 /* addButtonPress@2x.png in Resources */,
 				7A940E0B13161AA600449099 /* settingsButton@2x.png in Resources */,
 				7A940E0C13161AA600449099 /* settingsButtonPress@2x.png in Resources */,
+				7A7AEAA91318484B00EFD5AB /* customNavBar@2x.png in Resources */,
+				7A7AEAAB1318599F00EFD5AB /* customNavBar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,8 +762,8 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = Freshlist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = Todokyo;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -778,8 +778,8 @@
 				GCC_PREFIX_HEADER = "Perdiem/Perdiem-Prefix.pch";
 				INFOPLIST_FILE = "Perdiem/Perdiem-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = Freshlist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = Todokyo;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

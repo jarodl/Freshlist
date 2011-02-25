@@ -77,7 +77,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
   [rightButton addTarget:self action:@selector(presentNewTaskView) forControlEvents:UIControlEventTouchUpInside];
   
-  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"settingsButton"];
+  //  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"settingsButton"];
+  self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"About" withImageName:@"customBarButton"];
   UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
   [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
   

@@ -28,7 +28,7 @@
   self.title = @"Freshlist";
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
-  [customNavBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
+  [customNavBar setBackgroundWith:[UIImage imageNamed:@"customNavBar"]];
 
   self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Back" withImageName:@"customBarButton"];
   UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;

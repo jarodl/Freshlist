@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
   CustomNavigationBar *navBar = (CustomNavigationBar *)self.navigationController.navigationBar;
-  [navBar setBackgroundWith:[UIImage imageNamed:@"blue_navbar"]];
+  [navBar setBackgroundWith:[UIImage imageNamed:@"customNavBar"]];
 }
 
 - (UIBarButtonItem *)customBarButtonItemWithText:(NSString *)buttonText withImageName:(NSString *)imageName

@@ -67,8 +67,8 @@
   if ([task.completed boolValue])
   {
     checkBoxView.image = [UIImage imageNamed:@"checked"];
-    checkBoxView.alpha = 0.2;
-    taskContentLabel.alpha = 0.2;
+    checkBoxView.alpha = 0.4;
+    taskContentLabel.alpha = 0.4;
     self.accessoryType = UITableViewCellAccessoryNone;
   }
   else
