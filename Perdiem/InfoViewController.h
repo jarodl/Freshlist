@@ -13,5 +13,6 @@
 }
 
 - (void)saveSettings;
+- (IBAction)purchaseUpgrade;
 
 @end

@@ -59,6 +59,9 @@
 		7A6B6217131576D5009D13B3 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B6216131576D5009D13B3 /* InfoViewController.xib */; };
 		7A758DD91315970A00928E25 /* addButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A758DD81315970A00928E25 /* addButtonPress.png */; };
 		7A758DDC1315980700928E25 /* settingsButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A758DDB1315980700928E25 /* settingsButtonPress.png */; };
+		7A7AEA9A1316F9AF00EFD5AB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7AEA991316F9AF00EFD5AB /* StoreKit.framework */; };
+		7A7AEA9F1316FF4A00EFD5AB /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEA9E1316FF4A00EFD5AB /* InAppPurchaseManager.m */; };
+		7A7AEAA21316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */; };
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
@@ -171,6 +174,11 @@
 		7A6B6216131576D5009D13B3 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		7A758DD81315970A00928E25 /* addButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButtonPress.png; sourceTree = "<group>"; };
 		7A758DDB1315980700928E25 /* settingsButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButtonPress.png; sourceTree = "<group>"; };
+		7A7AEA991316F9AF00EFD5AB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7A7AEA9D1316FF4A00EFD5AB /* InAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseManager.h; sourceTree = "<group>"; };
+		7A7AEA9E1316FF4A00EFD5AB /* InAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseManager.m; sourceTree = "<group>"; };
+		7A7AEAA01316FFFB00EFD5AB /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
 		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
 		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7AEA9A1316F9AF00EFD5AB /* StoreKit.framework in Frameworks */,
 				7AFA26821313176300A917AC /* iAd.framework in Frameworks */,
 				7ACEDF221308DB3800106413 /* QuartzCore.framework in Frameworks */,
 				7A45D1631307642E00DE1BBE /* UIKit.framework in Frameworks */,
@@ -267,6 +276,7 @@
 		7A45D1611307642E00DE1BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A7AEA991316F9AF00EFD5AB /* StoreKit.framework */,
 				7AFA26811313176300A917AC /* iAd.framework */,
 				7ACEDF211308DB3700106413 /* QuartzCore.framework */,
 				7A45D1621307642E00DE1BBE /* UIKit.framework */,
@@ -280,6 +290,7 @@
 		7A45D16A1307642E00DE1BBE /* Perdiem */ = {
 			isa = PBXGroup;
 			children = (
+				7A7AEA9C1316FF3300EFD5AB /* Store Kit */,
 				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
 				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
 				7ACEDF391308DFD200106413 /* Data Models */,
@@ -325,6 +336,17 @@
 				7A45D1941307642E00DE1BBE /* PerdiemTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A7AEA9C1316FF3300EFD5AB /* Store Kit */ = {
+			isa = PBXGroup;
+			children = (
+				7A7AEA9D1316FF4A00EFD5AB /* InAppPurchaseManager.h */,
+				7A7AEA9E1316FF4A00EFD5AB /* InAppPurchaseManager.m */,
+				7A7AEAA01316FFFB00EFD5AB /* SKProduct+LocalizedPrice.h */,
+				7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */,
+			);
+			name = "Store Kit";
 			sourceTree = "<group>";
 		};
 		7ACEDF381308DF8F00106413 /* View Controllers */ = {
@@ -646,6 +668,8 @@
 				7A0CAC22130F4ECD00E07405 /* CardboardGradient.m in Sources */,
 				7A0CAC2E130F546300E07405 /* CustomNavigationBar.m in Sources */,
 				7A17C28D131192EE001F306B /* StyledTableViewController.m in Sources */,
+				7A7AEA9F1316FF4A00EFD5AB /* InAppPurchaseManager.m in Sources */,
+				7A7AEAA21316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,7 +723,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -716,7 +740,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

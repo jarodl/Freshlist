@@ -7,6 +7,7 @@
 //
 
 #import "InfoViewController.h"
+#import "PerdiemAppDelegate.h"
 #import "CustomNavigationBar.h"
 #import "RootViewController.h"
 #import "Globals.h"
@@ -37,6 +38,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
   return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+}
+
+- (IBAction)purchaseUpgrade
+{
+  InAppPurchaseManager *purchaseManager = SharedPurchaseManager;
+  [purchaseManager requestProUpgradeProductData];
 }
 
 @end

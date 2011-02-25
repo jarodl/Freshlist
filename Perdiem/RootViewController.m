@@ -92,7 +92,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   // stops the settingsView navigationbar from appearing too high when flipped
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
-    
+
   [self createBannerView];
   [self layoutBanner:NO];
   

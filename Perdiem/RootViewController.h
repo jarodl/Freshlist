@@ -42,7 +42,6 @@
 - (IBAction)dismissNewTaskView;
 - (IBAction)dismissSettingsView;
 - (void)toggleTaskComplete:(NSNotification *)notification;
-//- (void)showTask:(Task *)task animated:(BOOL)animated;
 
 // iAd
 - (void)createBannerView;

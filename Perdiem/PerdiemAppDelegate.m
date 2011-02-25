@@ -14,6 +14,7 @@
 @implementation PerdiemAppDelegate
 
 @synthesize bannerView;
+@synthesize purchaseManager;
 @synthesize window=_window;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize managedObjectModel=__managedObjectModel;
@@ -65,6 +66,8 @@
 	self.bannerView.requiredContentSizeIdentifiers = (&ADBannerContentSizeIdentifierPortrait != nil) ?
   [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
   [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
+  
+  self.purchaseManager = [[InAppPurchaseManager alloc] init];
 
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
@@ -117,6 +120,7 @@
 - (void)dealloc
 {
   [bannerView release];
+  [purchaseManager release];
   [_window release];
   [__managedObjectContext release];
   [__managedObjectModel release];
