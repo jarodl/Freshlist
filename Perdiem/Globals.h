@@ -14,16 +14,9 @@
 #define TableViewCellTextColor [UIColor blackColor]
 #define TableViewCellTextSelectedColor [UIColor colorWithHue: 0.519 saturation:0.24 brightness:0.15 alpha:1.0]
 
-#define SingleTableViewCellHeight 88.0f
-#define SingleTableViewCellMargin 24.0f
+#define SingleTableViewCellHeight 220.0f
+#define SingleTableViewCellMargin 0.0f
 
 #define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.11 brightness:0.75 alpha:1.0]
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.58 brightness:.60 alpha:0.3]
 #define LineHeight 17.0f;
-
-#define CardboardBackgroundColor [UIColor colorWithHue:0.0888 saturation:0.18 brightness:0.75 alpha:1.0]
-#define CardboardSeparatorColor [UIColor colorWithHue:0.0888 saturation:0.18 brightness:0.35 alpha:1.0]
-#define CardboardLightTextColor [UIColor colorWithHue:0.0888 saturation:0.20 brightness:0.35 alpha:1.0]
-#define CardboardCellTextColor [UIColor colorWithHue:0.0888 saturation:0.20 brightness:0.25 alpha:1.0]
-#define CardboardDarkTextColor [UIColor colorWithHue:0.0888 saturation:0.20 brightness:0.12 alpha:1.0]
-#define CardboardButtonColor [UIColor colorWithHue:0.0888 saturation:0.20 brightness:0.20 alpha:1.0]

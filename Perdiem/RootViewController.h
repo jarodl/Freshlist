@@ -14,7 +14,6 @@
 #import <iAd/iAd.h>
 
 @class TaskCell;
-@class Task;
 
 @interface RootViewController : StyledTableViewController <TaskCellDelegate, TaskAddDelegate, NSFetchedResultsControllerDelegate, ADBannerViewDelegate>
 {

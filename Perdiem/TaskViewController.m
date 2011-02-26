@@ -39,14 +39,12 @@ enum TaskSectionRows {
 {
   if ((self = [super initWithNibName:@"StyledViewController" bundle:nil]))
   {
-    selectedTask = task;
+    self.selectedTask = task;
     self.hidesBottomBarWhenPushed = YES;
     self.title = @"Task";
     self.cellNib = [UINib nibWithNibName:@"FullViewTaskCell" bundle:nil];
     self.table.backgroundColor = DarkTableBackgroundColor;
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    showsNotebookLines = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
   }
@@ -61,7 +59,7 @@ enum TaskSectionRows {
   [self loadShadowedTornEdge];
   
   UIImageView *footer = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewFooter"]];
-  footer.backgroundColor = TableBackgroundColor;
+  footer.backgroundColor = [UIColor clearColor];
   self.table.tableFooterView = footer;
   
   UIImageView *header = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"taskViewHeader"]];
@@ -77,16 +75,10 @@ enum TaskSectionRows {
                                                    highlight:nil
                                                 leftCapWidth:14.0];
   backButton.titleLabel.textColor = [UIColor whiteColor];
-  [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backButton];
   self.navigationItem.leftBarButtonItem = back;
   [back release];
-}
-
-- (void)back
-{
-  [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc

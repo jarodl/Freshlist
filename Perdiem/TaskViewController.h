@@ -23,6 +23,5 @@
 @property (nonatomic, retain) IBOutlet FullViewTaskCell *tmpCell;
 
 - (id)initWithTask:(Task *)task;
-- (void)back;
 
 @end

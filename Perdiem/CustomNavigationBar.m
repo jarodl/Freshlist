@@ -65,7 +65,7 @@
 }
 
 // Given the prpoer images and cap width, create a variable width back button
--(UIButton*) backButtonWith:(UIImage*)backButtonImage highlight:(UIImage*)backButtonHighlightImage leftCapWidth:(CGFloat)capWidth
+-(UIButton*)backButtonWith:(UIImage*)backButtonImage highlight:(UIImage*)backButtonHighlightImage leftCapWidth:(CGFloat)capWidth
 {
   // store the cap width for use later when we set the text
   backButtonCapWidth = capWidth;
@@ -87,7 +87,7 @@
   button.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
   
   // Inset the title on the left and right
-  button.titleEdgeInsets = UIEdgeInsetsMake(0, 6.0, 0, 3.0);
+  button.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0, 0, 5.0);
 
   // Make the button as high as the passed in image
   button.frame = CGRectMake(0, 0, 0, buttonImage.size.height);
