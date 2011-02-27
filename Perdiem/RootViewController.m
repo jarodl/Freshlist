@@ -55,13 +55,13 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 - (void)viewWillAppear:(BOOL)animated
 {
   self.frontViewVisible = YES;
-  [self layoutBanner:YES];
+  //  [self layoutBanner:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
   self.frontViewVisible = NO;
-  [self layoutBanner:YES];
+  //  [self layoutBanner:YES];
 }
 
 - (void)viewDidLoad
@@ -93,8 +93,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
 
-  [self createBannerView];
-  [self layoutBanner:NO];
+  //  [self createBannerView];
+  //  [saelf layoutBanner:NO];
   
   [super viewDidLoad];
 }
@@ -268,7 +268,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
     self.frontViewVisible = YES;
   }
   
-  [self layoutBanner:NO];
+  //  [self layoutBanner:NO];
   [UIView commitAnimations];
 }
 
