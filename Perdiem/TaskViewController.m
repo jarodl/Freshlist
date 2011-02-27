@@ -142,9 +142,8 @@ enum TaskSectionRows {
 {
   cell.task = selectedTask;
   cell.accessoryType = UITableViewCellAccessoryNone;
-  [cell.taskContentLabel sizeToFitFixedWidth:280.0f];
 }
-//
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSString *cellText = selectedTask.content;
@@ -155,7 +154,6 @@ enum TaskSectionRows {
   height += (SingleTableViewCellMargin * 2);
   
   return height;
-  return (height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : height;
 }
 
 @end
