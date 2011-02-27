@@ -7,6 +7,7 @@
 //
 
 #import "TaskViewController.h"
+#import "UILabel+sizeToFitFixedWidth.h"
 #import "CustomNavigationBar.h"
 #import "FullViewTaskCell.h"
 #import "TornEdgeView.h"
@@ -141,16 +142,20 @@ enum TaskSectionRows {
 {
   cell.task = selectedTask;
   cell.accessoryType = UITableViewCellAccessoryNone;
+  [cell.taskContentLabel sizeToFitFixedWidth:280.0f];
 }
-
+//
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSString *cellText = selectedTask.content;
-  UIFont *cellFont = [UIFont boldSystemFontOfSize:17.0f];
-  CGSize constraintSize = CGSizeMake(234.0f, MAXFLOAT);
-  CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
   
-  return (labelSize.height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : labelSize.height + SingleTableViewCellMargin;
+  CGSize constraint = CGSizeMake(SingleTableViewCellWidth - (SingleTableViewCellMargin * 2), CGFLOAT_MAX);
+  CGSize size = [cellText sizeWithFont:[UIFont boldSystemFontOfSize:17.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+  CGFloat height = MAX(size.height, SingleTableViewCellHeight);
+  height += (SingleTableViewCellMargin * 2);
+  
+  return height;
+  return (height < SingleTableViewCellHeight) ? SingleTableViewCellHeight : height;
 }
 
 @end

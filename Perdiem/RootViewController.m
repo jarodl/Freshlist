@@ -114,7 +114,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.0)];
   self.table.tableHeaderView = header;
   [header release];
-    
+
   NotebookView *background = [[NotebookView alloc] initWithFrame:self.table.frame];
   background.backgroundColor = TableBackgroundColor;
   self.table.backgroundView = background;

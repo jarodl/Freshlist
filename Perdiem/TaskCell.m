@@ -13,6 +13,7 @@
 
 @implementation TaskCell
 
+@synthesize taskContentLabel;
 @synthesize taskContent;
 @synthesize checkBox;
 @synthesize showsAccessory;

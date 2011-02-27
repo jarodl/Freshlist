@@ -24,6 +24,7 @@
   id <TaskCellDelegate> delegate;
 }
 
+@property (nonatomic, retain) UILabel *taskContentLabel;
 @property (nonatomic, retain) Task *task;
 @property (nonatomic, retain, setter = setTaskContent:) NSString *taskContent;
 @property (nonatomic, retain, setter = setCheckBox:) UIImage *checkBox;

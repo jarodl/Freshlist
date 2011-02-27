@@ -33,7 +33,6 @@
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
   [customNavBar setBackgroundWith:[UIImage imageNamed:@"customNavBar"]];
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

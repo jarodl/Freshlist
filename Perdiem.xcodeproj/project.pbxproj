@@ -62,6 +62,8 @@
 		7A7AEAA21316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */; };
 		7A7AEAA91318484B00EFD5AB /* customNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */; };
 		7A7AEAAB1318599F00EFD5AB /* customNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AEAAA1318599F00EFD5AB /* customNavBar.png */; };
+		7A7AEAC61319E6FA00EFD5AB /* UILabel+sizeToFitFixedWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7AEAC51319E6EE00EFD5AB /* UILabel+sizeToFitFixedWidth.m */; };
+		7A7AEAC81319EA2100EFD5AB /* TaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A7AEAC71319EA2000EFD5AB /* TaskViewController.xib */; };
 		7A82278C130EDE2900CEDBA9 /* SelectedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */; };
 		7A822796130EFB9500CEDBA9 /* TopShadowGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822795130EFB9500CEDBA9 /* TopShadowGradient.m */; };
 		7A822799130EFCF400CEDBA9 /* TopShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A822798130EFCF200CEDBA9 /* TopShadow.m */; };
@@ -179,6 +181,9 @@
 		7A7AEAA11316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customNavBar@2x.png"; sourceTree = "<group>"; };
 		7A7AEAAA1318599F00EFD5AB /* customNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customNavBar.png; sourceTree = "<group>"; };
+		7A7AEAC41319E6E800EFD5AB /* UILabel+sizeToFitFixedWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+sizeToFitFixedWidth.h"; sourceTree = "<group>"; };
+		7A7AEAC51319E6EE00EFD5AB /* UILabel+sizeToFitFixedWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+sizeToFitFixedWidth.m"; sourceTree = "<group>"; };
+		7A7AEAC71319EA2000EFD5AB /* TaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskViewController.xib; sourceTree = "<group>"; };
 		7A82278A130EDE2900CEDBA9 /* SelectedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCellView.h; sourceTree = "<group>"; };
 		7A82278B130EDE2900CEDBA9 /* SelectedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCellView.m; sourceTree = "<group>"; };
 		7A822794130EFB9500CEDBA9 /* TopShadowGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopShadowGradient.h; sourceTree = "<group>"; };
@@ -361,6 +366,8 @@
 				7A1BD4CA13099AD800F52EF6 /* InfoViewController.h */,
 				7A1BD4CB13099AD800F52EF6 /* InfoViewController.m */,
 				7AFA264B131301F600A917AC /* Customized Controllers */,
+				7A7AEAC41319E6E800EFD5AB /* UILabel+sizeToFitFixedWidth.h */,
+				7A7AEAC51319E6EE00EFD5AB /* UILabel+sizeToFitFixedWidth.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -384,6 +391,7 @@
 				7A2A3F4E13155C0C00A95656 /* RootViewController.xib */,
 				7A2A3F5013155CD000A95656 /* NewTaskViewController.xib */,
 				7A6B6216131576D5009D13B3 /* InfoViewController.xib */,
+				7A7AEAC71319EA2000EFD5AB /* TaskViewController.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -609,6 +617,7 @@
 				7A940E0C13161AA600449099 /* settingsButtonPress@2x.png in Resources */,
 				7A7AEAA91318484B00EFD5AB /* customNavBar@2x.png in Resources */,
 				7A7AEAAB1318599F00EFD5AB /* customNavBar.png in Resources */,
+				7A7AEAC81319EA2100EFD5AB /* TaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +679,7 @@
 				7A17C28D131192EE001F306B /* StyledTableViewController.m in Sources */,
 				7A7AEA9F1316FF4A00EFD5AB /* InAppPurchaseManager.m in Sources */,
 				7A7AEAA21316FFFB00EFD5AB /* SKProduct+LocalizedPrice.m in Sources */,
+				7A7AEAC61319E6FA00EFD5AB /* UILabel+sizeToFitFixedWidth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

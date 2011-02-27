@@ -15,7 +15,8 @@
 #define TableViewCellTextSelectedColor [UIColor colorWithHue: 0.519 saturation:0.24 brightness:0.15 alpha:1.0]
 
 #define SingleTableViewCellHeight 220.0f
-#define SingleTableViewCellMargin 0.0f
+#define SingleTableViewCellMargin 15.0f
+#define SingleTableViewCellWidth 320.0f
 
 #define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.11 brightness:0.75 alpha:1.0]
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.58 brightness:.60 alpha:0.3]
