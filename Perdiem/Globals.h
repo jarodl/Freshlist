@@ -14,7 +14,7 @@
 #define TableViewCellTextColor [UIColor blackColor]
 #define TableViewCellTextSelectedColor [UIColor colorWithHue: 0.519 saturation:0.24 brightness:0.15 alpha:1.0]
 
-#define SingleTableViewCellHeight 100.0f
+#define SingleTableViewCellHeight 200.0f
 #define SingleTableViewCellMargin 10.0f
 #define SingleTableViewCellWidth 280.0f
 

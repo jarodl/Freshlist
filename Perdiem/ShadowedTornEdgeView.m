@@ -18,11 +18,11 @@
   {
     self.opaque = YES;
     self.backgroundColor = [UIColor clearColor];
-    paperImage = [UIImage imageNamed:@"paperTear"];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:paperImage];
-    [self addSubview:imageView];
-    [imageView release];
+//    paperImage = [UIImage imageNamed:@"paperTear"];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:paperImage];
+//    [self addSubview:imageView];
+//    [imageView release];
     
     TopShadow *topShadow = [[TopShadow alloc] initWithFrame:self.frame];
     [self addSubview:topShadow];
