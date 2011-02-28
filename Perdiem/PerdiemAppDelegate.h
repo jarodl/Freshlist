@@ -13,7 +13,7 @@
 #define SharedAdBannerView ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).bannerView
 #define SharedPurchaseManager ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).purchaseManager
 
-@interface PerdiemAppDelegate : NSObject <UIApplicationDelegate>
+@interface PerdiemAppDelegate : NSObject <UIApplicationDelegate, ADBannerViewDelegate>
 {
   ADBannerView *bannerView;
   InAppPurchaseManager *purchaseManager;
@@ -30,5 +30,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (void)removeExpiredTasks;
+- (void)createBannerView;
 
 @end

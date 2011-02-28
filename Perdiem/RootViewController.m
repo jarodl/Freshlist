@@ -55,13 +55,11 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 - (void)viewWillAppear:(BOOL)animated
 {
   self.frontViewVisible = YES;
-  //  [self layoutBanner:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
   self.frontViewVisible = NO;
-  //  [self layoutBanner:YES];
 }
 
 - (void)viewDidLoad
@@ -259,6 +257,9 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
     [self.navigationController.view addSubview:settingsView.view];
+    [self.navigationController.view bringSubviewToFront:settingsView.view];
+    ADBannerView *adBanner = SharedAdBannerView;
+    [self.navigationController.view bringSubviewToFront:adBanner];
     self.frontViewVisible = NO;
   }
   else
@@ -268,7 +269,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
     self.frontViewVisible = YES;
   }
   
-  //  [self layoutBanner:NO];
   [UIView commitAnimations];
 }
 
@@ -393,109 +393,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
   [self.table endUpdates];
-}
-
-#pragma mark -
-#pragma mark ADBannerViewDelegate methods
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-  // If we don't already have an add and the root view is showing, display one
-  if (!bannerIsVisible && frontViewVisible)
-  {
-    [self layoutBanner:YES];
-  }
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-  [self layoutBanner:YES];
-}
-
-- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
-{
-  return YES;
-}
-
-- (void)bannerViewActionDidFinish:(ADBannerView *)banner
-{
-}
-
-- (void)createBannerView
-{
-  Class cls = NSClassFromString(@"ADBannerView");
-  if (cls) {
-    ADBannerView *adBanner = SharedAdBannerView;
-    
-    NSString *contentSize;
-    if (&ADBannerContentSizeIdentifierPortrait != nil)
-    {
-      contentSize = ADBannerContentSizeIdentifierPortrait;
-    }
-    else
-    {
-      // user the older sizes 
-      contentSize = ADBannerContentSizeIdentifier320x50;
-    }
-    
-    CGRect frame;
-    frame.size = [ADBannerView sizeFromBannerContentSizeIdentifier:contentSize];
-    frame.origin = CGPointMake(0.0f, CGRectGetMaxY(self.view.bounds));
-    
-    // Now set the banner view's frame
-    adBanner.frame = frame;
-    
-    // Set the delegate to self, so that we are notified of ad responses.
-    adBanner.delegate = self;
-    
-    // Set the autoresizing mask so that the banner is pinned to the bottom
-    adBanner.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-    
-    // Since we support all orientations in this view controller, support portrait and landscape content sizes.
-    // If you only supported landscape or portrait, you could remove the other from this set
-    adBanner.requiredContentSizeIdentifiers =
-    (&ADBannerContentSizeIdentifierPortrait != nil) ?
-    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
-    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-    
-    [self.view addSubview:adBanner];
-  }
-}
-
-- (void)layoutBanner:(BOOL)animated
-{
-  ADBannerView *adBanner = SharedAdBannerView;
-  CGRect contentFrame = self.table.frame;
-	CGFloat y = CGRectGetMaxY(contentFrame);
-  CGFloat bannerHeight = 0.0f;
-  
-  bannerHeight = adBanner.frame.size.height;
-	
-  // Depending on if the banner has been loaded, we adjust the content frame and banner location
-  // to accomodate the ad being on or off screen.
-  // This layout is for an ad at the bottom of the view.
-  if (adBanner.bannerLoaded && !bannerIsVisible && frontViewVisible)
-  {
-    contentFrame.size.height -= bannerHeight;
-		y -= bannerHeight;
-//    [self.view addSubview:adBanner];
-    self.bannerIsVisible = YES;
-  }
-  else if (adBanner.bannerLoaded && bannerIsVisible)
-  {
-    contentFrame.size.height += bannerHeight;
-		y += bannerHeight;
-//    [adBanner removeFromSuperview];
-    self.bannerIsVisible = NO;
-  }
-  else
-    return;
-  
-  [UIView beginAnimations:@"layoutBanner" context:nil];
-  self.table.frame = contentFrame;
-  [self.table layoutIfNeeded];
-  adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
-  [UIView commitAnimations];
 }
 
 - (void)cellWasChecked

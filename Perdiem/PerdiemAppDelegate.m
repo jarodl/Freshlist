@@ -49,6 +49,73 @@
   [request release];
 }
 
+- (void)createBannerView
+{
+  Class cls = NSClassFromString(@"ADBannerView");
+  if (cls) {
+    ADBannerView *adBanner = SharedAdBannerView;
+    
+    NSString *contentSize;
+    if (&ADBannerContentSizeIdentifierPortrait != nil)
+    {
+      contentSize = ADBannerContentSizeIdentifierPortrait;
+    }
+    else
+    {
+      // user the older sizes 
+      contentSize = ADBannerContentSizeIdentifier320x50;
+    }
+    
+    CGRect frame;
+    frame.size = [ADBannerView sizeFromBannerContentSizeIdentifier:contentSize];
+    frame.origin = CGPointMake(0.0f, CGRectGetMaxY(self.navigationController.view.bounds));
+    
+    // Now set the banner view's frame
+    adBanner.frame = frame;
+    
+    // Set the delegate to self, so that we are notified of ad responses.
+    adBanner.delegate = self;
+    
+    // Set the autoresizing mask so that the banner is pinned to the bottom
+    adBanner.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+    
+    // Since we support all orientations in this view controller, support portrait and landscape content sizes.
+    // If you only supported landscape or portrait, you could remove the other from this set
+    adBanner.requiredContentSizeIdentifiers =
+    (&ADBannerContentSizeIdentifierPortrait != nil) ?
+    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
+    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
+    
+    [self.navigationController.view addSubview:adBanner];
+    [self.navigationController.view bringSubviewToFront:adBanner];
+  }
+}
+
+- (void)layoutBanner:(BOOL)animated
+{
+  ADBannerView *adBanner = SharedAdBannerView;
+  CGRect contentFrame = self.navigationController.view.frame;
+	CGFloat y = CGRectGetMaxY(contentFrame);
+  CGFloat bannerHeight = 0.0f;
+  
+  bannerHeight = adBanner.frame.size.height;
+	
+  // Depending on if the banner has been loaded, we adjust the content frame and banner location
+  // to accomodate the ad being on or off screen.
+  // This layout is for an ad at the bottom of the view.
+  if (adBanner.bannerLoaded)
+  {
+    contentFrame.size.height -= bannerHeight;
+		y -= bannerHeight;
+  }
+  
+  [UIView beginAnimations:@"layoutBanner" context:nil];
+//  self.navigationController.view.frame = contentFrame;
+//  [self.navigationController.view layoutIfNeeded];
+  adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
+  [UIView commitAnimations];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
@@ -72,6 +139,12 @@
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
+  
+  // if the user is not using the pro version, show ads
+  if (true) {
+    [self createBannerView];
+    [self layoutBanner:YES];
+  }
     
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
@@ -245,6 +318,29 @@
 - (NSURL *)applicationDocumentsDirectory
 {
   return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark -
+#pragma mark ADBannerViewDelegate methods
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+  // If we don't already have an add and the root view is showing, display one
+  [self layoutBanner:YES];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+  [self layoutBanner:YES];
+}
+
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
+{
+  return YES;
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
 }
 
 @end
