@@ -12,7 +12,9 @@
 
 - (void)requestProUpgradeProductData
 {
-  NSSet *productIdentifiers = [NSSet setWithObject:@"com.freshlistapp.freshlist.freshlistpro" ];
+  NSSet *productIdentifiers = [NSSet setWithObjects:@"com.freshlistapp.freshlist.freshlistpro",
+                               @"com.freshlistapp.freshlist.freshlistprodiscount",
+                               nil ];
   productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
   productsRequest.delegate = self;
   [productsRequest start];

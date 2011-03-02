@@ -91,9 +91,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   [settingsView.view removeFromSuperview];
   self.title = @"Today";
 
-  //  [self createBannerView];
-  //  [saelf layoutBanner:NO];
-  
   [super viewDidLoad];
 }
 
