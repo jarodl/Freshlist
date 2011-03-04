@@ -7,7 +7,6 @@
 //
 
 #import "ShareViewController.h"
-#import "TweetViewController.h"
 #import "SA_OAuthTwitterEngine.h"
 
 #define kOAuthConsumerKey	@"hFRNlYt3jevC7NYiLUwwTQ"
@@ -17,26 +16,20 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-      _engine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate: self];
-      _engine.consumerKey = kOAuthConsumerKey;
-      _engine.consumerSecret = kOAuthConsumerSecret;
-    }
-    return self;
+  if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
+  {
+    _engine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate: self];
+    _engine.consumerKey = kOAuthConsumerKey;
+    _engine.consumerSecret = kOAuthConsumerSecret;
+  }
+  
+  return self;
 }
 
 - (IBAction)useTwitter
 {
 	UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine: _engine delegate: self];
-	
-	if (controller) 
-		[self.navigationController pushViewController:controller animated:YES];
-	else {
-		[_engine sendUpdate: [NSString stringWithFormat: @"Already Updated. %@", [NSDate date]]];
-	}
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)useFacebook
@@ -89,6 +82,7 @@
 #pragma mark SA_OAuthTwitterControllerDelegate
 - (void) OAuthTwitterController: (SA_OAuthTwitterController *) controller authenticatedWithUsername: (NSString *) username {
 	NSLog(@"Authenicated for %@", username);
+  [_engine sendUpdate:@"Just received 50% off of Freshlist for iPhone! http://goo.gl/GR8ek"];
 }
 
 - (void) OAuthTwitterControllerFailed: (SA_OAuthTwitterController *) controller {
