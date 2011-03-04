@@ -10,9 +10,14 @@
 
 @interface InfoViewController : StyledViewController
 {
+  IBOutlet UINavigationController *shareCon;
 }
 
+@property (nonatomic, retain) IBOutlet UINavigationController *shareCon;
+
+- (void)dismissShare;
 - (void)saveSettings;
 - (IBAction)purchaseUpgrade;
+- (IBAction)tellFriends;
 
 @end

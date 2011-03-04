@@ -8,9 +8,7 @@
 
 #import "MGTwitterMessagesParser.h"
 
-
 @implementation MGTwitterMessagesParser
-
 
 #pragma mark NSXMLParser delegate methods
 

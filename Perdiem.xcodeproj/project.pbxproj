@@ -74,6 +74,14 @@
 		7A45D1931307642E00DE1BBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1911307642E00DE1BBE /* InfoPlist.strings */; };
 		7A45D1961307642E00DE1BBE /* PerdiemTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7A45D1951307642E00DE1BBE /* PerdiemTests.h */; };
 		7A45D1981307642E00DE1BBE /* PerdiemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45D1971307642E00DE1BBE /* PerdiemTests.m */; };
+		7A4A0D901320A9A0003EC96A /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A0D8E1320A99F003EC96A /* ShareViewController.m */; };
+		7A4A0D911320A9A0003EC96A /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D8F1320A99F003EC96A /* ShareViewController.xib */; };
+		7A4A0D981320AA32003EC96A /* facebookShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D921320AA32003EC96A /* facebookShareButton.png */; };
+		7A4A0D991320AA32003EC96A /* facebookShareButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D931320AA32003EC96A /* facebookShareButton@2x.png */; };
+		7A4A0D9A1320AA32003EC96A /* shareBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D941320AA32003EC96A /* shareBackground.png */; };
+		7A4A0D9B1320AA32003EC96A /* shareBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D951320AA32003EC96A /* shareBackground@2x.png */; };
+		7A4A0D9C1320AA32003EC96A /* twitterShareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D961320AA32003EC96A /* twitterShareButton.png */; };
+		7A4A0D9D1320AA32003EC96A /* twitterShareButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A0D971320AA32003EC96A /* twitterShareButton@2x.png */; };
 		7A4F0E811311E99200C713C1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E801311E99200C713C1 /* Default@2x.png */; };
 		7A4F0E83131287F600C713C1 /* Icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E82131287F500C713C1 /* Icon_57.png */; };
 		7A4F0E851312880C00C713C1 /* Icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F0E841312880B00C713C1 /* Icon_114.png */; };
@@ -250,6 +258,15 @@
 		7A45D1971307642E00DE1BBE /* PerdiemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerdiemTests.m; sourceTree = "<group>"; };
 		7A45D1A11307648000DE1BBE /* Perdiem 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 2.xcdatamodel"; sourceTree = "<group>"; };
 		7A45D1A21307654200DE1BBE /* Perdiem 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Perdiem 3.xcdatamodel"; sourceTree = "<group>"; };
+		7A4A0D8D1320A99F003EC96A /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		7A4A0D8E1320A99F003EC96A /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		7A4A0D8F1320A99F003EC96A /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
+		7A4A0D921320AA32003EC96A /* facebookShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookShareButton.png; sourceTree = "<group>"; };
+		7A4A0D931320AA32003EC96A /* facebookShareButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebookShareButton@2x.png"; sourceTree = "<group>"; };
+		7A4A0D941320AA32003EC96A /* shareBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareBackground.png; sourceTree = "<group>"; };
+		7A4A0D951320AA32003EC96A /* shareBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareBackground@2x.png"; sourceTree = "<group>"; };
+		7A4A0D961320AA32003EC96A /* twitterShareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterShareButton.png; sourceTree = "<group>"; };
+		7A4A0D971320AA32003EC96A /* twitterShareButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterShareButton@2x.png"; sourceTree = "<group>"; };
 		7A4F0E801311E99200C713C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7A4F0E82131287F500C713C1 /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_57.png; path = ../Icon_57.png; sourceTree = "<group>"; };
 		7A4F0E841312880B00C713C1 /* Icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon_114.png; path = ../Icon_114.png; sourceTree = "<group>"; };
@@ -441,8 +458,6 @@
 		7A45D1531307642D00DE1BBE = {
 			isa = PBXGroup;
 			children = (
-				7A170416131F34E2004A528F /* libxml2.dylib */,
-				7A170414131F346E004A528F /* libOAuth.a */,
 				7A45D16A1307642E00DE1BBE /* Perdiem */,
 				7A45D18E1307642E00DE1BBE /* PerdiemTests */,
 				7A45D1611307642E00DE1BBE /* Frameworks */,
@@ -462,6 +477,8 @@
 		7A45D1611307642E00DE1BBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A170416131F34E2004A528F /* libxml2.dylib */,
+				7A170414131F346E004A528F /* libOAuth.a */,
 				7A7AEA991316F9AF00EFD5AB /* StoreKit.framework */,
 				7AFA26811313176300A917AC /* iAd.framework */,
 				7ACEDF211308DB3700106413 /* QuartzCore.framework */,
@@ -539,6 +556,7 @@
 		7ACEDF381308DF8F00106413 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7AFA264B131301F600A917AC /* Customized Controllers */,
 				7A45D17C1307642E00DE1BBE /* RootViewController.h */,
 				7A45D17D1307642E00DE1BBE /* RootViewController.m */,
 				7AC1516C130781A100DFF2EF /* NewTaskViewController.h */,
@@ -547,9 +565,10 @@
 				7AC1517113079B5C00DFF2EF /* TaskViewController.m */,
 				7A1BD4CA13099AD800F52EF6 /* InfoViewController.h */,
 				7A1BD4CB13099AD800F52EF6 /* InfoViewController.m */,
-				7AFA264B131301F600A917AC /* Customized Controllers */,
 				7A7AEAC41319E6E800EFD5AB /* UILabel+sizeToFitFixedWidth.h */,
 				7A7AEAC51319E6EE00EFD5AB /* UILabel+sizeToFitFixedWidth.m */,
+				7A4A0D8D1320A99F003EC96A /* ShareViewController.h */,
+				7A4A0D8E1320A99F003EC96A /* ShareViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -566,6 +585,7 @@
 		7ACEDF3A1308DFE900106413 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				7A4A0D8F1320A99F003EC96A /* ShareViewController.xib */,
 				7A45D1791307642E00DE1BBE /* MainWindow.xib */,
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 				7A8227A5130F148600CEDBA9 /* FullViewTaskCell.xib */,
@@ -592,6 +612,12 @@
 		7ACEDF3C1308E02B00106413 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7A4A0D921320AA32003EC96A /* facebookShareButton.png */,
+				7A4A0D931320AA32003EC96A /* facebookShareButton@2x.png */,
+				7A4A0D941320AA32003EC96A /* shareBackground.png */,
+				7A4A0D951320AA32003EC96A /* shareBackground@2x.png */,
+				7A4A0D961320AA32003EC96A /* twitterShareButton.png */,
+				7A4A0D971320AA32003EC96A /* twitterShareButton@2x.png */,
 				7A170366131EA089004A528F /* siteButton.png */,
 				7A170367131EA08B004A528F /* siteButton@2x.png */,
 				7A7AEAA81318484B00EFD5AB /* customNavBar@2x.png */,
@@ -807,6 +833,13 @@
 				7A170400131F3266004A528F /* jQueryInject.txt in Resources */,
 				7A170401131F3266004A528F /* jQueryInjectLandscape.txt in Resources */,
 				7A170413131F3266004A528F /* twitter_load.png in Resources */,
+				7A4A0D911320A9A0003EC96A /* ShareViewController.xib in Resources */,
+				7A4A0D981320AA32003EC96A /* facebookShareButton.png in Resources */,
+				7A4A0D991320AA32003EC96A /* facebookShareButton@2x.png in Resources */,
+				7A4A0D9A1320AA32003EC96A /* shareBackground.png in Resources */,
+				7A4A0D9B1320AA32003EC96A /* shareBackground@2x.png in Resources */,
+				7A4A0D9C1320AA32003EC96A /* twitterShareButton.png in Resources */,
+				7A4A0D9D1320AA32003EC96A /* twitterShareButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,6 +918,7 @@
 				7A170410131F3266004A528F /* NSString+UUID.m in Sources */,
 				7A170411131F3266004A528F /* SA_OAuthTwitterController.m in Sources */,
 				7A170412131F3266004A528F /* SA_OAuthTwitterEngine.m in Sources */,
+				7A4A0D901320A9A0003EC96A /* ShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,11 @@
 #import "PerdiemAppDelegate.h"
 #import "CustomNavigationBar.h"
 #import "RootViewController.h"
+#import "ShareViewController.h"
 #import "Globals.h"
 
 @implementation InfoViewController
+@synthesize shareCon;
 
 #pragma mark - View lifecycle
 
@@ -26,13 +28,18 @@
   self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Back" withImageName:@"customBarButton"];
   UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
   [leftButton addTarget:self action:@selector(saveSettings) forControlEvents:UIControlEventTouchUpInside];
-
+    
   [super viewDidLoad];
   
   self.title = @"Freshlist";
   
   CustomNavigationBar *customNavBar = (CustomNavigationBar *)self.navigationController.navigationBar;
   [customNavBar setBackgroundWith:[UIImage imageNamed:@"customNavBar"]];
+}
+
+- (void)dismissShare
+{
+  [self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -44,6 +51,28 @@
 {
   InAppPurchaseManager *purchaseManager = SharedPurchaseManager;
   [purchaseManager requestProUpgradeProductData];
+}
+
+- (IBAction)tellFriends
+{
+  ShareViewController *shareView = [[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:nil];
+  
+  // add buttons for the share screen when it loads
+  shareView.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:@"Back" withImageName:@"customBarButton"];
+  UIButton* leftShareButton = (UIButton*)shareView.navigationItem.leftBarButtonItem.customView;
+  [leftShareButton addTarget:self action:@selector(dismissShare) forControlEvents:UIControlEventTouchUpInside];
+
+  
+  shareView.title = @"Share Freshlist";
+  [shareCon pushViewController:shareView animated:NO];
+  [shareView release];
+  [self presentModalViewController:shareCon animated:YES];
+}
+
+- (void)dealloc
+{
+  [shareCon release];
+  [super dealloc];
 }
 
 @end
