@@ -8,12 +8,17 @@
 
 #import "InAppPurchaseManager.h"
 
+#define kInAppPurchaseProUpgradeProductId @"com.freshlistapp.freshlist.freshlistpro"
+#define kInAppPurchaseDiscountProUpgradeProductId @"com.freshlistapp.freshlist.freshlistprodiscount"
+#define kInAppPurchaseManagerTransactionFailedNotification @"kInAppPurchaseManagerTransactionFailedNotification"
+#define kInAppPurchaseManagerTransactionSucceededNotification @"kInAppPurchaseManagerTransactionSucceededNotification"
+
 @implementation InAppPurchaseManager
 
 - (void)requestProUpgradeProductData
 {
-  NSSet *productIdentifiers = [NSSet setWithObjects:@"com.freshlistapp.freshlist.freshlistpro",
-                               @"com.freshlistapp.freshlist.freshlistprodiscount",
+  NSSet *productIdentifiers = [NSSet setWithObjects:kInAppPurchaseProUpgradeProductId,
+                               kInAppPurchaseDiscountProUpgradeProductId,
                                nil ];
   productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
   productsRequest.delegate = self;
@@ -22,19 +27,171 @@
   // we will release the request object in the delegate callback
 }
 
+- (void)purchaseProUpgrade
+{
+  SKPayment *payment = [SKPayment paymentWithProductIdentifier:kInAppPurchaseProUpgradeProductId];
+  [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)purchaseDiscountProUpgrade
+{
+  SKPayment *payment = [SKPayment paymentWithProductIdentifier:kInAppPurchaseDiscountProUpgradeProductId];
+  [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)loadStore
+{
+  // restarts any purchases if they were interrupted last time the app was open
+  [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+  
+  // get the product description (defined in early sections)
+  [self requestProUpgradeProductData];
+}
+
+- (BOOL)canMakePurchases
+{
+  return [SKPaymentQueue canMakePayments];
+}
+
+#pragma -
+#pragma Purchase helpers
+
+//
+// saves a record of the transaction by storing the receipt to disk
+//
+- (void)recordTransaction:(SKPaymentTransaction *)transaction
+{
+  if ([transaction.payment.productIdentifier isEqualToString:kInAppPurchaseProUpgradeProductId])
+  {
+    // save the transaction receipt to disk
+    [[NSUserDefaults standardUserDefaults] setValue:transaction.transactionReceipt forKey:@"proUpgradeTransactionReceipt" ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+  }
+  else if ([transaction.payment.productIdentifier isEqualToString:kInAppPurchaseDiscountProUpgradeProductId])
+  {
+    [[NSUserDefaults standardUserDefaults] setValue:transaction.transactionReceipt forKey:@"proUpgradeDiscountTransactionReceipt" ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+  }
+}
+
+//
+// enable pro features
+//
+- (void)provideContent:(NSString *)productId
+{
+  if ([productId isEqualToString:kInAppPurchaseProUpgradeProductId] ||
+      [productId isEqualToString:kInAppPurchaseDiscountProUpgradeProductId])
+  {
+    // enable the pro features
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isProUpgradePurchased" ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+  }
+}
+
+//
+// removes the transaction from the queue and posts a notification with the transaction result
+//
+- (void)finishTransaction:(SKPaymentTransaction *)transaction wasSuccessful:(BOOL)wasSuccessful
+{
+  // remove the transaction from the payment queue.
+  [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+  
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:transaction, @"transaction" , nil];
+  if (wasSuccessful)
+  {
+    // send out a notification that we’ve finished the transaction
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInAppPurchaseManagerTransactionSucceededNotification object:self userInfo:userInfo];
+  }
+  else
+  {
+    // send out a notification for the failed transaction
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInAppPurchaseManagerTransactionFailedNotification object:self userInfo:userInfo];
+  }
+}
+
+//
+// called when the transaction was successful
+//
+- (void)completeTransaction:(SKPaymentTransaction *)transaction
+{
+  [self recordTransaction:transaction];
+  [self provideContent:transaction.payment.productIdentifier];
+  [self finishTransaction:transaction wasSuccessful:YES];
+}
+
+//
+// called when a transaction has been restored and and successfully completed
+//
+- (void)restoreTransaction:(SKPaymentTransaction *)transaction
+{
+  [self recordTransaction:transaction.originalTransaction];
+  [self provideContent:transaction.originalTransaction.payment.productIdentifier];
+  [self finishTransaction:transaction wasSuccessful:YES];
+}
+
+//
+// called when a transaction has failed
+//
+- (void)failedTransaction:(SKPaymentTransaction *)transaction
+{
+  if (transaction.error.code != SKErrorPaymentCancelled)
+  {
+    // error!
+    [self finishTransaction:transaction wasSuccessful:NO];
+  }
+  else
+  {
+    // this is fine, the user just cancelled, so don’t notify
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+  }
+}
+
+#pragma mark -
+#pragma mark SKPaymentTransactionObserver methods
+
+//
+// called when the transaction status is updated
+//
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+  for (SKPaymentTransaction *transaction in transactions)
+  {
+    switch (transaction.transactionState)
+    {
+      case SKPaymentTransactionStatePurchased:
+        [self completeTransaction:transaction];
+        break;
+      case SKPaymentTransactionStateFailed:
+        [self failedTransaction:transaction];
+        break;
+      case SKPaymentTransactionStateRestored:
+        [self restoreTransaction:transaction];
+        break;
+      default:
+        break;
+    }
+  }
+}
+
 #pragma mark -
 #pragma mark SKProductsRequestDelegate methods
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
   NSArray *products = response.products;
-  proUpgradeProduct = [products count] == 2 ? [[products objectAtIndex:0] retain] : nil;
-  if (proUpgradeProduct)
+  proUpgradeProduct = [products count] >= 1 ? [[products objectAtIndex:0] retain] : nil;
+  discountProUpgradeProduct = [products count] >= 2 ? [[products objectAtIndex:1] retain] : nil;
+  if (proUpgradeProduct && discountProUpgradeProduct)
   {
     NSLog(@"Product title: %@" , proUpgradeProduct.localizedTitle);
     NSLog(@"Product description: %@" , proUpgradeProduct.localizedDescription);
     NSLog(@"Product price: %@" , proUpgradeProduct.price);
     NSLog(@"Product id: %@" , proUpgradeProduct.productIdentifier);
+    
+    NSLog(@"Product title: %@" , discountProUpgradeProduct.localizedTitle);
+    NSLog(@"Product description: %@" , discountProUpgradeProduct.localizedDescription);
+    NSLog(@"Product price: %@" , discountProUpgradeProduct.price);
+    NSLog(@"Product id: %@" , discountProUpgradeProduct.productIdentifier);
   }
   
   for (NSString *invalidProductId in response.invalidProductIdentifiers)

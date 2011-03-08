@@ -32,7 +32,6 @@
   task.content = newTaskField.text;
   NSDate *now = [NSDate date];
   task.timeStamp = now;
-//  task.completed = [NSNumber numberWithBool:NO];
   
   NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
   NSDateComponents *comps = [[NSDateComponents alloc] init];

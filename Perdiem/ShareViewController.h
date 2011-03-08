@@ -8,10 +8,11 @@
 
 #import "StyledViewController.h"
 #import "SA_OAuthTwitterController.h"
+#import "FBConnect.h"
 
 @class SA_OAuthTwitterEngine;
 
-@interface ShareViewController : StyledViewController <SA_OAuthTwitterControllerDelegate>
+@interface ShareViewController : StyledViewController <SA_OAuthTwitterControllerDelegate, FBSessionDelegate, FBRequestDelegate>
 {
   SA_OAuthTwitterEngine *_engine;
 }

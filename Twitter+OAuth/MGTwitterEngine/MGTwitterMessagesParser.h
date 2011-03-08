@@ -7,7 +7,6 @@
 //
 
 #import "MGTwitterEngineGlobalHeader.h"
-
 #import "MGTwitterStatusesParser.h"
 
 @interface MGTwitterMessagesParser : MGTwitterStatusesParser {

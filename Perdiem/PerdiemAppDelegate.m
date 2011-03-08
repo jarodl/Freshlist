@@ -15,6 +15,7 @@
 
 @synthesize bannerView;
 @synthesize purchaseManager;
+@synthesize facebook;
 @synthesize window=_window;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize managedObjectModel=__managedObjectModel;
@@ -93,6 +94,10 @@
 
 - (void)layoutBanner:(BOOL)animated
 {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if ([defaults valueForKey:@"isProUpgradePurchased"])
+    return;
+  
   ADBannerView *adBanner = SharedAdBannerView;
   CGRect contentFrame = self.navigationController.view.frame;
 	CGFloat y = CGRectGetMaxY(contentFrame);
@@ -110,8 +115,6 @@
   }
   
   [UIView beginAnimations:@"layoutBanner" context:nil];
-//  self.navigationController.view.frame = contentFrame;
-//  [self.navigationController.view layoutIfNeeded];
   adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
   [UIView commitAnimations];
 }
@@ -140,8 +143,15 @@
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
   
+  // set up facebook connect
+  Facebook *fb = [[Facebook alloc] initWithAppId:@"132013846869072"];
+  self.facebook = fb;
+  [fb release];
+  
   // if the user is not using the pro version, show ads
-  if (true) {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if (![defaults valueForKey:@"isProUpgradePurchased"])
+  {
     [self createBannerView];
     [self layoutBanner:YES];
   }
@@ -194,6 +204,7 @@
 {
   [bannerView release];
   [purchaseManager release];
+  [facebook release];
   [_window release];
   [__managedObjectContext release];
   [__managedObjectModel release];
@@ -208,21 +219,19 @@
 
 - (void)saveContext
 {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil)
+  NSError *error = nil;
+  NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+  if (managedObjectContext != nil)
+  {
+    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
     {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
-        {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    } 
+  }
 }
 
 #pragma mark - Core Data stack
@@ -283,8 +292,6 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
-         
          Typical reasons for an error here include:
          * The persistent store is not accessible;
          * The schema for the persistent store is incompatible with current managed object model.
@@ -325,7 +332,7 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-  // If we don't already have an add and the root view is showing, display one
+  // If we don't already have an ad and the root view is showing, display one
   [self layoutBanner:YES];
 }
 
@@ -341,6 +348,13 @@
 
 - (void)bannerViewActionDidFinish:(ADBannerView *)banner
 {
+}
+
+#pragma mark -
+#pragma mark Facebook Connect
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+  return [facebook handleOpenURL:url];
 }
 
 @end

@@ -50,7 +50,7 @@
 - (IBAction)purchaseUpgrade
 {
   InAppPurchaseManager *purchaseManager = SharedPurchaseManager;
-  [purchaseManager requestProUpgradeProductData];
+  [purchaseManager purchaseProUpgrade];
 }
 
 - (IBAction)tellFriends

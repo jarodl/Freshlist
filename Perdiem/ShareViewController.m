@@ -7,6 +7,7 @@
 //
 
 #import "ShareViewController.h"
+#import "PerdiemAppDelegate.h"
 #import "SA_OAuthTwitterEngine.h"
 
 #define kOAuthConsumerKey	@"hFRNlYt3jevC7NYiLUwwTQ"
@@ -28,12 +29,40 @@
 
 - (IBAction)useTwitter
 {
-	UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine: _engine delegate: self];
+	UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:_engine delegate:self];
   [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)useFacebook
 {
+  Facebook *facebook = SharedFacebook;
+  [facebook authorize:[NSArray arrayWithObjects:
+                       @"read_stream", @"publish_stream", @"offline_access",nil] delegate:self];
+}
+
+- (void)fbDidLogin
+{
+  SBJSON *jsonWriter = [[SBJSON new] autorelease];
+  
+  NSDictionary* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                         @"Freshlist for iPhone",@"text",@"http://goo.gl/GR8ek",@"href", nil], nil];
+  NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];
+  
+  NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"Freshlist for iPhone", @"name",
+                              @"Dead simple productivity.", @"caption",
+                              @"Freshlist keeps a list of items you need to complete today. Every day a new list is created and the old one is destroyed.", @"description",
+                              @"http://goo.gl/GR8ek", @"href", nil];
+  NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
+  
+  NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                 @"Share Freshlist on Facebook",  @"user_message_prompt",
+                                 actionLinksStr, @"action_links",
+                                 attachmentStr, @"attachment",
+                                 nil];
+  
+  [SharedFacebook requestWithMethodName:@"stream.publish" andParams:params andHttpMethod:@"POST" andDelegate:self];
+  [SharedPurchaseManager purchaseDiscountProUpgrade];
 }
 
 - (void)dealloc
@@ -80,26 +109,32 @@
 
 //=============================================================================================================================
 #pragma mark SA_OAuthTwitterControllerDelegate
-- (void) OAuthTwitterController: (SA_OAuthTwitterController *) controller authenticatedWithUsername: (NSString *) username {
+- (void) OAuthTwitterController: (SA_OAuthTwitterController *) controller authenticatedWithUsername: (NSString *) username
+{
 	NSLog(@"Authenicated for %@", username);
   [_engine sendUpdate:@"Just received 50% off of Freshlist for iPhone! http://goo.gl/GR8ek"];
+  [SharedPurchaseManager purchaseDiscountProUpgrade];
 }
 
-- (void) OAuthTwitterControllerFailed: (SA_OAuthTwitterController *) controller {
+- (void) OAuthTwitterControllerFailed: (SA_OAuthTwitterController *) controller
+{
 	NSLog(@"Authentication Failed!");
 }
 
-- (void) OAuthTwitterControllerCanceled: (SA_OAuthTwitterController *) controller {
+- (void) OAuthTwitterControllerCanceled: (SA_OAuthTwitterController *) controller
+{
 	NSLog(@"Authentication Canceled.");
 }
 
 //=============================================================================================================================
 #pragma mark TwitterEngineDelegate
-- (void) requestSucceeded: (NSString *) requestIdentifier {
+- (void) requestSucceeded: (NSString *) requestIdentifier
+{
 	NSLog(@"Request %@ succeeded", requestIdentifier);
 }
 
-- (void) requestFailed: (NSString *) requestIdentifier withError: (NSError *) error {
+- (void) requestFailed: (NSString *) requestIdentifier withError: (NSError *) error
+{
 	NSLog(@"Request %@ failed with error: %@", requestIdentifier, error);
 }
 

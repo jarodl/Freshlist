@@ -10,12 +10,17 @@
 
 #define kInAppPurchaseManagerProductsFetchedNotification @"kInAppPurchaseManagerProductsFetchedNotification"
 
-@interface InAppPurchaseManager : NSObject <SKProductsRequestDelegate>
+@interface InAppPurchaseManager : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 {
   SKProduct *proUpgradeProduct;
+  SKProduct *discountProUpgradeProduct;
   SKProductsRequest *productsRequest;
 }
 
+- (void)loadStore;
+- (BOOL)canMakePurchases;
+- (void)purchaseProUpgrade;
+- (void)purchaseDiscountProUpgrade;
 - (void)requestProUpgradeProductData;
 
 @end

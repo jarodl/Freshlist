@@ -527,11 +527,11 @@
 		7A45D16A1307642E00DE1BBE /* Perdiem */ = {
 			isa = PBXGroup;
 			children = (
+				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
+				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
 				7ACF166013218426000CD414 /* FBConnect */,
 				7A1703C4131F3265004A528F /* Twitter+OAuth */,
 				7A7AEA9C1316FF3300EFD5AB /* Store Kit */,
-				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
-				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
 				7ACEDF391308DFD200106413 /* Data Models */,
 				7ACEDF381308DF8F00106413 /* View Controllers */,
 				7ACEDF3B1308E01000106413 /* TableViewCells */,

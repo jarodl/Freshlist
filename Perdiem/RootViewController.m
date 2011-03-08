@@ -20,6 +20,8 @@
 #import "Task.h"
 #import <iAd/iAd.h>
 
+#define FreeVersionLimit 5
+
 #define FT_SAVE_MOC(_ft_moc) \
 do { \
 NSError* _ft_save_error; \
@@ -223,6 +225,19 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 - (void)presentNewTaskView
 {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if (![defaults valueForKey:@"proUpgradeIsPurchased"] &&
+      [self.fetchedResultsController.fetchedObjects count] >= FreeVersionLimit)
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pro Feature Only" message:@"The free version of Freshlist only allows 5 or less items on your list at a time. Upgrade to pro to remove ads and add unlimited tasks."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Upgrade", nil];
+    [alert show];
+    [alert release];
+    return;
+  }
+  
   NewTaskViewController *newTaskCon = [[NewTaskViewController alloc] initWithNibName:@"NewTaskViewController" bundle:nil];
   newTaskCon.delegate = self;
   
@@ -232,6 +247,14 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   [newTaskView pushViewController:newTaskCon animated:NO];
   [self presentModalViewController:newTaskView animated:YES];
   [newTaskCon release];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 1)
+  {
+    [self flipCurrentView];
+  }
 }
 
 - (void)newTaskViewController:(NewTaskViewController *)newTaskViewController didAddTask:(Task *)task

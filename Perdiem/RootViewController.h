@@ -14,7 +14,7 @@
 
 @class TaskCell;
 
-@interface RootViewController : StyledTableViewController <TaskCellDelegate, TaskAddDelegate, NSFetchedResultsControllerDelegate>
+@interface RootViewController : StyledTableViewController <UIAlertViewDelegate,TaskCellDelegate, TaskAddDelegate, NSFetchedResultsControllerDelegate>
 {
   BOOL frontViewVisible;
   BOOL bannerIsVisisble;

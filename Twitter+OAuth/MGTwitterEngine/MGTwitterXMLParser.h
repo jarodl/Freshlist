@@ -7,10 +7,9 @@
 //
 
 #import "MGTwitterEngineGlobalHeader.h"
-
 #import "MGTwitterParserDelegate.h"
 
-@interface MGTwitterXMLParser : NSObject {
+@interface MGTwitterXMLParser : NSObject <NSXMLParserDelegate> {
     __weak NSObject <MGTwitterParserDelegate> *delegate; // weak ref
     NSString *identifier;
     MGTwitterRequestType requestType;
@@ -28,10 +27,18 @@ connectionIdentifier:(NSString *)identifier requestType:(MGTwitterRequestType)re
 - (id)initWithXML:(NSData *)theXML delegate:(NSObject *)theDelegate 
 connectionIdentifier:(NSString *)identifier requestType:(MGTwitterRequestType)reqType 
      responseType:(MGTwitterResponseType)respType;
-
 - (NSString *)lastOpenedElement;
 - (void)setLastOpenedElement:(NSString *)value;
-
 - (void)addSource;
+
+- (void)parser:(NSXMLParser *)theParser didEndElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
+- (void)parser:(NSXMLParser *)theParser didStartElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName 
+    attributes:(NSDictionary *)attributeDict;
+- (void)parser:(NSXMLParser *)theParser foundCharacters:(NSString *)characters;
+- (void)parser:(NSXMLParser *)theParser didEndElement:(NSString *)elementName 
+  namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
+- (void)parser:(NSXMLParser *)theParser parseErrorOccurred:(NSError *)parseError;
 
 @end
