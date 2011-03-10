@@ -92,10 +92,24 @@
   }
 }
 
+- (void)removeBanner
+{
+  ADBannerView *adBanner = SharedAdBannerView;
+  if (adBanner.bannerLoaded)
+  {
+    [UIView beginAnimations:@"layoutBanner" context:nil];
+    adBanner.frame = CGRectMake(0,
+                                CGRectGetMaxY(self.navigationController.view.frame) + adBanner.frame.size.height,
+                                adBanner.frame.size.width,
+                                adBanner.frame.size.height);
+    [UIView commitAnimations];
+  }
+}
+
 - (void)layoutBanner:(BOOL)animated
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if ([defaults valueForKey:@"isProUpgradePurchased"])
+  if ([defaults valueForKey:isProUpgradePurchased])
     return;
   
   ADBannerView *adBanner = SharedAdBannerView;
@@ -150,7 +164,7 @@
   
   // if the user is not using the pro version, show ads
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (![defaults valueForKey:@"isProUpgradePurchased"])
+  if (![defaults valueForKey:isProUpgradePurchased])
   {
     [self createBannerView];
     [self layoutBanner:YES];
@@ -225,11 +239,11 @@
   {
     if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
     {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+      /*
+       Replace this implementation with code to handle the error appropriately.
+       */
+      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+      abort();
     } 
   }
 }
@@ -242,19 +256,19 @@
  */
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (__managedObjectContext != nil)
-    {
-        return __managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil)
-    {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-      [__managedObjectContext setRetainsRegisteredObjects:YES];
-    }
+  if (__managedObjectContext != nil)
+  {
     return __managedObjectContext;
+  }
+  
+  NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+  if (coordinator != nil)
+  {
+    __managedObjectContext = [[NSManagedObjectContext alloc] init];
+    [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+    [__managedObjectContext setRetainsRegisteredObjects:YES];
+  }
+  return __managedObjectContext;
 }
 
 /**

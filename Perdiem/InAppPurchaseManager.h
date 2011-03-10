@@ -22,5 +22,7 @@
 - (void)purchaseProUpgrade;
 - (void)purchaseDiscountProUpgrade;
 - (void)requestProUpgradeProductData;
+- (void)startStatusIndicators;
+- (void)stopStatusIndicators;
 
 @end

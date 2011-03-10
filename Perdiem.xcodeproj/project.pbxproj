@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A018E291314F43B00A8234A /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A018E281314F43B00A8234A /* addButton.png */; };
 		7A018E2C1314F44400A8234A /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A018E2B1314F44400A8234A /* settingsButton.png */; };
+		7A0A35F41327039E00D77FAB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0A35F31327039E00D77FAB /* MBProgressHUD.m */; };
+		7A0A35FD1327047800D77FAB /* MBProgressHUD+RFhelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0A35FC1327047800D77FAB /* MBProgressHUD+RFhelpers.m */; };
 		7A0CAC16130F349500E07405 /* ShadowedTornEdgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */; };
 		7A0CAC1A130F389700E07405 /* StyledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CAC19130F389600E07405 /* StyledViewController.m */; };
 		7A0CAC1C130F3BA900E07405 /* StyledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CAC1B130F3BA900E07405 /* StyledViewController.xib */; };
@@ -152,6 +154,10 @@
 /* Begin PBXFileReference section */
 		7A018E281314F43B00A8234A /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
 		7A018E2B1314F44400A8234A /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
+		7A0A35F21327039E00D77FAB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = MBProgressHUD/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		7A0A35F31327039E00D77FAB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = MBProgressHUD/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
+		7A0A35FB1327047800D77FAB /* MBProgressHUD+RFhelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+RFhelpers.h"; path = "MBProgressHUD/MBProgressHUD+RFhelpers.h"; sourceTree = SOURCE_ROOT; };
+		7A0A35FC1327047800D77FAB /* MBProgressHUD+RFhelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+RFhelpers.m"; path = "MBProgressHUD/MBProgressHUD+RFhelpers.m"; sourceTree = SOURCE_ROOT; };
 		7A0CAC14130F349400E07405 /* ShadowedTornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTornEdgeView.h; sourceTree = "<group>"; };
 		7A0CAC15130F349400E07405 /* ShadowedTornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTornEdgeView.m; sourceTree = "<group>"; };
 		7A0CAC18130F389600E07405 /* StyledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledViewController.h; sourceTree = "<group>"; };
@@ -394,6 +400,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A0A35F6132703A200D77FAB /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7A0A35F21327039E00D77FAB /* MBProgressHUD.h */,
+				7A0A35F31327039E00D77FAB /* MBProgressHUD.m */,
+				7A0A35FB1327047800D77FAB /* MBProgressHUD+RFhelpers.h */,
+				7A0A35FC1327047800D77FAB /* MBProgressHUD+RFhelpers.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		7A1703C4131F3265004A528F /* Twitter+OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +546,7 @@
 			children = (
 				7A45D1731307642E00DE1BBE /* PerdiemAppDelegate.h */,
 				7A45D1741307642E00DE1BBE /* PerdiemAppDelegate.m */,
+				7A0A35F6132703A200D77FAB /* MBProgressHUD */,
 				7ACF166013218426000CD414 /* FBConnect */,
 				7A1703C4131F3265004A528F /* Twitter+OAuth */,
 				7A7AEA9C1316FF3300EFD5AB /* Store Kit */,
@@ -1003,6 +1021,8 @@
 				7ACF167213218475000CD414 /* SBJsonBase.m in Sources */,
 				7ACF167313218475000CD414 /* SBJsonParser.m in Sources */,
 				7ACF167413218475000CD414 /* SBJsonWriter.m in Sources */,
+				7A0A35F41327039E00D77FAB /* MBProgressHUD.m in Sources */,
+				7A0A35FD1327047800D77FAB /* MBProgressHUD+RFhelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

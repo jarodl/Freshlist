@@ -80,6 +80,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   self.navigationItem.leftBarButtonItem = [self customBarButtonItemWithText:nil withImageName:@"settingsButton"];
   UIButton* leftButton = (UIButton*)self.navigationItem.leftBarButtonItem.customView;
   [leftButton addTarget:self action:@selector(flipCurrentView) forControlEvents:UIControlEventTouchUpInside];
+  if ([[NSUserDefaults standardUserDefaults] valueForKey:isProUpgradePurchased])
+    leftButton.hidden = YES;
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
     
@@ -226,7 +228,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 - (void)presentNewTaskView
 {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if (![defaults valueForKey:@"proUpgradeIsPurchased"] &&
+  if (![defaults valueForKey:isProUpgradePurchased] &&
       [self.fetchedResultsController.fetchedObjects count] >= FreeVersionLimit)
   {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pro Feature Only" message:@"The free version of Freshlist only allows 5 or less items on your list at a time. Upgrade to pro to remove ads and add unlimited tasks."
@@ -286,6 +288,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   {
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     [settingsView.view removeFromSuperview];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:isProUpgradePurchased])
+      self.navigationItem.leftBarButtonItem.customView.hidden = YES;
     self.frontViewVisible = YES;
   }
   

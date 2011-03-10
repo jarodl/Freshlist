@@ -21,3 +21,10 @@
 #define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.20 brightness:0.75 alpha:1.0]
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.48 brightness:.75 alpha:1.0]
 #define LineHeight 21.5f;
+
+#define isProUpgradePurchased @"isProUpgradePurchased"
+
+#define kInAppPurchaseProUpgradeProductId @"com.freshlistapp.freshlist.freshlistpro"
+#define kInAppPurchaseDiscountProUpgradeProductId @"com.freshlistapp.freshlist.freshlistprodiscount"
+#define kInAppPurchaseManagerTransactionFailedNotification @"kInAppPurchaseManagerTransactionFailedNotification"
+#define kInAppPurchaseManagerTransactionSucceededNotification @"kInAppPurchaseManagerTransactionSucceededNotification"

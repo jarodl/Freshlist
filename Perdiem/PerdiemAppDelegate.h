@@ -14,6 +14,7 @@
 #define SharedAdBannerView ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).bannerView
 #define SharedPurchaseManager ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).purchaseManager
 #define SharedFacebook ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).facebook
+#define SharedHUD ((PerdiemAppDelegate *)[[UIApplication sharedApplication] delegate]).hud
 
 @interface PerdiemAppDelegate : NSObject <UIApplicationDelegate, ADBannerViewDelegate>
 {
@@ -35,5 +36,6 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (void)removeExpiredTasks;
 - (void)createBannerView;
+- (void)removeBanner;
 
 @end

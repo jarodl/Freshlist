@@ -7,11 +7,9 @@
 //
 
 #import "InAppPurchaseManager.h"
-
-#define kInAppPurchaseProUpgradeProductId @"com.freshlistapp.freshlist.freshlistpro"
-#define kInAppPurchaseDiscountProUpgradeProductId @"com.freshlistapp.freshlist.freshlistprodiscount"
-#define kInAppPurchaseManagerTransactionFailedNotification @"kInAppPurchaseManagerTransactionFailedNotification"
-#define kInAppPurchaseManagerTransactionSucceededNotification @"kInAppPurchaseManagerTransactionSucceededNotification"
+#import "PerdiemAppDelegate.h"
+#import "MBProgressHUD+RFhelpers.h"
+#import "Globals.h"
 
 @implementation InAppPurchaseManager
 
@@ -31,12 +29,14 @@
 {
   SKPayment *payment = [SKPayment paymentWithProductIdentifier:kInAppPurchaseProUpgradeProductId];
   [[SKPaymentQueue defaultQueue] addPayment:payment];
+  [self startStatusIndicators];
 }
 
 - (void)purchaseDiscountProUpgrade
 {
   SKPayment *payment = [SKPayment paymentWithProductIdentifier:kInAppPurchaseDiscountProUpgradeProductId];
   [[SKPaymentQueue defaultQueue] addPayment:payment];
+  [self startStatusIndicators];
 }
 
 - (void)loadStore
@@ -83,8 +83,9 @@
       [productId isEqualToString:kInAppPurchaseDiscountProUpgradeProductId])
   {
     // enable the pro features
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isProUpgradePurchased" ];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:isProUpgradePurchased];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [(PerdiemAppDelegate*)[UIApplication sharedApplication].delegate removeBanner];
   }
 }
 
@@ -117,6 +118,7 @@
   [self recordTransaction:transaction];
   [self provideContent:transaction.payment.productIdentifier];
   [self finishTransaction:transaction wasSuccessful:YES];
+  [self stopStatusIndicators];
 }
 
 //
@@ -127,6 +129,7 @@
   [self recordTransaction:transaction.originalTransaction];
   [self provideContent:transaction.originalTransaction.payment.productIdentifier];
   [self finishTransaction:transaction wasSuccessful:YES];
+  [self stopStatusIndicators];
 }
 
 //
@@ -144,6 +147,7 @@
     // this is fine, the user just cancelled, so don’t notify
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
   }
+  [self stopStatusIndicators];
 }
 
 #pragma mark -
@@ -171,6 +175,18 @@
         break;
     }
   }
+}
+
+- (void)stopStatusIndicators
+{
+  [[MBProgressHUD sharedProgressHUD] hideAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+- (void)startStatusIndicators
+{
+  [[MBProgressHUD sharedProgressHUD] showAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 #pragma mark -
