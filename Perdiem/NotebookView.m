@@ -37,6 +37,8 @@
   // Drawing code
   CGContextRef context = UIGraphicsGetCurrentContext();
   
+  CGContextSetShouldAntialias(context, NO);
+  
   UIColor *strokeColor = NotebookLineColor;
   CGContextSetStrokeColorWithColor(context, [strokeColor CGColor]);
   CGContextSetLineWidth(context, 1);
@@ -44,11 +46,8 @@
   CGContextMoveToPoint(context, startPoint.x, startPoint.y);
   CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
   
-  if (hasHighResScreen)
-  {
-    CGContextMoveToPoint(context, startPoint.x + 4.0f, startPoint.y);
-    CGContextAddLineToPoint(context, endPoint.x + 4.0f, endPoint.y);
-  }
+  CGContextMoveToPoint(context, startPoint.x + 2.0f, startPoint.y);
+  CGContextAddLineToPoint(context, endPoint.x + 2.0f, endPoint.y);
   
   CGContextDrawPath(context, kCGPathStroke);
 }

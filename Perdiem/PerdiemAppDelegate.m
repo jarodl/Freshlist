@@ -119,9 +119,6 @@
   
   bannerHeight = adBanner.frame.size.height;
 	
-  // Depending on if the banner has been loaded, we adjust the content frame and banner location
-  // to accomodate the ad being on or off screen.
-  // This layout is for an ad at the bottom of the view.
   if (adBanner.bannerLoaded)
   {
     contentFrame.size.height -= bannerHeight;

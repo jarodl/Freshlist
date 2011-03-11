@@ -18,8 +18,8 @@
 #define SingleTableViewCellMargin 10.0f
 #define SingleTableViewCellWidth 280.0f
 
-#define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.20 brightness:0.75 alpha:1.0]
-#define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.48 brightness:.75 alpha:1.0]
+#define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.20 brightness:0.75 alpha:0.5]
+#define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.48 brightness:.75 alpha:0.5]
 #define LineHeight 21.5f;
 
 #define isProUpgradePurchased @"isProUpgradePurchased"
