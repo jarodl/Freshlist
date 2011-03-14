@@ -20,7 +20,7 @@
 
 #define SeperatorColor [UIColor colorWithHue:0.572 saturation:0.20 brightness:0.75 alpha:0.5]
 #define NotebookLineColor [UIColor colorWithHue:0.991 saturation:0.48 brightness:.75 alpha:0.5]
-#define LineHeight 21.5f;
+#define LineHeight 21.0f;
 
 #define isProUpgradePurchased @"isProUpgradePurchased"
 

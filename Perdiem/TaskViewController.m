@@ -11,7 +11,7 @@
 #import "CustomNavigationBar.h"
 #import "FullViewTaskCell.h"
 #import "TornEdgeView.h"
-//#import "LinedView.h"
+#import "LinedView.h"
 #import "Globals.h"
 #import "Task.h"
 
@@ -131,7 +131,7 @@ enum TaskSectionRows {
     self.tmpCell = nil;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.contentView.backgroundColor = TableBackgroundColor;
-////    cell.contentView.backgroundColor = [UIColor clearColor];
+//    cell.contentView.backgroundColor = [UIColor clearColor];
 //    LinedView *lines = [[LinedView alloc] initWithFrame:cell.frame];
 //    lines.backgroundColor = TableBackgroundColor;
 //    cell.backgroundView = lines;

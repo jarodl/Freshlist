@@ -173,6 +173,7 @@
 		7A0CAC35130F774D00E07405 /* navigationBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackButton.png; sourceTree = "<group>"; };
 		7A0CAC36130F774D00E07405 /* navigationBarBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBarBackButton@2x.png"; sourceTree = "<group>"; };
 		7A0CAC39130F7AF600E07405 /* customBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customBarButton.png; sourceTree = "<group>"; };
+		7A11FF32132A84F100C7DADC /* Freshlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A170366131EA089004A528F /* siteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = siteButton.png; sourceTree = "<group>"; };
 		7A170367131EA08B004A528F /* siteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "siteButton@2x.png"; sourceTree = "<group>"; };
 		7A1703C6131F3266004A528F /* jQueryInject.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jQueryInject.txt; sourceTree = "<group>"; };
@@ -252,7 +253,6 @@
 		7A337550130A1DD40052F24F /* NotebookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotebookView.m; sourceTree = "<group>"; };
 		7A337554130A40BB0052F24F /* TornEdgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TornEdgeView.h; sourceTree = "<group>"; };
 		7A337555130A40BB0052F24F /* TornEdgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TornEdgeView.m; sourceTree = "<group>"; };
-		7A45D15E1307642E00DE1BBE /* Freshlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A45D1621307642E00DE1BBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A45D1641307642E00DE1BBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A45D1661307642E00DE1BBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -521,8 +521,8 @@
 		7A45D15F1307642E00DE1BBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A45D15E1307642E00DE1BBE /* Freshlist.app */,
 				7A45D1871307642E00DE1BBE /* PerdiemTests.octest */,
+				7A11FF32132A84F100C7DADC /* Freshlist.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -822,7 +822,7 @@
 			);
 			name = Perdiem;
 			productName = Perdiem;
-			productReference = 7A45D15E1307642E00DE1BBE /* Freshlist.app */;
+			productReference = 7A11FF32132A84F100C7DADC /* Freshlist.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A45D1861307642E00DE1BBE /* PerdiemTests */ = {
@@ -1111,7 +1111,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1171,6 +1171,7 @@
 					"\"$(SRCROOT)/Twitter+OAuth/Libraries & Headers\"/**",
 				);
 				PRODUCT_NAME = Freshlist;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
