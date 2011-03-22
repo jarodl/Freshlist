@@ -162,9 +162,6 @@
   // if the user is not using the pro version, show ads
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   
-  [defaults setBool:YES forKey:isProUpgradePurchased];
-  [defaults synchronize];
-  
   if (![defaults valueForKey:isProUpgradePurchased])
   {
     [self createBannerView];
