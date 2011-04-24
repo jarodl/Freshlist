@@ -13,9 +13,6 @@
 
 @implementation PerdiemAppDelegate
 
-@synthesize bannerView;
-@synthesize purchaseManager;
-@synthesize facebook;
 @synthesize window=_window;
 @synthesize managedObjectContext=__managedObjectContext;
 @synthesize managedObjectModel=__managedObjectModel;
@@ -50,86 +47,6 @@
   [request release];
 }
 
-- (void)createBannerView
-{
-  Class cls = NSClassFromString(@"ADBannerView");
-  if (cls) {
-    ADBannerView *adBanner = SharedAdBannerView;
-    
-    NSString *contentSize;
-    if (&ADBannerContentSizeIdentifierPortrait != nil)
-    {
-      contentSize = ADBannerContentSizeIdentifierPortrait;
-    }
-    else
-    {
-      // user the older sizes 
-      contentSize = ADBannerContentSizeIdentifier320x50;
-    }
-    
-    CGRect frame;
-    frame.size = [ADBannerView sizeFromBannerContentSizeIdentifier:contentSize];
-    frame.origin = CGPointMake(0.0f, CGRectGetMaxY(self.navigationController.view.bounds));
-    
-    // Now set the banner view's frame
-    adBanner.frame = frame;
-    
-    // Set the delegate to self, so that we are notified of ad responses.
-    adBanner.delegate = self;
-    
-    // Set the autoresizing mask so that the banner is pinned to the bottom
-    adBanner.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-    
-    // Since we support all orientations in this view controller, support portrait and landscape content sizes.
-    // If you only supported landscape or portrait, you could remove the other from this set
-    adBanner.requiredContentSizeIdentifiers =
-    (&ADBannerContentSizeIdentifierPortrait != nil) ?
-    [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
-    [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-    
-    [self.navigationController.view addSubview:adBanner];
-    [self.navigationController.view bringSubviewToFront:adBanner];
-  }
-}
-
-- (void)removeBanner
-{
-  ADBannerView *adBanner = SharedAdBannerView;
-  if (adBanner.bannerLoaded)
-  {
-    [UIView beginAnimations:@"layoutBanner" context:nil];
-    adBanner.frame = CGRectMake(0,
-                                CGRectGetMaxY(self.navigationController.view.frame) + adBanner.frame.size.height,
-                                adBanner.frame.size.width,
-                                adBanner.frame.size.height);
-    [UIView commitAnimations];
-  }
-}
-
-- (void)layoutBanner:(BOOL)animated
-{
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  if ([defaults valueForKey:isProUpgradePurchased])
-    return;
-  
-  ADBannerView *adBanner = SharedAdBannerView;
-  CGRect contentFrame = self.navigationController.view.frame;
-	CGFloat y = CGRectGetMaxY(contentFrame);
-  CGFloat bannerHeight = 0.0f;
-  
-  bannerHeight = adBanner.frame.size.height;
-	
-  if (adBanner.bannerLoaded)
-  {
-    contentFrame.size.height -= bannerHeight;
-		y -= bannerHeight;
-  }
-  
-  [UIView beginAnimations:@"layoutBanner" context:nil];
-  adBanner.frame = CGRectMake(0, y,  adBanner.frame.size.width, adBanner.frame.size.height);
-  [UIView commitAnimations];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
@@ -139,35 +56,10 @@
   [self.navigationController pushViewController:rootViewController animated:NO];
   [rootViewController release];
   
-  self.bannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
-	// Set the autoresizing mask so that the banner is pinned to the bottom
-	self.bannerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
-	// Since we support all orientations, support portrait and landscape content sizes.
-	// If you only supported landscape or portrait, you could remove the other from this set
-	self.bannerView.requiredContentSizeIdentifiers = (&ADBannerContentSizeIdentifierPortrait != nil) ?
-  [NSSet setWithObjects:ADBannerContentSizeIdentifierPortrait, nil] : 
-  [NSSet setWithObjects:ADBannerContentSizeIdentifier320x50, nil];
-  
-  self.purchaseManager = [[InAppPurchaseManager alloc] init];
-
   [self removeExpiredTasks];
   self.navigationController.navigationBar.tintColor = BarTintColor;
   self.navigationController.toolbar.tintColor = BarTintColor;
   
-  // set up facebook connect
-  Facebook *fb = [[Facebook alloc] initWithAppId:@"132013846869072"];
-  self.facebook = fb;
-  [fb release];
-  
-  // if the user is not using the pro version, show ads
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  
-  if (![defaults valueForKey:isProUpgradePurchased])
-  {
-    [self createBannerView];
-    [self layoutBanner:YES];
-  }
-    
   self.window.rootViewController = self.navigationController;
   [self.window makeKeyAndVisible];
   return YES;
@@ -214,9 +106,6 @@
 
 - (void)dealloc
 {
-  [bannerView release];
-  [purchaseManager release];
-  [facebook release];
   [_window release];
   [__managedObjectContext release];
   [__managedObjectModel release];
@@ -337,36 +226,6 @@
 - (NSURL *)applicationDocumentsDirectory
 {
   return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-#pragma mark -
-#pragma mark ADBannerViewDelegate methods
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-  // If we don't already have an ad and the root view is showing, display one
-  [self layoutBanner:YES];
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-  [self layoutBanner:YES];
-}
-
-- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
-{
-  return YES;
-}
-
-- (void)bannerViewActionDidFinish:(ADBannerView *)banner
-{
-}
-
-#pragma mark -
-#pragma mark Facebook Connect
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-  return [facebook handleOpenURL:url];
 }
 
 @end
