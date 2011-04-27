@@ -14,7 +14,7 @@
 
 @class TaskCell;
 
-@interface RootViewController : StyledTableViewController <UIAlertViewDelegate, TaskCellDelegate, NSFetchedResultsControllerDelegate>
+@interface RootViewController : StyledTableViewController <UITextFieldDelegate, TaskCellDelegate, NSFetchedResultsControllerDelegate>
 {
   TaskCell *tmpCell;
   UINib *cellNib;

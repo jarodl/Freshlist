@@ -49,6 +49,29 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   [self loadPaperStyles];
     
   self.navigationItem.title = @"Today";
+    
+    float margin = 10.0f;
+    UIImage *backgroundImage = [UIImage imageNamed:@"inputFieldBackground"];
+    UIView *textFieldView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, backgroundImage.size.height + margin)];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
+    float left = (self.view.frame.size.width - backgroundImage.size.width) / 2.0f;
+    backgroundView.frame = CGRectMake(left, margin, backgroundImage.size.width, backgroundImage.size.height);
+    [textFieldView addSubview:backgroundView];
+    [backgroundView release];
+
+    CGRect taskFieldRect = CGRectMake(backgroundView.frame.origin.x + margin,
+                                      backgroundView.frame.origin.y,
+                                      backgroundView.frame.size.width - margin,
+                                      backgroundView.frame.size.height);
+    UITextField *taskField = [[UITextField alloc] initWithFrame:taskFieldRect];
+    taskField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+  taskField.placeholder = @"Add a new task";
+  taskField.delegate = self;
+  [textFieldView addSubview:taskField];
+  [taskField release];
+    
+  self.table.tableHeaderView = textFieldView;
+  [textFieldView release];
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
     
@@ -179,6 +202,45 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 //  [newTaskView pushViewController:newTaskCon animated:NO];
 //  [self presentModalViewController:newTaskView animated:YES];
 //  [newTaskCon release];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:self.managedObjectContext];
+    newTask.content = textField.text;
+    
+    NSDate *now = [NSDate date];
+    newTask.timeStamp = now;
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:1];
+    // move the expiration date forward one day
+    NSDate *expirationDate = [gregorian dateByAddingComponents:comps toDate:now options:0];
+    [comps release];
+    // then set the time to midnight
+    NSDateComponents *expirationComps = [gregorian components:(NSMonthCalendarUnit | NSDayCalendarUnit | NSYearCalendarUnit) fromDate:expirationDate];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"M/d/yyyy"];
+    expirationDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%i/%i/%i",
+                                                    [expirationComps month], [expirationComps day], [expirationComps year]]];
+    [dateFormatter release];
+    [gregorian release];
+    
+    newTask.expiration = expirationDate;
+    
+    NSError *error = nil;
+	if (![newTask.managedObjectContext save:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	}	
+    
+    textField.text = @"";
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - Fetched results controller
