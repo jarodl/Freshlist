@@ -14,7 +14,6 @@
 @interface TaskCell : UITableViewCell
 {
   Task *task;
-  BOOL showsAccessory;
 
   UIImage *checkBox;
   NSString *taskContent;
@@ -28,10 +27,10 @@
 @property (nonatomic, retain) Task *task;
 @property (nonatomic, retain, setter = setTaskContent:) NSString *taskContent;
 @property (nonatomic, retain, setter = setCheckBox:) UIImage *checkBox;
-@property (nonatomic) BOOL showsAccessory;
 @property (nonatomic, retain) id<TaskCellDelegate> delegate;
 
 - (void)refreshCell;
+- (void)toggleTaskCompleted;
 
 @end
 

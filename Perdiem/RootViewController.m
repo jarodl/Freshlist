@@ -191,19 +191,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   cell.task = task;
 }
 
-- (void)presentNewTaskView
-{
-//  NewTaskViewController *newTaskCon = [[NewTaskViewController alloc] initWithNibName:@"NewTaskViewController" bundle:nil];
-//  newTaskCon.delegate = self;
-//  
-//  Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:self.managedObjectContext];
-//  newTaskCon.task = newTask;
-//  
-//  [newTaskView pushViewController:newTaskCon animated:NO];
-//  [self presentModalViewController:newTaskView animated:YES];
-//  [newTaskCon release];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:self.managedObjectContext];

@@ -16,7 +16,6 @@
 @synthesize taskContentLabel;
 @synthesize taskContent;
 @synthesize checkBox;
-@synthesize showsAccessory;
 @synthesize task;
 @synthesize delegate;
 
@@ -28,24 +27,23 @@
     self.selectedBackgroundView = background;
     [background release];
     
-    showsAccessory = YES;
+      self.accessoryType = UITableViewCellAccessoryNone;
   }
   return self;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  CGPoint location = [(UITouch *)[touches anyObject] locationInView:self];
-  if (CGRectContainsPoint(checkBoxView.frame, location))
-  {
+  [self toggleTaskCompleted];
+  [super touchesBegan:touches withEvent:event];
+}
+
+- (void)toggleTaskCompleted
+{
     BOOL comp = ![task.completed boolValue];
     task.completed = [NSNumber numberWithBool:comp];
     [self refreshCell];
     [delegate cellWasChecked];
-    return;
-  }
-  
-  [super touchesBegan:touches withEvent:event];
 }
 
 - (void)setTask:(Task *)newTask
@@ -77,8 +75,6 @@
     checkBoxView.image = [UIImage imageNamed:@"unchecked"];
     taskContentLabel.alpha = 1.0;
     checkBoxView.alpha = 1.0;
-    if (showsAccessory)
-      self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   }
 }
 
