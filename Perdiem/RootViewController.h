@@ -18,6 +18,7 @@
 {
   TaskCell *tmpCell;
   UINib *cellNib;
+    UITextField *taskField;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
@@ -27,5 +28,6 @@
 
 - (void)loadPaperStyles;
 - (void)toggleTaskComplete:(NSNotification *)notification;
+- (void)cancelSave;
 
 @end

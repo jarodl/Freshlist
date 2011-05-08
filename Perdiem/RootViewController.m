@@ -63,12 +63,12 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
                                       backgroundView.frame.origin.y,
                                       backgroundView.frame.size.width - margin,
                                       backgroundView.frame.size.height);
-    UITextField *taskField = [[UITextField alloc] initWithFrame:taskFieldRect];
+    taskField = [[UITextField alloc] initWithFrame:taskFieldRect];
+    taskField.returnKeyType = UIReturnKeyDone;
     taskField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
   taskField.placeholder = @"Add a new task";
   taskField.delegate = self;
   [textFieldView addSubview:taskField];
-  [taskField release];
     
   self.table.tableHeaderView = textFieldView;
   [textFieldView release];
@@ -78,6 +78,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
   self.table.rowHeight = TableViewCellHeight;
   self.table.separatorColor = SeperatorColor;
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
   [super viewDidLoad];
 }
@@ -191,6 +193,34 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   cell.task = task;
 }
 
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Task *task = (Task *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *taskText = task.content;
+    float height = 0;
+    
+    CGSize constraintSize = CGSizeMake(248.0f, MAXFLOAT);
+    CGSize size = [taskText sizeWithFont:[UIFont systemFontOfSize:17.0f]
+                       constrainedToSize:constraintSize
+                           lineBreakMode:UILineBreakModeWordWrap];
+    height += size.height + 20.0f;
+    
+    return (height > TableViewCellHeight) ? height : TableViewCellHeight;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelSave)] autorelease];
+    return YES;
+}
+
+- (void)cancelSave
+{
+    self.navigationItem.rightBarButtonItem = nil;
+    taskField.text = @"";
+    [taskField resignFirstResponder];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     Task *newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:self.managedObjectContext];
@@ -225,6 +255,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 		abort();
 	}	
     
+    self.navigationItem.rightBarButtonItem = nil;
     textField.text = @"";
     [textField resignFirstResponder];
     return YES;

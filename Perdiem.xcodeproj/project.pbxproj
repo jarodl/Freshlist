@@ -19,7 +19,6 @@
 		7A17C28F1311C1C0001F306B /* customBarButtonPress.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C28E1311C1C0001F306B /* customBarButtonPress.png */; };
 		7A17C2931311C5C8001F306B /* customBarButtonPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A17C2921311C5C8001F306B /* customBarButtonPress@2x.png */; };
 		7A2A3F4F13155C0C00A95656 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A3F4E13155C0C00A95656 /* RootViewController.xib */; };
-		7A2A3F5113155CD000A95656 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2A3F5013155CD000A95656 /* NewTaskViewController.xib */; };
 		7A2D9859130C2D230080063F /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2D9858130C2D230080063F /* checked@2x.png */; };
 		7A2D985C130C2D400080063F /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2D985B130C2D400080063F /* unchecked@2x.png */; };
 		7A337551130A1DD40052F24F /* NotebookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A337550130A1DD40052F24F /* NotebookView.m */; };
@@ -97,7 +96,6 @@
 		7A17C28E1311C1C0001F306B /* customBarButtonPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customBarButtonPress.png; sourceTree = "<group>"; };
 		7A17C2921311C5C8001F306B /* customBarButtonPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customBarButtonPress@2x.png"; sourceTree = "<group>"; };
 		7A2A3F4E13155C0C00A95656 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		7A2A3F5013155CD000A95656 /* NewTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskViewController.xib; sourceTree = "<group>"; };
 		7A2D9858130C2D230080063F /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked@2x.png"; sourceTree = "<group>"; };
 		7A2D985B130C2D400080063F /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
 		7A33754F130A1DD40052F24F /* NotebookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotebookView.h; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 				7ACEDF0913084D7A00106413 /* TaskCell.xib */,
 				7A0CAC1B130F3BA900E07405 /* StyledViewController.xib */,
 				7A2A3F4E13155C0C00A95656 /* RootViewController.xib */,
-				7A2A3F5013155CD000A95656 /* NewTaskViewController.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -477,7 +474,6 @@
 				7A17C2931311C5C8001F306B /* customBarButtonPress@2x.png in Resources */,
 				7A018E291314F43B00A8234A /* addButton.png in Resources */,
 				7A2A3F4F13155C0C00A95656 /* RootViewController.xib in Resources */,
-				7A2A3F5113155CD000A95656 /* NewTaskViewController.xib in Resources */,
 				7A758DD91315970A00928E25 /* addButtonPress.png in Resources */,
 				7A940E0913161AA600449099 /* addButton@2x.png in Resources */,
 				7A940E0A13161AA600449099 /* addButtonPress@2x.png in Resources */,
