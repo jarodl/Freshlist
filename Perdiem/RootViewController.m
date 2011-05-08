@@ -210,7 +210,11 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelSave)] autorelease];
+    UIBarButtonItem *cancelButton = [self customBarButtonItemWithText:@"Cancel" withImageName:@"customBarButton"];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+    UIButton* rightButton = (UIButton*)self.navigationItem.rightBarButtonItem.customView;
+    [rightButton addTarget:self action:@selector(cancelSave) forControlEvents:UIControlEventTouchUpInside];
+
     return YES;
 }
 
