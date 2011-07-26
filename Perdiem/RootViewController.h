@@ -9,22 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "StyledTableViewController.h"
-#import "NewTaskViewController.h"
 #import "TaskCell.h"
 
 @class TaskCell;
 
 @interface RootViewController : StyledTableViewController <UITextFieldDelegate, TaskCellDelegate, NSFetchedResultsControllerDelegate>
 {
-  TaskCell *tmpCell;
-  UINib *cellNib;
-    UITextField *taskField;
+    TaskCell *_tmpCell;
+    UINib *_cellNib;
+    UITextField *_taskField;
 }
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) UINib *cellNib;
 @property (nonatomic, retain) IBOutlet TaskCell *tmpCell;
+@property (nonatomic, retain) UITextField *taskField;
 
 - (void)loadPaperStyles;
 - (void)toggleTaskComplete:(NSNotification *)notification;

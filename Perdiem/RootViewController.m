@@ -9,7 +9,6 @@
 #import "RootViewController.h"
 #import "PerdiemAppDelegate.h"
 #import "CustomNavigationBar.h"
-#import "NewTaskViewController.h"
 #import "NotebookView.h"
 #import "ShadowedTornEdgeView.h"
 #import "TaskCell.h"
@@ -41,14 +40,16 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 @synthesize fetchedResultsController=__fetchedResultsController;
 @synthesize managedObjectContext=__managedObjectContext;
-@synthesize cellNib;
-@synthesize tmpCell;
+@synthesize cellNib=_cellNib;
+@synthesize tmpCell=_tmpCell;
+@synthesize taskField=_taskField;
+
 
 - (void)viewDidLoad
 {  
-  [self loadPaperStyles];
-    
-  self.navigationItem.title = @"Today";
+    [self loadPaperStyles];
+
+    self.navigationItem.title = @"Today";
     
     float margin = 10.0f;
     UIImage *backgroundImage = [UIImage imageNamed:@"inputFieldBackground"];
@@ -63,31 +64,34 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
                                       backgroundView.frame.origin.y,
                                       backgroundView.frame.size.width - margin,
                                       backgroundView.frame.size.height);
-    taskField = [[UITextField alloc] initWithFrame:taskFieldRect];
-    taskField.returnKeyType = UIReturnKeyDone;
-    taskField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-  taskField.placeholder = @"Add a new task";
-  taskField.delegate = self;
-  [textFieldView addSubview:taskField];
-    
-  self.table.tableHeaderView = textFieldView;
-  [textFieldView release];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
-    
-  self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
-  self.table.rowHeight = TableViewCellHeight;
-  self.table.separatorColor = SeperatorColor;
+    _taskField = [[UITextField alloc] initWithFrame:taskFieldRect];
+    _taskField.returnKeyType = UIReturnKeyDone;
+    _taskField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _taskField.placeholder = @"Add a new task";
+    _taskField.delegate = self;
+    [textFieldView addSubview:_taskField];
+
+    self.table.tableHeaderView = textFieldView;
+    [textFieldView release];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleTaskComplete:) name:@"TaskCellToggled" object:nil];
+
+    self.cellNib = [UINib nibWithNibName:@"TaskCell" bundle:nil];
+    self.table.rowHeight = TableViewCellHeight;
+    self.table.separatorColor = SeperatorColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
-  [super viewDidLoad];
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
 {
-  cellNib = nil;
-  tmpCell = nil;
+    _cellNib = nil;
+    _tmpCell = nil;
+    _taskField = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)loadPaperStyles
@@ -133,7 +137,7 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   if (cell == nil)
   {
     [self.cellNib instantiateWithOwner:self options:nil];
-		cell = tmpCell;
+		cell = _tmpCell;
     cell.delegate = self;
 		self.tmpCell = nil;
   }
@@ -180,11 +184,12 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 
 - (void)dealloc
 {
-  [__fetchedResultsController release];
-  [__managedObjectContext release];
-  [cellNib release];
-  [tmpCell release];
-  [super dealloc];
+    [__fetchedResultsController release];
+    [__managedObjectContext release];
+    [_cellNib release];
+    [_tmpCell release];
+    [_taskField release];
+    [super dealloc];
 }
 
 - (void)configureCell:(TaskCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -221,8 +226,8 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
 - (void)cancelSave
 {
     self.navigationItem.rightBarButtonItem = nil;
-    taskField.text = @"";
-    [taskField resignFirstResponder];
+    _taskField.text = @"";
+    [_taskField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
