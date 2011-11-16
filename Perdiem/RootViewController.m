@@ -146,28 +146,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  if (editingStyle == UITableViewCellEditingStyleDelete)
-  {
-    // Delete the managed object for the given index path
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-    
-    // Save the context.
-//    NSError *error = nil;
-    FT_SAVE_MOC(context);
-//    if (![context save:&error])
-//    {
-//      /*
-//       Replace this implementation with code to handle the error appropriately.
-//       */
-//      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//      abort();
-//    }
-  }   
-}
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
   // The table view should not be re-orderable.

@@ -26,10 +26,6 @@ typedef enum {
 
 @property (assign) BOOL showsNotebookLines;
 
-@end
-
-@interface StyledViewController (PrivateMethods)
-- (UIButton*)customButtonWithText:(NSString*)buttonText stretch:(CapLocation)location withImageName:(NSString *)imageName;
 - (UIBarButtonItem *)customBarButtonItemWithText:(NSString *)buttonText withImageName:(NSString *)imageName;
-- (UIImage*)image:(UIImage*)image withCap:(CapLocation)location capWidth:(NSUInteger)capWidth buttonWidth:(NSUInteger)buttonWidth;
+
 @end
