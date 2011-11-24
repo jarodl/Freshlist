@@ -92,7 +92,6 @@ NSLog(@"%@", [_ft_save_error userInfo]); \
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"customBottomBar.png"]
                                        forToolbarPosition:UIToolbarPositionBottom
                                                barMetrics:UIBarMetricsDefault];
-//    UIImageView *archiveButtonView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"archiveButton.png"]];
     UIImage *archiveImage = [UIImage imageNamed:@"archiveButton.png"];
     UIButton *archiveButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, archiveImage.size.width, archiveImage.size.height)];
     [archiveButton setBackgroundImage:archiveImage forState:UIControlStateNormal];
