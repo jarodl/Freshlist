@@ -13,7 +13,7 @@
 
 + (Class)layerClass
 {
-  return [TopShadowGradient class];
+    return [TopShadowGradient class];
 }
 
 - (void)dealloc

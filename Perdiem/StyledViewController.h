@@ -13,15 +13,15 @@
 #define CAP_WIDTH 5.0
 
 typedef enum {
-  CapLeft          = 0,
-  CapMiddle        = 1,
-  CapRight         = 2,
-  CapLeftAndRight  = 3
+    CapLeft          = 0,
+    CapMiddle        = 1,
+    CapRight         = 2,
+    CapLeftAndRight  = 3
 } CapLocation;
 
 @interface StyledViewController : UIViewController
 {
-  BOOL showsNotebookLines;
+    BOOL showsNotebookLines;
 }
 
 @property (assign) BOOL showsNotebookLines;

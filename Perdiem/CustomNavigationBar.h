@@ -26,9 +26,9 @@
 
 @interface CustomNavigationBar : UINavigationBar
 {
-  UIImageView *navigationBarBackgroundImage;
-  CGFloat backButtonCapWidth;
-  IBOutlet UINavigationController* navigationController;
+    UIImageView *navigationBarBackgroundImage;
+    CGFloat backButtonCapWidth;
+    IBOutlet UINavigationController* navigationController;
 }
 
 @property (nonatomic, retain) UIImageView *navigationBarBackgroundImage;

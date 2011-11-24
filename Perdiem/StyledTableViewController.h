@@ -10,7 +10,7 @@
 
 @interface StyledTableViewController : StyledViewController <UITableViewDelegate, UITableViewDataSource>
 {
-  UITableView *table;
+    UITableView *table;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *table;

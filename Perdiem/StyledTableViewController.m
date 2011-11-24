@@ -15,14 +15,14 @@
 
 - (void)dealloc
 {
-  [table release];
-  [super dealloc];
+    [table release];
+    [super dealloc];
 }
 
 - (void)viewDidUnload
 {
-  table = nil;
-  [super viewDidUnload];
+    table = nil;
+    [super viewDidUnload];
 }
 
 - (void)viewDidLoad
@@ -33,35 +33,35 @@
 
 - (void)loadShadowedTornEdge
 {
-  UIImage *paper = [UIImage imageNamed:@"paperTear"];
-  CGFloat height = paper.size.height;
-  self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
-  
-  ShadowedTornEdgeView *tornEdge = [[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)];
-  [self.view addSubview:tornEdge];
-  [tornEdge release];
-  
-  self.table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taskViewBackground"]];
+    UIImage *paper = [UIImage imageNamed:@"paperTear"];
+    CGFloat height = paper.size.height;
+    self.table.contentInset = UIEdgeInsetsMake(height, 0.0, height, 0.0);
+    
+    ShadowedTornEdgeView *tornEdge = [[ShadowedTornEdgeView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, height)];
+    [self.view addSubview:tornEdge];
+    [tornEdge release];
+    
+    self.table.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taskViewBackground"]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  return 0;
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return 0;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return nil;
+    return nil;
 }
 
 @end

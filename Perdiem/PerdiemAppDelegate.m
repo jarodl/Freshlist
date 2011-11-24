@@ -21,97 +21,97 @@
 
 - (void)removeExpiredTasks
 {
-  NSManagedObjectContext *moc = self.managedObjectContext;
-  NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
-  NSFetchRequest *request = [[NSFetchRequest alloc] init];
-  [request setEntity:entityDescription];
-  
-  NSDate *now = [NSDate date];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                            @"expiration < %@", now];
-  [request setPredicate:predicate];
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
     
-  NSError *error = nil;
-  NSArray *array = [moc executeFetchRequest:request error:&error];
-  if (array == nil)
-  {
-    // Deal with error...
-  }
-  else
-  {
-    for (Task *expiredTask in array) {
-      [moc deleteObject:expiredTask];
+    NSDate *now = [NSDate date];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"expiration < %@", now];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        // Deal with error...
     }
-  }
-  
-  [request release];
+    else
+    {
+        for (Task *expiredTask in array) {
+            [moc deleteObject:expiredTask];
+        }
+    }
+    
+    [request release];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Override point for customization after application launch.
-  // Add the navigation controller's view to the window and display.
-  RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
-  rootViewController.managedObjectContext = self.managedObjectContext;
-  [self.navigationController pushViewController:rootViewController animated:NO];
-  [rootViewController release];
-  
-  [self removeExpiredTasks];
-  self.navigationController.navigationBar.tintColor = BarTintColor;
-  self.navigationController.toolbar.tintColor = BarTintColor;
-  
-  self.window.rootViewController = self.navigationController;
-  [self.window makeKeyAndVisible];
-  return YES;
+    // Override point for customization after application launch.
+    // Add the navigation controller's view to the window and display.
+    RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+    rootViewController.managedObjectContext = self.managedObjectContext;
+    [self.navigationController pushViewController:rootViewController animated:NO];
+    [rootViewController release];
+    
+    [self removeExpiredTasks];
+    self.navigationController.navigationBar.tintColor = BarTintColor;
+    self.navigationController.toolbar.tintColor = BarTintColor;
+    
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-  /*
-   Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-   Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-   */
-  [self saveContext];
+    /*
+     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+     */
+    [self saveContext];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-  /*
-   Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-   If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-   */
-  [self saveContext];
+    /*
+     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+     */
+    [self saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-  /*
-   Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-   */
+    /*
+     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+     */
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-  /*
-   Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-   */
-  [self removeExpiredTasks];
+    /*
+     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     */
+    [self removeExpiredTasks];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-  // Saves changes in the application's managed object context before the application terminates.
-  [self saveContext];
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
 }
 
 - (void)dealloc
 {
-  [_window release];
-  [__managedObjectContext release];
-  [__managedObjectModel release];
-  [__persistentStoreCoordinator release];
-  [_navigationController release];
-  [super dealloc];
+    [_window release];
+    [__managedObjectContext release];
+    [__managedObjectModel release];
+    [__persistentStoreCoordinator release];
+    [_navigationController release];
+    [super dealloc];
 }
 
 - (void)awakeFromNib
@@ -120,19 +120,19 @@
 
 - (void)saveContext
 {
-  NSError *error = nil;
-  NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-  if (managedObjectContext != nil)
-  {
-    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil)
     {
-      /*
-       Replace this implementation with code to handle the error appropriately.
-       */
-      NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-      abort();
-    } 
-  }
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+        {
+            /*
+             Replace this implementation with code to handle the error appropriately.
+             */
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        } 
+    }
 }
 
 #pragma mark - Core Data stack
@@ -143,19 +143,19 @@
  */
 - (NSManagedObjectContext *)managedObjectContext
 {
-  if (__managedObjectContext != nil)
-  {
+    if (__managedObjectContext != nil)
+    {
+        return __managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil)
+    {
+        __managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        [__managedObjectContext setRetainsRegisteredObjects:YES];
+    }
     return __managedObjectContext;
-  }
-  
-  NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-  if (coordinator != nil)
-  {
-    __managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [__managedObjectContext setPersistentStoreCoordinator:coordinator];
-    [__managedObjectContext setRetainsRegisteredObjects:YES];
-  }
-  return __managedObjectContext;
 }
 
 /**
@@ -204,7 +204,7 @@
  */
 - (NSURL *)applicationDocumentsDirectory
 {
-  return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end
