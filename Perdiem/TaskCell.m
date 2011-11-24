@@ -65,6 +65,7 @@
   
   if ([task.completed boolValue])
   {
+      taskContentLabel.font = [UIFont systemFontOfSize:17.0f];
     checkBoxView.image = [UIImage imageNamed:@"checked"];
     checkBoxView.alpha = 0.4;
     taskContentLabel.alpha = 0.4;
@@ -72,6 +73,7 @@
   }
   else
   {
+      taskContentLabel.font = [UIFont boldSystemFontOfSize:17.0f];
     checkBoxView.image = [UIImage imageNamed:@"unchecked"];
     taskContentLabel.alpha = 1.0;
     checkBoxView.alpha = 1.0;
